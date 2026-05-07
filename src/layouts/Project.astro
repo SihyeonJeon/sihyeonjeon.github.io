@@ -15,7 +15,7 @@ const hero = assetSrc(project.data.hero);
 	<article class="project container">
 		{hero && <img class="project-hero" src={hero} alt="" />}
 		<h1>{project.data.title}</h1>
-		<p class="tagline">{project.data.tagline}</p>
+		<p class="project-lede">{project.data.tagline}</p>
 		<div class="project-meta">
 			{project.data.repo && <a href={project.data.repo}>GitHub</a>}
 			{project.data.demo && <a href={project.data.demo}>Live Demo</a>}
@@ -24,12 +24,12 @@ const hero = assetSrc(project.data.hero);
 			project.data.tech.length > 0 && (
 				<ul class="tech-stack">
 					{project.data.tech.map((tech) => (
-						<li>{tech}</li>
+						<li class="tag">{tech}</li>
 					))}
 				</ul>
 			)
 		}
-		<div class="project-content">
+		<div class="project-content post-content">
 			<slot />
 		</div>
 	</article>

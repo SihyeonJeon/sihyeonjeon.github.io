@@ -11,15 +11,19 @@ const hero = assetSrc(project.data.hero);
 ---
 
 <a href={`/projects/${project.id}/`} class="project-card">
-	{hero && <img src={hero} alt="" loading="lazy" />}
-	<div class="project-card-body">
-		<h3>{project.data.title}</h3>
-		<p>{project.data.tagline}</p>
+	{hero && (
+		<div class="project-card__media">
+			<img src={hero} alt="" loading="lazy" />
+		</div>
+	)}
+	<div class="project-card__body">
+		<h3 class="project-card__title">{project.data.title}</h3>
+		<p class="project-card__desc">{project.data.tagline}</p>
 		{
 			project.data.tech.length > 0 && (
 				<ul class="tech-tags">
 					{project.data.tech.map((tech) => (
-						<li>{tech}</li>
+						<li class="tag">{tech}</li>
 					))}
 				</ul>
 			)

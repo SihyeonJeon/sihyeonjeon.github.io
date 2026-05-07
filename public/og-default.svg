@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Sihyeon Jeon</title>
-  <desc id="desc">Default social preview image for Sihyeon Jeon's website.</desc>
+  <title id="title">전시현</title>
+  <desc id="desc">Default social preview image for Jeon Sihyeon's website.</desc>
   <rect width="1200" height="630" fill="#0f1115"/>
   <rect x="72" y="72" width="1056" height="486" rx="28" fill="#171a21" stroke="#2a2f3a" stroke-width="2"/>
   <path d="M210 405H990" stroke="#2a2f3a" stroke-width="4"/>
@@ -8,6 +8,6 @@
   <circle cx="510" cy="315" r="76" fill="#1f8a70"/>
   <circle cx="710" cy="315" r="76" fill="#f2f4f8"/>
   <path d="M386 315H434M586 315H634" stroke="#f2f4f8" stroke-width="10" stroke-linecap="round"/>
-  <text x="210" y="188" fill="#f2f4f8" font-family="Arial, sans-serif" font-size="64" font-weight="700">Sihyeon Jeon</text>
+  <text x="210" y="188" fill="#f2f4f8" font-family="Pretendard, Arial, sans-serif" font-size="64" font-weight="700">전시현</text>
   <text x="210" y="482" fill="#a2a9b5" font-family="Arial, sans-serif" font-size="30">Portfolio and technical writing</text>
 </svg>

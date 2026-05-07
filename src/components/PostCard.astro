@@ -16,10 +16,15 @@ const date = post.data.pubDate.toLocaleDateString('ko-KR', {
 ---
 
 <a href={`/blog/${post.id}/`} class="post-card">
-	{cover && <img src={cover} alt="" loading="lazy" />}
-	<div class="post-card-body">
-		<h3>{post.data.title}</h3>
-		<p>{post.data.description}</p>
+	{cover && (
+		<div class="post-card__media">
+			<img src={cover} alt="" loading="lazy" />
+		</div>
+	)}
+	<div class="post-card__meta">
 		<time datetime={post.data.pubDate.toISOString()}>{date}</time>
+		{post.data.tags[0] && <span>{post.data.tags[0]}</span>}
 	</div>
+	<h3 class="post-card__title">{post.data.title}</h3>
+	<p class="post-card__excerpt">{post.data.description}</p>
 </a>

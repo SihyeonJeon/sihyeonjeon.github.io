@@ -1,0 +1,17 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
+---
+
+<header class="site-header">
+	<nav class="container">
+		<a href="/" class="logo">{SITE_TITLE}</a>
+		<ul class="nav-links">
+			<li><a href="/projects/" class:list={{ active: isActive('/projects') }}>Projects</a></li>
+			<li><a href="/blog/" class:list={{ active: isActive('/blog') }}>Blog</a></li>
+			<li><a href="/about/" class:list={{ active: isActive('/about') }}>About</a></li>
+		</ul>
+	</nav>
+</header>

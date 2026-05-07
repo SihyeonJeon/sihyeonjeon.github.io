@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import { assetSrc } from '../utils/assets';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const hero = assetSrc(project.data.hero);
+---
+
+<BaseLayout title={project.data.title} description={project.data.tagline} image={project.data.hero}>
+	<article class="project container">
+		{hero && <img class="project-hero" src={hero} alt="" />}
+		<h1>{project.data.title}</h1>
+		<p class="tagline">{project.data.tagline}</p>
+		<div class="project-meta">
+			{project.data.repo && <a href={project.data.repo}>GitHub</a>}
+			{project.data.demo && <a href={project.data.demo}>Live Demo</a>}
+		</div>
+		{
+			project.data.tech.length > 0 && (
+				<ul class="tech-stack">
+					{project.data.tech.map((tech) => (
+						<li>{tech}</li>
+					))}
+				</ul>
+			)
+		}
+		<div class="project-content">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>

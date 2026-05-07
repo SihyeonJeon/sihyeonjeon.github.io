@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { assetSrc } from '../utils/assets';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const cover = assetSrc(post.data.cover);
+const date = post.data.pubDate.toLocaleDateString('ko-KR', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+---
+
+<a href={`/blog/${post.id}/`} class="post-card">
+	{cover && <img src={cover} alt="" loading="lazy" />}
+	<div class="post-card-body">
+		<h3>{post.data.title}</h3>
+		<p>{post.data.description}</p>
+		<time datetime={post.data.pubDate.toISOString()}>{date}</time>
+	</div>
+</a>

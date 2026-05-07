@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import { assetSrc } from '../utils/assets';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const cover = assetSrc(post.data.cover);
+const date = post.data.pubDate.toLocaleDateString('ko-KR', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} image={post.data.cover}>
+	<article class="post container">
+		{cover && <img class="post-cover" src={cover} alt={post.data.title} />}
+		<header>
+			<p class="post-meta">
+				<time datetime={post.data.pubDate.toISOString()}>{date}</time>
+				{
+					post.data.tags.length > 0 && (
+						<span class="tags">
+							{post.data.tags.map((tag) => (
+								<span class="tag">#{tag}</span>
+							))}
+						</span>
+					)
+				}
+			</p>
+			<h1>{post.data.title}</h1>
+			<p>{post.data.description}</p>
+		</header>
+		<div class="post-content">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>

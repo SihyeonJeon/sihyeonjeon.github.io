@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { assetSrc } from '../utils/assets';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const hero = assetSrc(project.data.hero);
+---
+
+<a href={`/projects/${project.id}/`} class="project-card">
+	{hero && <img src={hero} alt="" loading="lazy" />}
+	<div class="project-card-body">
+		<h3>{project.data.title}</h3>
+		<p>{project.data.tagline}</p>
+		{
+			project.data.tech.length > 0 && (
+				<ul class="tech-tags">
+					{project.data.tech.map((tech) => (
+						<li>{tech}</li>
+					))}
+				</ul>
+			)
+		}
+	</div>
+</a>

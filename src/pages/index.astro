@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '../components/PostCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+
+const featured = (await getCollection('projects', ({ data }) => data.featured && !data.draft)).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title={SITE_TITLE}>
+	<section class="hero container">
+		<p class="eyebrow">Portfolio and technical writing</p>
+		<h1>Sihyeon Jeon</h1>
+		<p class="tagline">Backend engineer building useful tools with LLMs.</p>
+		<div class="cta">
+			<a href="/projects/" class="btn btn-primary">프로젝트 보기</a>
+			<a href="/blog/" class="btn btn-secondary">블로그</a>
+		</div>
+	</section>
+
+	{
+		featured.length > 0 && (
+			<section class="featured container">
+				<h2>주요 작업</h2>
+				<div class="project-grid">
+					{featured.map((project) => (
+						<ProjectCard project={project} />
+					))}
+				</div>
+			</section>
+		)
+	}
+
+	<section class="recent container">
+		<h2>최근 글</h2>
+		{
+			posts.length > 0 ? (
+				<div class="post-list">
+					{posts.map((post) => (
+						<PostCard post={post} />
+					))}
+				</div>
+			) : (
+				<p class="empty-state">첫 글을 준비하고 있습니다.</p>
+			)
+		}
+	</section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+title: "Modulation-aware Key Estimator"
+tagline: "Region-wise musical key estimation for songs with modulation."
+repo: "https://github.com/SihyeonJeon/Modulation-aware-key-estimator"
+tech: [Python, PyTorch, FastAPI, Audio ML]
+order: 3
+featured: true
+draft: false
+---
+
+This project estimates likely key regions instead of forcing one global key label on a whole song.
+
+## Built Surface
+
+- two-stream Transformer model for chroma and HPCP-style harmonic features
+- local WAV and YouTube URL inference paths
+- CLI and FastAPI server
+- release-asset checkpoint with SHA-256 verification
+- manifest-based evaluation script
+
+## Why It Matters
+
+Songs with modulation are poorly represented by a single key label.
+The project keeps modulation points and region confidence visible in the output.
+

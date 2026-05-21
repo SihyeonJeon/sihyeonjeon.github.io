@@ -10,7 +10,8 @@ const projects = (await getCollection('projects', ({ data }) => !data.draft)).so
 
 <BaseLayout title="Projects" description="프로젝트와 사이드 작업 기록">
 	<section class="container">
-		<h1>Projects</h1>
+		<p class="section-kicker">Projects</p>
+		<h1>작동하는 형태로 남긴 작업</h1>
 		{
 			projects.length > 0 ? (
 				<div class="project-grid">

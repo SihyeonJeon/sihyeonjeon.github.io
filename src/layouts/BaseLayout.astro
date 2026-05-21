@@ -49,8 +49,9 @@ const pageTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 		/>
 	</head>
 	<body>
+		<a class="skip-link" href="#content">본문으로 이동</a>
 		<Header />
-		<main>
+		<main id="content">
 			<slot />
 		</main>
 		<Footer />

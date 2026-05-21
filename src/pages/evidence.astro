@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const rows = [
+	{
+		name: 'tool-tax',
+		kind: 'Agent tooling',
+		result: 'CLI, MCP stdio proxy, schema budget report, PyPI release',
+		proof: 'CI, package build, live install path, concise public docs',
+		link: 'https://github.com/SihyeonJeon/tool-tax',
+	},
+	{
+		name: 'site2voice',
+		kind: 'AI web context',
+		result: 'Drop-in SITE.md and VOICE.md files for web structure and copy rhythm',
+		proof: 'PyPI package, sample outputs, before/after usage framing',
+		link: 'https://github.com/SihyeonJeon/site2voice',
+	},
+	{
+		name: 'Modulation-aware-key-estimator',
+		kind: 'Applied audio ML',
+		result: 'Region-wise key estimation, CLI, FastAPI service, release checkpoint',
+		proof: 'Small repo clone, release asset checkpoint, SHA-256 verified loader, CI',
+		link: 'https://github.com/SihyeonJeon/Modulation-aware-key-estimator',
+	},
+];
+---
+
+<BaseLayout title="Evidence" description="프로젝트별 구현 근거와 검증 표면">
+	<section class="container-wide evidence-page">
+		<p class="section-kicker">Evidence</p>
+		<h1>보이는 포트폴리오는 결과보다 근거가 먼저 읽혀야 합니다.</h1>
+		<p class="page-lede">
+			아래 항목은 각 프로젝트가 단순 아이디어가 아니라 설치, 실행, 배포, 검증의 표면을 갖추었는지 보는 요약입니다.
+		</p>
+
+		<div class="evidence-table" role="table" aria-label="Portfolio evidence">
+			<div class="evidence-table__row evidence-table__head" role="row">
+				<div role="columnheader">Project</div>
+				<div role="columnheader">Built Surface</div>
+				<div role="columnheader">Verification</div>
+			</div>
+			{
+				rows.map((row) => (
+					<a class="evidence-table__row" role="row" href={row.link}>
+						<div role="cell">
+							<strong>{row.name}</strong>
+							<span>{row.kind}</span>
+						</div>
+						<div role="cell">{row.result}</div>
+						<div role="cell">{row.proof}</div>
+					</a>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

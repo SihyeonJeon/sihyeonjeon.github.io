@@ -1,0 +1,114 @@
+---
+import { currentArtifacts, focusInitiatives, profile } from '../data/portfolio';
+
+const navItems = [
+	{ label: 'Home', sub: '/', href: '/' },
+	{ label: 'Projects', sub: '/projects', href: '/projects/' },
+	{ label: 'Evidence', sub: '/evidence', href: '/evidence/' },
+	{ label: 'Writing', sub: '/blog', href: '/blog/' },
+	{ label: 'Skills', sub: '/skills', href: '/skills/' },
+	{ label: 'About', sub: '/about', href: '/about/' },
+];
+
+const projectItems = [
+	...currentArtifacts.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
+	...focusInitiatives.map((item) => ({ label: item.name, sub: `${item.category} · planned`, href: item.href })),
+];
+---
+
+<div class="cmdk-backdrop" id="cmdk" hidden>
+	<div class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">
+		<input class="cmdk-input" id="cmdk-input" placeholder="Search pages, projects, evidence..." autocomplete="off" />
+		<div class="cmdk-list" id="cmdk-list">
+			<div class="cmdk-group-label">Navigate</div>
+			{
+				navItems.map((item) => (
+					<a class="cmdk-item" href={item.href} data-cmdk-item data-label={`${item.label} ${item.sub}`}>
+						<span class="cmdk-item__icon">▤</span>
+						<span>
+							<strong>{item.label}</strong>
+							<small>{item.sub}</small>
+						</span>
+					</a>
+				))
+			}
+			<div class="cmdk-group-label">Projects</div>
+			{
+				projectItems.map((item) => (
+					<a class="cmdk-item" href={item.href} data-cmdk-item data-label={`${item.label} ${item.sub}`}>
+						<span class="cmdk-item__icon">▸</span>
+						<span>
+							<strong>{item.label}</strong>
+							<small>{item.sub}</small>
+						</span>
+					</a>
+				))
+			}
+			<div class="cmdk-group-label">Elsewhere</div>
+			<a class="cmdk-item" href={profile.githubUrl} data-cmdk-item data-label="GitHub profile open source">
+				<span class="cmdk-item__icon">↗</span>
+				<span>
+					<strong>GitHub</strong>
+					<small>{profile.github}</small>
+				</span>
+			</a>
+		</div>
+		<div class="cmdk-footer">
+			<span>Portfolio index</span>
+			<span>Evidence first</span>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	(() => {
+		const root = document.getElementById('cmdk');
+		const input = document.getElementById('cmdk-input');
+		const items = Array.from(document.querySelectorAll('[data-cmdk-item]'));
+		const openButtons = Array.from(document.querySelectorAll('[data-cmdk-open]'));
+		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+		if (!root || !input) return;
+
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme === 'dark' || storedTheme === 'light') {
+			document.documentElement.dataset.theme = storedTheme;
+		}
+
+		const open = () => {
+			root.hidden = false;
+			requestAnimationFrame(() => input.focus());
+		};
+		const close = () => {
+			root.hidden = true;
+			input.value = '';
+			items.forEach((item) => {
+				item.hidden = false;
+			});
+		};
+		const toggleTheme = () => {
+			const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = next;
+			localStorage.setItem('theme', next);
+		};
+
+		openButtons.forEach((button) => button.addEventListener('click', open));
+		themeButtons.forEach((button) => button.addEventListener('click', toggleTheme));
+		root.addEventListener('click', (event) => {
+			if (event.target === root) close();
+		});
+		input.addEventListener('input', () => {
+			const q = input.value.trim().toLowerCase();
+			items.forEach((item) => {
+				const label = item.getAttribute('data-label')?.toLowerCase() || '';
+				item.hidden = q.length > 0 && !label.includes(q);
+			});
+		});
+		document.addEventListener('keydown', (event) => {
+			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+				event.preventDefault();
+				root.hidden ? open() : close();
+			}
+			if (event.key === 'Escape' && !root.hidden) close();
+		});
+	})();
+</script>

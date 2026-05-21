@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import StatusPill from '../components/StatusPill.astro';
 import BaseLayout from './BaseLayout.astro';
 import { assetSrc } from '../utils/assets';
 
@@ -14,8 +15,20 @@ const hero = assetSrc(project.data.hero);
 <BaseLayout title={project.data.title} description={project.data.tagline} image={project.data.hero}>
 	<article class="project container">
 		{hero && <img class="project-hero" src={hero} alt="" />}
+		<div class="project-kicker">
+			{project.data.category && <span>{project.data.category}</span>}
+			<StatusPill status={project.data.status} />
+		</div>
 		<h1>{project.data.title}</h1>
 		<p class="project-lede">{project.data.tagline}</p>
+		{
+			(project.data.role || project.data.period) && (
+				<div class="project-context">
+					{project.data.role && <span>{project.data.role}</span>}
+					{project.data.period && <span>{project.data.period}</span>}
+				</div>
+			)
+		}
 		<div class="project-meta">
 			{project.data.repo && <a href={project.data.repo}>GitHub</a>}
 			{project.data.demo && <a href={project.data.demo}>Live Demo</a>}

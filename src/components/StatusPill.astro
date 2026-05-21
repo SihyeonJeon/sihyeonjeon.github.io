@@ -1,0 +1,16 @@
+---
+import type { ProofStatus } from '../data/portfolio';
+
+interface Props {
+	status: ProofStatus;
+}
+
+const { status } = Astro.props;
+const labels: Record<ProofStatus, string> = {
+	measured: 'measured',
+	planned: 'planned',
+	tbd: 'TBD',
+};
+---
+
+<span class:list={['status-pill', `status-pill--${status}`]}>· {labels[status]}</span>

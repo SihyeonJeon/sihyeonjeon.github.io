@@ -1,0 +1,27 @@
+---
+title: "Production-grade RAG Evaluation System"
+tagline: "A planned retrieval evaluation pipeline that gates AI-system changes on recall, faithfulness, latency, and cost."
+tech: [Python, FastAPI, PostgreSQL, pgvector, Docker, GitHub Actions]
+status: planned
+category: "AI/Data Engineering"
+role: "system design · eval harness · CI gates"
+period: "next portfolio slice"
+order: 11
+featured: false
+draft: false
+---
+
+## Why this exists
+
+RAG regressions often appear after prompt edits, model swaps, index rebuilds, or chunking changes. The project target is a system where those changes are measured before merge.
+
+## Planned proof
+
+- golden-set retrieval recall and faithfulness suites
+- per-run latency and cost budget
+- score records keyed by commit and dataset hash
+- GitHub Actions gate that compares a pull request to a baseline branch
+
+## Acceptance bar
+
+This page becomes measured only after a public repo, reproducible benchmark, and at least one visible evaluation run exist.

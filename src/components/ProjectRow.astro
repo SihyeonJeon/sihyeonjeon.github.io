@@ -1,0 +1,60 @@
+---
+import type { ProofStatus } from '../data/portfolio';
+import EvidenceBadge from './EvidenceBadge.astro';
+import StatusPill from './StatusPill.astro';
+
+interface Props {
+	project: {
+		name: string;
+		category: string;
+		role: string;
+		period: string;
+		status: ProofStatus;
+		summary: string;
+		stack: string[];
+		evidence: string[];
+		evidencePlanned?: string[];
+		stat: { k: string; v: string };
+		href?: string;
+		repo?: string;
+	};
+	index: number;
+	total: number;
+}
+
+const { project, index, total } = Astro.props;
+const number = String(index + 1).padStart(2, '0');
+const denominator = String(total).padStart(2, '0');
+---
+
+<article class="project-row">
+	<div class="project-row__index">
+		<div>{number} / {denominator}</div>
+		<div aria-hidden="true">↗</div>
+	</div>
+
+	<div class="project-row__main">
+		<h3>{project.name}</h3>
+		<div class="project-row__role">{project.category} · {project.role} · {project.period}</div>
+		<p>{project.summary}</p>
+		<div class="tag-list">
+			{project.stack.map((tech) => <span class="tag">{tech}</span>)}
+		</div>
+		<div class="evidence-list">
+			{project.evidence.map((item) => <EvidenceBadge label={item} />)}
+			{project.evidencePlanned?.map((item) => <EvidenceBadge label={item} planned />)}
+		</div>
+	</div>
+
+	<div class="project-row__side">
+		<div class="project-row__stat">
+			<div>{project.stat.k}</div>
+			<strong>{project.stat.v}</strong>
+			<StatusPill status={project.status} />
+		</div>
+		<div class="project-row__links">
+			{project.href && <a class="btn btn-sm" href={project.href}>Project page</a>}
+			{project.repo && <a class="btn btn-sm btn-ghost" href={project.repo}>GitHub</a>}
+		</div>
+	</div>
+</article>

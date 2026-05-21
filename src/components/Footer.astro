@@ -1,17 +1,28 @@
 ---
 import { SITE_TITLE } from '../consts';
+import { profile } from '../data/portfolio';
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-	<div class="site-footer__inner">
-		<p>&copy; {year} {SITE_TITLE}</p>
-		<ul>
-			<li><a href="https://github.com/SihyeonJeon">GitHub</a></li>
-			<li><a href="/projects/">Projects</a></li>
-			<li><a href="/evidence/">Evidence</a></li>
-			<li><a href="/rss.xml">RSS</a></li>
-		</ul>
+	<div class="site-footer__inner shell">
+		<div class="site-footer__intro">
+			<strong>{SITE_TITLE} <span>· 전시현</span></strong>
+			<p>{profile.role}. Evidence-first portfolio for AI/Data systems work.</p>
+			<div class="site-footer__links">
+				<a class="btn btn-sm" href={profile.githubUrl}>GitHub</a>
+				<a class="btn btn-sm btn-ghost" href="/rss.xml">RSS</a>
+			</div>
+		</div>
+		<nav class="site-footer__nav" aria-label="Footer navigation">
+			<a href="/">Home</a>
+			<a href="/projects/">Projects</a>
+			<a href="/evidence/">Evidence</a>
+			<a href="/blog/">Writing</a>
+			<a href="/skills/">Skills</a>
+			<a href="/about/">About</a>
+		</nav>
+		<p class="site-footer__credit">&copy; {year} {SITE_TITLE}. Numbers are labelled measured or planned.</p>
 	</div>
 </footer>

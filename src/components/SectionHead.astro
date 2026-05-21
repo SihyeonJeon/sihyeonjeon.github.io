@@ -1,0 +1,17 @@
+---
+interface Props {
+	label: string;
+	title: string;
+	right?: string;
+}
+
+const { label, title, right } = Astro.props;
+---
+
+<div class="section-head">
+	<div>
+		<div class="section-head__label">{label}</div>
+		<h2>{title}</h2>
+	</div>
+	{right && <div class="section-head__right">{right}</div>}
+</div>

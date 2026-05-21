@@ -1,0 +1,12 @@
+---
+interface Props {
+	label: string;
+	planned?: boolean;
+}
+
+const { label, planned = false } = Astro.props;
+---
+
+<span class:list={['evidence-badge', planned && 'evidence-badge--planned']}>
+	{planned ? '○' : '●'} {label}{planned ? ' · planned' : ''}
+</span>

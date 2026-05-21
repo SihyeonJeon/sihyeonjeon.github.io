@@ -1,0 +1,45 @@
+---
+import SectionHead from '../components/SectionHead.astro';
+import { skillDomains } from '../data/portfolio';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Skills" description="Skill evidence matrix for AI/Data systems work">
+	<section class="page-head">
+		<div class="shell">
+			<div class="label">04 · Skills</div>
+			<h1>Skills claimed with evidence, not decorative ratings.</h1>
+			<p>
+				Each item names the project or planned system where the skill is used, measured, or scheduled to be proven.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell">
+			<SectionHead label="Skill evidence matrix" title="What each capability points to." />
+			{
+				skillDomains.map((domain, index) => (
+					<div class="skill-domain">
+						<div class="skill-domain__head">
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<div>
+								<h3>{domain.name}</h3>
+								<p>{domain.sub}</p>
+							</div>
+						</div>
+						<div class="skill-grid">
+							{domain.items.map((item) => (
+								<div class="skill-item">
+									<strong>{item.name}</strong>
+									<span>{item.ev}</span>
+									<small>/{item.ref} · {item.proof}</small>
+								</div>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

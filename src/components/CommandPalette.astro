@@ -66,12 +66,31 @@ const projectItems = [
 		const items = Array.from(document.querySelectorAll('[data-cmdk-item]'));
 		const openButtons = Array.from(document.querySelectorAll('[data-cmdk-open]'));
 		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+		const langButtons = Array.from(document.querySelectorAll('[data-lang-toggle]'));
+		const i18nNodes = Array.from(document.querySelectorAll('[data-i18n-en][data-i18n-ko]'));
 		if (!root || !input) return;
 
 		const storedTheme = localStorage.getItem('theme');
 		if (storedTheme === 'dark' || storedTheme === 'light') {
 			document.documentElement.dataset.theme = storedTheme;
 		}
+		const setLanguage = (lang) => {
+			const next = lang === 'ko' ? 'ko' : 'en';
+			document.documentElement.lang = next === 'ko' ? 'ko' : 'en';
+			document.documentElement.dataset.lang = next;
+			localStorage.setItem('lang', next);
+			i18nNodes.forEach((node) => {
+				const text = node.getAttribute(`data-i18n-${next}`);
+				if (text) node.textContent = text;
+			});
+			langButtons.forEach((button) => {
+				button.textContent = next === 'ko' ? 'EN' : 'KO';
+				button.setAttribute('aria-label', next === 'ko' ? 'Switch to English' : '한국어로 전환');
+			});
+		};
+		const requestedLang = new URLSearchParams(window.location.search).get('lang');
+		const storedLang = localStorage.getItem('lang');
+		setLanguage(requestedLang === 'ko' || storedLang === 'ko' ? 'ko' : 'en');
 
 		const open = () => {
 			root.hidden = false;
@@ -92,6 +111,11 @@ const projectItems = [
 
 		openButtons.forEach((button) => button.addEventListener('click', open));
 		themeButtons.forEach((button) => button.addEventListener('click', toggleTheme));
+		langButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				setLanguage(document.documentElement.dataset.lang === 'ko' ? 'en' : 'ko');
+			});
+		});
 		root.addEventListener('click', (event) => {
 			if (event.target === root) close();
 		});

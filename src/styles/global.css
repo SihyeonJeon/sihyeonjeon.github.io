@@ -229,6 +229,20 @@ p {
 	transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, transform 120ms ease;
 }
 
+.lang-toggle {
+	font-family: "IBM Plex Serif", "Noto Serif KR", var(--font-serif);
+	font-size: 0.86rem;
+	min-width: 44px;
+	padding: 0 12px;
+}
+
+html[data-lang="ko"] .case-record__points dd {
+	font-family: "Noto Serif KR", var(--font-serif);
+	font-size: 0.9rem;
+	line-height: 1.62;
+	word-break: keep-all;
+}
+
 .theme-toggle:hover,
 .btn:hover {
 	border-color: var(--ink);
@@ -1484,6 +1498,11 @@ html[data-theme="dark"] .btn-primary:hover {
 	}
 
 	.site-header__actions {
+		display: flex;
+	}
+
+	.site-header__actions [data-cmdk-open],
+	.site-header__actions [data-theme-toggle] {
 		display: none;
 	}
 

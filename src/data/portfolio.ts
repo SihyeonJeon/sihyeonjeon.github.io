@@ -10,6 +10,12 @@ export type CaseRecord = {
 	response: string;
 	result: string;
 	metrics: Array<{ label: string; value: string; bar?: number }>;
+	ko?: {
+		problem: string;
+		hardPart: string;
+		response: string;
+		result: string;
+	};
 };
 
 export const profile = {
@@ -147,8 +153,8 @@ export const supportingArtifacts = [
 		repo: 'https://github.com/SihyeonJeon/tool-tax',
 	},
 	{
-		slug: 'site2voice',
-		name: 'site2voice',
+		slug: 'site-voice-packs',
+		name: 'site-voice-packs',
 		category: 'AI web context · agent input files',
 		role: 'SITE.md · VOICE.md · PyPI release',
 		period: '2026',
@@ -159,8 +165,8 @@ export const supportingArtifacts = [
 		evidence: ['repo', 'package', 'samples'],
 		nextEvidence: ['larger site corpus'],
 		stat: { k: 'Built surface', v: 'drop-in md files' },
-		href: '/projects/site2voice/',
-		repo: 'https://github.com/SihyeonJeon/site2voice',
+		href: '/projects/site-voice-packs/',
+		repo: 'https://github.com/SihyeonJeon/site-voice-packs',
 	},
 	{
 		slug: 'modulation-aware-key-estimator',
@@ -208,10 +214,16 @@ export const caseRecords: CaseRecord[] = [
 		response: 'Built a domain fixture, holdout split, gate states, hybrid RRF baseline, and citation diagnostics',
 		result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
 		metrics: [
-			{ label: 'fixture items', value: '91', bar: 91 },
-			{ label: 'tests', value: '63', bar: 100 },
+			{ label: 'fixture items', value: '91' },
+			{ label: 'tests', value: '63' },
 			{ label: 'hybrid exact', value: '5/5', bar: 100 },
 		],
+		ko: {
+			problem: '산업 매뉴얼 QA는 답변 유사도보다 authority check가 먼저',
+			hardPart: '평균 점수가 item-level safety citation regression을 가림',
+			response: 'domain fixture, holdout split, gate state, hybrid RRF, citation diagnostics 구성',
+			result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
+		},
 	},
 	{
 		name: 'Industrial Decision Intelligence Lab',
@@ -223,10 +235,16 @@ export const caseRecords: CaseRecord[] = [
 		response: 'Linked forecasts to base-stock policy, lead-time simulation, sensitivity grid, and SKU diagnostics',
 		result: 'Cost 77,323.91 vs 174,450.85; 9/36 sensitivity scenarios pass; 1 service-risk SKU',
 		metrics: [
-			{ label: 'model WAPE', value: '0.861', bar: 86 },
+			{ label: 'model WAPE', value: '0.861' },
 			{ label: 'cost delta', value: '-55.68%', bar: 56 },
 			{ label: 'SKU floor', value: '11/12', bar: 92 },
 		],
+		ko: {
+			problem: 'forecast error만으로는 inventory decision 개선 여부가 보이지 않음',
+			hardPart: '낮은 재고 비용이 service-level loss를 숨길 수 있음',
+			response: 'forecast, base-stock policy, lead-time simulation, sensitivity grid, SKU diagnostics 연결',
+			result: 'cost 77,323.91 vs 174,450.85; sensitivity 9/36 pass; service-risk SKU 1',
+		},
 	},
 	{
 		name: 'tool-tax',
@@ -238,16 +256,22 @@ export const caseRecords: CaseRecord[] = [
 		response: 'Normalized schema cost, added reports, PR diffs, and a lazy-schema proxy',
 		result: 'Naive MCP host catalog estimate: 4,091 → 330 tokens',
 		metrics: [
-			{ label: 'direct catalog', value: '4,091', bar: 100 },
-			{ label: 'proxy catalog', value: '330', bar: 8 },
+			{ label: 'direct catalog', value: '4,091' },
+			{ label: 'proxy catalog', value: '330' },
 			{ label: 'doctor savings', value: '69.22%', bar: 69 },
 		],
+		ko: {
+			problem: 'agent session이 tool catalog의 숨은 context cost를 계속 지불',
+			hardPart: 'MCP, OpenAPI, custom manifest마다 tool schema 표현 방식이 다름',
+			response: 'schema cost 정규화, report, PR diff, lazy-schema proxy 구성',
+			result: 'naive MCP host catalog estimate: 4,091 → 330 tokens',
+		},
 	},
 	{
-		name: 'site2voice',
+		name: 'site-voice-packs',
 		area: 'Agent web context',
 		status: 'current',
-		href: '/projects/site2voice/',
+		href: '/projects/site-voice-packs/',
 		problem: 'Reference-site style was useful, but source-site nouns leaked into new products',
 		hardPart: 'Keep rhythm and structure without copying the original business',
 		response: 'Split SITE and VOICE files, then added source-term boundaries',
@@ -257,6 +281,12 @@ export const caseRecords: CaseRecord[] = [
 			{ label: 'after score', value: '97.4', bar: 97 },
 			{ label: 'copy safety', value: '95.5', bar: 96 },
 		],
+		ko: {
+			problem: 'reference-site style은 유용하지만 원본 site noun이 새 product에 섞임',
+			hardPart: 'rhythm과 structure를 유지하면서 original business copy를 차단',
+			response: 'SITE file과 VOICE file 분리, source-term boundary 추가',
+			result: 'editorial example: 62.9 → 97.4',
+		},
 	},
 	{
 		name: 'Modulation-aware Key Estimator',
@@ -268,10 +298,16 @@ export const caseRecords: CaseRecord[] = [
 		response: 'Built chroma/HPCP inference, CLI/API paths, release checkpoint loading, and SHA-256 verification',
 		result: 'Runnable local and API inference; benchmark page waits on training provenance',
 		metrics: [
-			{ label: 'key classes', value: '12', bar: 100 },
-			{ label: 'interfaces', value: 'CLI/API', bar: 85 },
-			{ label: 'training record', value: 'pending', bar: 35 },
+			{ label: 'key classes', value: '12' },
+			{ label: 'interfaces', value: 'CLI/API' },
+			{ label: 'training record', value: 'pending' },
 		],
+		ko: {
+			problem: 'single-key prediction이 section-level modulation을 가림',
+			hardPart: 'region output을 유지하면서 large checkpoint를 git history 밖으로 이동',
+			response: 'chroma/HPCP inference, CLI/API path, release checkpoint loading, SHA-256 verification 구성',
+			result: 'local/API inference 가능; training provenance 정리 대기',
+		},
 	},
 ];
 
@@ -294,8 +330,8 @@ export const skillDomains = [
 			},
 			{
 				name: 'Context hygiene',
-				ev: 'site2voice separates structure, voice, and source-subject contamination risks',
-				ref: 'site2voice',
+				ev: 'site-voice-packs separates structure, voice, and source-subject contamination risks',
+				ref: 'site-voice-packs',
 				signal: 'public package',
 			},
 		],

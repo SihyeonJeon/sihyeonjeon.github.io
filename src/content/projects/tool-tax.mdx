@@ -1,6 +1,6 @@
 ---
 title: "tool-tax"
-tagline: "Measure the hidden token bill of MCP servers, OpenAPI files, and agent tool catalogs."
+tagline: "Measure the hidden token bill of MCP servers, OpenAPI files, and agent tool catalogs"
 repo: "https://github.com/SihyeonJeon/tool-tax"
 demo: "https://pypi.org/project/tool-tax/"
 tech: [Python, MCP, CLI, PyPI]
@@ -9,9 +9,19 @@ featured: true
 draft: false
 ---
 
-`tool-tax` turns invisible tool-schema cost into a number that can be reviewed in CI.
+`tool-tax` turns invisible tool-schema cost into a number that can be reviewed in CI
 
-## Built Surface
+## Record
+
+| Field | Detail |
+| --- | --- |
+| Problem | Tool catalogs enter agent context as hidden fixed cost |
+| Obstacle | MCP, OpenAPI, and custom tool manifests have different shapes |
+| Fix | Normalize tool schema cost, expose reports, support PR diff review |
+| Result | Naive MCP host catalog estimate: 4,091 → 330 tokens through proxy index |
+| Guardrail | Local estimates only, not provider billing |
+
+## Built
 
 - CLI for MCP configs, OpenAPI files, and agent tool catalogs
 - schema budget reports and PR diffs
@@ -19,8 +29,9 @@ draft: false
 - lazy-schema MCP stdio proxy experiment
 - PyPI distribution path
 
-## Why It Matters
+## Signals
 
-Agent systems often pay for large tool descriptions before a tool is needed.
-This project treats tool schema as an engineering budget, not background noise.
-
+- example report: 1,144 full-tax tokens → 309 slim-index tokens
+- filesystem MCP doctor: 2,102 tax tokens → 647 index tokens
+- estimated doctor savings: 69.22%
+- heaviest-tool list exposed for review before schema creep enters context

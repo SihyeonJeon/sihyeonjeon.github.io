@@ -1,7 +1,6 @@
 ---
-import type { ProofStatus } from '../data/portfolio';
+import type { WorkStatus } from '../data/portfolio';
 import EvidenceBadge from './EvidenceBadge.astro';
-import StatusPill from './StatusPill.astro';
 
 interface Props {
 	project: {
@@ -9,11 +8,11 @@ interface Props {
 		category: string;
 		role: string;
 		period: string;
-		status: ProofStatus;
+		status: WorkStatus;
 		summary: string;
 		stack: string[];
 		evidence: string[];
-		evidencePlanned?: string[];
+		nextEvidence?: string[];
 		stat: { k: string; v: string };
 		href?: string;
 		repo?: string;
@@ -42,7 +41,7 @@ const denominator = String(total).padStart(2, '0');
 		</div>
 		<div class="evidence-list">
 			{project.evidence.map((item) => <EvidenceBadge label={item} />)}
-			{project.evidencePlanned?.map((item) => <EvidenceBadge label={item} planned />)}
+			{project.nextEvidence?.map((item) => <EvidenceBadge label={item} muted />)}
 		</div>
 	</div>
 
@@ -50,7 +49,6 @@ const denominator = String(total).padStart(2, '0');
 		<div class="project-row__stat">
 			<div>{project.stat.k}</div>
 			<strong>{project.stat.v}</strong>
-			<StatusPill status={project.status} />
 		</div>
 		<div class="project-row__links">
 			{project.href && <a class="btn btn-sm" href={project.href}>Project page</a>}

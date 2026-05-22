@@ -1,0 +1,38 @@
+---
+title: "Industrial Decision Intelligence Lab"
+tagline: "Forecast-to-inventory simulation on retail transaction data"
+tech: [Python, pandas, scikit-learn, simulation, GitHub Actions]
+status: current
+category: "Data Systems · industrial decision"
+role: "forecasting · inventory policy · scenario simulation"
+period: "2026"
+order: 1
+featured: true
+draft: false
+repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
+---
+
+## Problem
+
+Forecast error is not the decision. Inventory policy needs the cost and service trade-off after the forecast is used
+
+## Built
+
+- UCI Online Retail II transaction pipeline
+- SKU daily demand aggregation
+- seasonal baseline and model forecast
+- base-stock policy under lead time
+- inventory simulation with cost, stockout, and service metrics
+- cost-service frontier across service quantiles
+
+## Current result
+
+<img src="/images/projects/decision-lab-service-frontier.png" alt="Cost-service frontier for baseline and model inventory policies" />
+
+- model WAPE: `0.861` vs baseline `1.071`
+- model policy cost: `77,323.91` vs baseline `174,450.85`
+- service level: `0.928` vs baseline `0.957`
+- service floor: `0.900`
+- decision gate: `pass`
+
+Dataset simulation only. Not production inventory advice

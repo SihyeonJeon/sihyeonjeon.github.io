@@ -1,47 +1,36 @@
 ---
+import CaseRecord from '../components/CaseRecord.astro';
 import SectionHead from '../components/SectionHead.astro';
-import StatusPill from '../components/StatusPill.astro';
-import { evidenceRows, metrics } from '../data/portfolio';
+import { caseRecords, evidenceRows } from '../data/portfolio';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Evidence" description="Measured and planned evidence behind the portfolio">
+<BaseLayout title="Records" description="Project records for current AI/Data systems work">
 	<section class="page-head">
 		<div class="shell">
-			<div class="label">02 · Evidence</div>
-			<h1>Claims are useful only when the proof path is visible.</h1>
-			<p>
-				This page is the screening surface: what has already shipped, what is planned, and which artifact backs each statement.
-			</p>
+			<div class="label">02 · Records</div>
+			<h1>Problem, fix, result</h1>
+			<p>Only the useful parts of each project</p>
 		</div>
 	</section>
 
-	<section class="section">
+	<section class="section section--sunken">
 		<div class="shell">
-			<SectionHead label="Evidence status" title="Measured numbers stay separate from planned targets." />
-			<div class="metrics">
-				{metrics.map((metric) => (
-					<div class:list={['metric-tile', metric.status !== 'measured' && 'metric-tile--pending']}>
-						<div class="metric-tile__key">
-							<span>{metric.k}</span>
-							<StatusPill status={metric.status} />
-						</div>
-						<div class="metric-tile__value">{metric.v}</div>
-						<div class="metric-tile__note">{metric.note}</div>
-					</div>
-				))}
+			<SectionHead label="Case records" title="Short records, visible numbers" />
+			<div class="case-records">
+				{caseRecords.map((record) => <CaseRecord record={record} />)}
 			</div>
 		</div>
 	</section>
 
 	<section class="section">
 		<div class="shell">
-			<SectionHead label="Proof table" title="Each row points to a repo, page, package, benchmark, or planned proof." />
-			<div class="evidence-table" role="table" aria-label="Portfolio evidence table">
+			<SectionHead label="Index" title="Repos and reports" />
+			<div class="evidence-table" role="table" aria-label="Evidence table">
 				<div class="evidence-table__row evidence-table__head" role="row">
 					<div role="columnheader">Work</div>
-					<div role="columnheader">Claim</div>
-					<div role="columnheader">Proof path</div>
+					<div role="columnheader">Result</div>
+					<div role="columnheader">Signal</div>
 				</div>
 				{
 					evidenceRows.map((row) => (
@@ -49,10 +38,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 							<div role="cell">
 								<strong>{row.name}</strong>
 								<span>{row.kind}</span>
-								<StatusPill status={row.status} />
 							</div>
 							<div role="cell">{row.result}</div>
-							<div role="cell">{row.proof}</div>
+							<div role="cell">{row.signal}</div>
 						</a>
 					))
 				}

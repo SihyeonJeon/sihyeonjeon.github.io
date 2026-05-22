@@ -1,6 +1,6 @@
 ---
 title: "site2voice"
-tagline: "Drop-in SITE.md and VOICE.md files for agents building web copy and structure."
+tagline: "Drop-in SITE.md and VOICE.md files for agents building web copy and structure"
 repo: "https://github.com/SihyeonJeon/site2voice"
 demo: "https://pypi.org/project/site2voice/"
 tech: [Python, CLI, Web, Agent Context]
@@ -9,17 +9,28 @@ featured: true
 draft: false
 ---
 
-`site2voice` separates web structure and copy rhythm from source-site subject matter.
+`site2voice` separates web structure and copy rhythm from source-site subject matter
 
-## Built Surface
+## Record
+
+| Field | Detail |
+| --- | --- |
+| Problem | Reference sites gave useful structure but leaked source-site product nouns |
+| Obstacle | Match voice without copying spans or importing the source business |
+| Fix | Split SITE and VOICE files, add source-term boundaries, score copy locally |
+| Result | Editorial example: 62.9 FAIL → 97.4 PASS |
+| Guardrail | Copy safety and claim safety remain gates |
+
+## Built
 
 - reusable `SITE.md` and `VOICE.md` context files
 - concise CLI/package shape
 - source-site contamination guardrails
 - examples designed for direct agent injection
 
-## Why It Matters
+## Signals
 
-Good web generation needs structure and tone, but should not inherit the reference site's product nouns.
-The project frames those concerns as separate files an agent can read before building.
-
+- after-copy overall score: 97.4
+- before-copy overall score: 62.9
+- after-copy copy safety: 95.5
+- after-copy claim safety: 100

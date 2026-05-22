@@ -1,6 +1,6 @@
-# SihyeonJeon Portfolio
+# SihyeonJeon GitHub Pages
 
-Astro 기반 GitHub Pages 포트폴리오와 기술 블로그입니다.
+Astro 기반 작업 기록 사이트
 
 ## Commands
 
@@ -12,6 +12,6 @@ npm run preview
 
 ## Content
 
-- Blog posts: `src/content/blog/*.mdx`
-- Projects: `src/content/projects/*.mdx`
-- Portfolio evidence page: `src/pages/evidence.astro`
+- Case records: `src/data/portfolio.ts`
+- Work pages: `src/content/projects/*.mdx`
+- Records page: `src/pages/evidence.astro`

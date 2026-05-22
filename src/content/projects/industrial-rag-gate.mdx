@@ -1,0 +1,144 @@
+---
+title: "Industrial RAG Gate"
+tagline: "Authority-aware RAG evaluation for industrial manual questions"
+tech: [Python, RAG Evaluation, sentence-transformers, Hybrid RRF, unittest]
+status: current
+category: "AI evaluation · industrial safety"
+role: "fixture design · retrieval eval · authority gate"
+period: "2026"
+order: 0
+featured: true
+draft: false
+---
+
+<section class="industrial-case" aria-label="Industrial RAG Gate case study">
+	<div class="case-hero-panel">
+		<div>
+			<div class="label">internal fixture · v5_t31 · 2026-05-22</div>
+			<h2>Industrial manual QA fails when citations are plausible but not specific</h2>
+		</div>
+		<div class="case-hero-checks" aria-label="Evaluation focus">
+			<p>Checks answer paths before they look acceptable in aggregate metrics</p>
+			<div><span>authority</span><strong>right source family</strong></div>
+			<div><span>citation</span><strong>right span, not adjacent text</strong></div>
+			<div><span>safety</span><strong>unsafe servicing escalates</strong></div>
+		</div>
+	</div>
+
+	<div class="metric-grid metric-grid--four" aria-label="Fixture snapshot">
+		<div class="metric-cell">
+			<strong>91</strong>
+			<span>Q/A items</span>
+		</div>
+		<div class="metric-cell">
+			<strong>28</strong>
+			<span>holdout items</span>
+		</div>
+		<div class="metric-cell">
+			<strong>63</strong>
+			<span>tests</span>
+		</div>
+		<div class="metric-cell">
+			<strong>5/5</strong>
+			<span>hybrid safety exact</span>
+		</div>
+	</div>
+
+	<div class="case-split">
+		<div class="case-panel">
+			<div class="label">Evaluation contract</div>
+			<ul class="contract-list">
+				<li><span>Gate</span><strong>pass · warn · clarify · escalate</strong></li>
+				<li><span>Authority</span><strong>methodology · guidance · regulation</strong></li>
+				<li><span>Citation</span><strong>gold span hit · first gold rank</strong></li>
+				<li><span>Safety</span><strong>unsafe operational advice escalates</strong></li>
+			</ul>
+		</div>
+		<div class="case-panel">
+			<div class="label">Source families</div>
+			<ul class="source-list">
+				<li>NASA reliability-centered maintenance</li>
+				<li>OSHA / eCFR hazardous energy control</li>
+				<li>NIOSH hazardous energy guidance</li>
+				<li>DOE / FEMP operations guidance</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="case-panel">
+		<div class="panel-head">
+			<div>
+				<div class="label">Result panel</div>
+				<h3>Hybrid RRF, v5_t31 internal report</h3>
+			</div>
+			<span class="panel-note">not a public benchmark</span>
+		</div>
+		<div class="result-bars" aria-label="Hybrid internal metrics">
+			<div class="result-bar" style="--bar: 97.8%">
+				<span>recall@5</span>
+				<strong>0.978</strong>
+				<i></i>
+			</div>
+			<div class="result-bar" style="--bar: 94.5%">
+				<span>citation hit</span>
+				<strong>0.945</strong>
+				<i></i>
+			</div>
+			<div class="result-bar" style="--bar: 100%">
+				<span>gate accuracy</span>
+				<strong>1.000</strong>
+				<i></i>
+			</div>
+			<div class="result-bar" style="--bar: 100%">
+				<span>authority accuracy</span>
+				<strong>1.000</strong>
+				<i></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="case-panel failure-panel">
+		<div class="panel-head">
+			<div>
+				<div class="label">Failure case</div>
+				<h3>QA089</h3>
+			</div>
+			<span class="panel-note">citation specificity</span>
+		</div>
+		<div class="failure-flow" aria-label="QA089 diagnostic flow">
+			<div>
+				<span>Before</span>
+				<strong>hybrid rank 6</strong>
+				<p>Exact eCFR stored-energy definition sat just outside top-5</p>
+			</div>
+			<div>
+				<span>Fix</span>
+				<strong>selector + exposure</strong>
+				<p>Same-authority citation specificity, then small lexical exposure residual</p>
+			</div>
+			<div>
+				<span>After</span>
+				<strong>hybrid rank 5</strong>
+				<p>Exact span cited; safety cluster moved to 5/5 exact under hybrid</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="case-split">
+		<div class="case-panel">
+			<div class="label">Holdout</div>
+			<div class="compact-metrics">
+				<div><span>items</span><strong>28</strong></div>
+				<div><span>recall@5</span><strong>1.000</strong></div>
+				<div><span>citation hit</span><strong>0.893</strong></div>
+				<div><span>gate / safety / authority</span><strong>1.000</strong></div>
+			</div>
+		</div>
+		<div class="case-panel boundary-panel">
+			<div class="label">Boundary</div>
+			<p>
+				Internal fixture evidence only. Not a public benchmark, not safety advice, not a production compliance claim. Source documents are linked and cited, not redistributed.
+			</p>
+		</div>
+	</div>
+</section>

@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import StatusPill from '../components/StatusPill.astro';
 import BaseLayout from './BaseLayout.astro';
 import { assetSrc } from '../utils/assets';
 
@@ -17,7 +16,6 @@ const hero = assetSrc(project.data.hero);
 		{hero && <img class="project-hero" src={hero} alt="" />}
 		<div class="project-kicker">
 			{project.data.category && <span>{project.data.category}</span>}
-			<StatusPill status={project.data.status} />
 		</div>
 		<h1>{project.data.title}</h1>
 		<p class="project-lede">{project.data.tagline}</p>

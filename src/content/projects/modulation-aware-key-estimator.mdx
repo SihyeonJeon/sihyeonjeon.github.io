@@ -1,6 +1,6 @@
 ---
 title: "Modulation-aware Key Estimator"
-tagline: "Region-wise musical key estimation for songs with modulation."
+tagline: "Region-wise musical key estimation for songs with modulation"
 repo: "https://github.com/SihyeonJeon/Modulation-aware-key-estimator"
 tech: [Python, PyTorch, FastAPI, Audio ML]
 order: 3
@@ -8,9 +8,19 @@ featured: true
 draft: false
 ---
 
-This project estimates likely key regions instead of forcing one global key label on a whole song.
+Estimates likely key regions instead of forcing one global key label on a whole song
 
-## Built Surface
+## Record
+
+| Field | Detail |
+| --- | --- |
+| Problem | One global key label loses section-level modulation |
+| Obstacle | Keep region output visible while moving a large checkpoint out of git history |
+| Fix | Two-stream chroma/HPCP inference, CLI/API paths, release-asset checkpoint |
+| Result | Runnable inference surface with SHA-256 verified checkpoint loading |
+| Guardrail | Benchmark page waits on training manifest and dataset list |
+
+## Built
 
 - two-stream Transformer model for chroma and HPCP-style harmonic features
 - local WAV and YouTube URL inference paths
@@ -18,8 +28,9 @@ This project estimates likely key regions instead of forcing one global key labe
 - release-asset checkpoint with SHA-256 verification
 - manifest-based evaluation script
 
-## Why It Matters
+## Signals
 
-Songs with modulation are poorly represented by a single key label.
-The project keeps modulation points and region confidence visible in the output.
-
+- output exposes region start/end, key name, confidence, and probabilities
+- checkpoint is distributed as release asset, not repo history
+- local manifest evaluator exists for exact-key accuracy
+- training provenance remains the next missing record

@@ -1,24 +1,23 @@
 ---
-import { currentArtifacts, focusInitiatives, profile } from '../data/portfolio';
+import { flagshipSystems, profile, supportingArtifacts } from '../data/portfolio';
 
 const navItems = [
 	{ label: 'Home', sub: '/', href: '/' },
-	{ label: 'Projects', sub: '/projects', href: '/projects/' },
-	{ label: 'Evidence', sub: '/evidence', href: '/evidence/' },
-	{ label: 'Writing', sub: '/blog', href: '/blog/' },
+	{ label: 'Work', sub: '/projects', href: '/projects/' },
+	{ label: 'Records', sub: '/evidence', href: '/evidence/' },
 	{ label: 'Skills', sub: '/skills', href: '/skills/' },
 	{ label: 'About', sub: '/about', href: '/about/' },
 ];
 
 const projectItems = [
-	...currentArtifacts.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
-	...focusInitiatives.map((item) => ({ label: item.name, sub: `${item.category} · planned`, href: item.href })),
+	...flagshipSystems.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
+	...supportingArtifacts.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
 ];
 ---
 
 <div class="cmdk-backdrop" id="cmdk" hidden>
 	<div class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">
-		<input class="cmdk-input" id="cmdk-input" placeholder="Search pages, projects, evidence..." autocomplete="off" />
+		<input class="cmdk-input" id="cmdk-input" placeholder="Search pages and work..." autocomplete="off" />
 		<div class="cmdk-list" id="cmdk-list">
 			<div class="cmdk-group-label">Navigate</div>
 			{
@@ -54,8 +53,8 @@ const projectItems = [
 			</a>
 		</div>
 		<div class="cmdk-footer">
-			<span>Portfolio index</span>
-			<span>Evidence first</span>
+			<span>Records</span>
+			<span>Problem → result</span>
 		</div>
 	</div>
 </div>

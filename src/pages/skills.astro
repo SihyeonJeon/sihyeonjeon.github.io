@@ -4,20 +4,20 @@ import { skillDomains } from '../data/portfolio';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Skills" description="Skill evidence matrix for AI/Data systems work">
+<BaseLayout title="Skills" description="Skill map for AI/Data systems work">
 	<section class="page-head">
 		<div class="shell">
 			<div class="label">04 · Skills</div>
-			<h1>Skills claimed with evidence, not decorative ratings.</h1>
+			<h1>Skills tied to artifacts, not ratings</h1>
 			<p>
-				Each item names the project or planned system where the skill is used, measured, or scheduled to be proven.
+				Each item points to a repo, system, or work queue
 			</p>
 		</div>
 	</section>
 
 	<section class="section">
 		<div class="shell">
-			<SectionHead label="Skill evidence matrix" title="What each capability points to." />
+			<SectionHead label="Skill map" title="What each capability points to" />
 			{
 				skillDomains.map((domain, index) => (
 					<div class="skill-domain">
@@ -33,7 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 								<div class="skill-item">
 									<strong>{item.name}</strong>
 									<span>{item.ev}</span>
-									<small>/{item.ref} · {item.proof}</small>
+									<small>/{item.ref} · {item.signal}</small>
 								</div>
 							))}
 						</div>

@@ -1,35 +1,35 @@
 ---
 import ProjectRow from '../../components/ProjectRow.astro';
 import SectionHead from '../../components/SectionHead.astro';
-import { currentArtifacts, focusInitiatives } from '../../data/portfolio';
+import { flagshipSystems, supportingArtifacts } from '../../data/portfolio';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Projects" description="AI/Data systems portfolio projects and public proof artifacts">
+<BaseLayout title="Work" description="AI/Data systems work and project artifacts">
 	<section class="page-head">
 		<div class="shell">
-			<div class="label">01 · Projects</div>
-			<h1>Projects are split into planned AI/Data systems and current proof artifacts.</h1>
+			<div class="label">01 · Work</div>
+			<h1>Systems first, artifacts second</h1>
 			<p>
-				The planned systems define the portfolio direction. The current artifacts prove shipping discipline: package, release, docs, verification, and public repo hygiene.
+				Large problem class, clear failure mode, reproducible result
 			</p>
 		</div>
 	</section>
 
 	<section class="section">
 		<div class="shell">
-			<SectionHead label="AI/Data systems roadmap" title="The next work that should change the portfolio weight." right="planned until built" />
+			<SectionHead label="Flagship systems" title="Operational AI/data problems" />
 			<div class="projects-list">
-				{focusInitiatives.map((project, index) => <ProjectRow project={project} index={index} total={focusInitiatives.length} />)}
+				{flagshipSystems.map((project, index) => <ProjectRow project={project} index={index} total={flagshipSystems.length} />)}
 			</div>
 		</div>
 	</section>
 
 	<section class="section section--sunken">
 		<div class="shell">
-			<SectionHead label="Current artifacts" title="Existing public work with install/release surfaces." right="measured" />
+			<SectionHead label="Supporting artifacts" title="Reusable tools and focused models" />
 			<div class="projects-list">
-				{currentArtifacts.map((project, index) => <ProjectRow project={project} index={index} total={currentArtifacts.length} />)}
+				{supportingArtifacts.map((project, index) => <ProjectRow project={project} index={index} total={supportingArtifacts.length} />)}
 			</div>
 		</div>
 	</section>

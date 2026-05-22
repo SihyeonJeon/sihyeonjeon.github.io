@@ -1,12 +1,12 @@
 ---
 interface Props {
 	label: string;
-	planned?: boolean;
+	muted?: boolean;
 }
 
-const { label, planned = false } = Astro.props;
+const { label, muted = false } = Astro.props;
 ---
 
-<span class:list={['evidence-badge', planned && 'evidence-badge--planned']}>
-	{planned ? '○' : '●'} {label}{planned ? ' · planned' : ''}
+<span class:list={['evidence-badge', muted && 'evidence-badge--muted']}>
+	{muted ? '○' : '●'} {label}
 </span>

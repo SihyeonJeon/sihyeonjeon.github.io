@@ -26,7 +26,7 @@ const projects = defineCollection({
 			repo: z.string().url().optional(),
 			demo: z.string().url().optional(),
 			tech: z.array(z.string()).default([]),
-			status: z.enum(['measured', 'planned', 'tbd']).default('measured'),
+			status: z.enum(['current', 'next', 'tbd']).default('current'),
 			category: z.string().optional(),
 			role: z.string().optional(),
 			period: z.string().optional(),

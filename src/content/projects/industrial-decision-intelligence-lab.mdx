@@ -25,10 +25,11 @@ Forecast error is not the decision. Inventory policy needs the cost and service 
 - inventory simulation with cost, stockout, and service metrics
 - cost-service frontier across service quantiles
 - 36-scenario sensitivity grid
+- SKU-level service-risk diagnostics
 
 ## Current result
 
-<img src="/images/projects/decision-lab-sensitivity-grid.png" alt="Sensitivity grid for inventory policy cost and service scenarios" />
+<img src="/images/projects/decision-lab-sku-tradeoffs.png" alt="SKU tradeoff scatter plot showing cost savings and service change" />
 
 - model WAPE: `0.861` vs baseline `1.071`
 - model policy cost: `77,323.91` vs baseline `174,450.85`
@@ -36,6 +37,8 @@ Forecast error is not the decision. Inventory policy needs the cost and service 
 - service floor: `0.900`
 - decision gate: `pass`
 - sensitivity: `9 / 36` scenarios pass
+- SKU floor: `11 / 12`
+- service-risk SKU: `1`
 - reliable region: q=`0.99` under the current grid
 
 Dataset simulation only. Not production inventory advice

@@ -94,9 +94,9 @@ export const flagshipSystems = [
 		summary:
 			'Turns retail transaction forecasts into base-stock inventory policies and service-cost simulation',
 		stack: ['Python', 'pandas', 'scikit-learn', 'simulation', 'GitHub Actions'],
-		evidence: ['UCI dataset', 'frontier report', 'sensitivity grid', 'CI'],
-		nextEvidence: ['SKU failure gallery', 'second dataset check'],
-		stat: { k: 'Sensitivity pass', v: '9/36' },
+		evidence: ['UCI dataset', 'frontier report', 'sensitivity grid', 'SKU diagnostics', 'CI'],
+		nextEvidence: ['second dataset check', 'lead-time uncertainty'],
+		stat: { k: 'SKU floor', v: '11/12' },
 		href: '/projects/industrial-decision-intelligence-lab/',
 	},
 	{
@@ -220,12 +220,12 @@ export const caseRecords: CaseRecord[] = [
 		href: '/projects/industrial-decision-intelligence-lab/',
 		problem: 'Forecast error alone did not show whether inventory decisions improved',
 		hardPart: 'Lower inventory cost could hide service-level loss',
-		response: 'Linked demand forecasts to base-stock policy, lead-time simulation, frontier, and sensitivity grid',
-		result: 'Model policy: cost 77,323.91 vs 174,450.85; 9/36 sensitivity scenarios pass',
+		response: 'Linked forecasts to base-stock policy, lead-time simulation, sensitivity grid, and SKU diagnostics',
+		result: 'Cost 77,323.91 vs 174,450.85; 9/36 sensitivity scenarios pass; 1 service-risk SKU',
 		metrics: [
 			{ label: 'model WAPE', value: '0.861', bar: 86 },
 			{ label: 'cost delta', value: '-55.68%', bar: 56 },
-			{ label: 'sensitivity', value: '9/36', bar: 25 },
+			{ label: 'SKU floor', value: '11/12', bar: 92 },
 		],
 	},
 	{

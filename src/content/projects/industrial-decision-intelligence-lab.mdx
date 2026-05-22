@@ -24,15 +24,18 @@ Forecast error is not the decision. Inventory policy needs the cost and service 
 - base-stock policy under lead time
 - inventory simulation with cost, stockout, and service metrics
 - cost-service frontier across service quantiles
+- 36-scenario sensitivity grid
 
 ## Current result
 
-<img src="/images/projects/decision-lab-service-frontier.png" alt="Cost-service frontier for baseline and model inventory policies" />
+<img src="/images/projects/decision-lab-sensitivity-grid.png" alt="Sensitivity grid for inventory policy cost and service scenarios" />
 
 - model WAPE: `0.861` vs baseline `1.071`
 - model policy cost: `77,323.91` vs baseline `174,450.85`
 - service level: `0.928` vs baseline `0.957`
 - service floor: `0.900`
 - decision gate: `pass`
+- sensitivity: `9 / 36` scenarios pass
+- reliable region: q=`0.99` under the current grid
 
 Dataset simulation only. Not production inventory advice

@@ -542,7 +542,7 @@ html[data-theme="dark"] .btn-primary:hover {
 }
 
 .field-guide__routes {
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 	margin-top: 22px;
 }
 

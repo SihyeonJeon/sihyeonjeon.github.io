@@ -9,19 +9,19 @@ featured: true
 draft: false
 ---
 
-`tool-tax` turns invisible tool-schema cost into a number that can be reviewed in CI
+<p data-i18n-en="Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema cost into a number that can be reviewed in CI" data-i18n-ko="tool-heavy agent workflow 테스트; task reasoning 전에 context가 먼저 소모됨; tool-tax는 보이지 않던 tool-schema cost를 CI에서 검토 가능한 숫자로 바꿈">Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema cost into a number that can be reviewed in CI</p>
 
-## Record
+<h2 data-i18n-en="Record" data-i18n-ko="기록">Record</h2>
 
-| Field | Detail |
-| --- | --- |
-| Problem | Tool catalogs enter agent context as hidden fixed cost |
-| Obstacle | MCP, OpenAPI, and custom tool manifests have different shapes |
-| Fix | Normalize tool schema cost, expose reports, support PR diff review |
-| Result | Naive MCP host catalog estimate: 4,091 → 330 tokens through proxy index |
-| Guardrail | Local estimates only, not provider billing |
+<div class="detail-record">
+	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Tool catalogs enter agent context as hidden fixed cost" data-i18n-ko="tool catalog가 agent context에 숨은 fixed cost로 들어감">Tool catalogs enter agent context as hidden fixed cost</p></div>
+	<div><span data-i18n-en="Bottleneck" data-i18n-ko="막힌 지점">Bottleneck</span><p data-i18n-en="MCP, OpenAPI, and custom manifests describe tools with different shapes" data-i18n-ko="MCP, OpenAPI, custom manifest가 서로 다른 방식으로 tool을 표현">MCP, OpenAPI, and custom manifests describe tools with different shapes</p></div>
+	<div><span data-i18n-en="Fix" data-i18n-ko="해결">Fix</span><p data-i18n-en="Normalize schema cost, expose reports, support PR diff review" data-i18n-ko="schema cost 정규화, report 노출, PR diff review 지원">Normalize schema cost, expose reports, support PR diff review</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Naive MCP host catalog estimate: 4,091 to 330 tokens through proxy index" data-i18n-ko="naive MCP host catalog estimate: proxy index로 4,091에서 330 tokens">Naive MCP host catalog estimate: 4,091 to 330 tokens through proxy index</p></div>
+	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Local estimates only; not provider billing" data-i18n-ko="local estimate만 사용; provider billing 아님">Local estimates only; not provider billing</p></div>
+</div>
 
-## Built
+<h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
 - CLI for MCP configs, OpenAPI files, and agent tool catalogs
 - schema budget reports and PR diffs
@@ -29,9 +29,28 @@ draft: false
 - lazy-schema MCP stdio proxy experiment
 - PyPI distribution path
 
-## Signals
+<h2 data-i18n-en="Signals" data-i18n-ko="결과 신호">Signals</h2>
 
 - example report: 1,144 full-tax tokens → 309 slim-index tokens
 - filesystem MCP doctor: 2,102 tax tokens → 647 index tokens
 - estimated doctor savings: 69.22%
 - heaviest-tool list exposed for review before schema creep enters context
+
+<div class="metric-explain">
+	<div>
+		<strong>full-tax tokens</strong>
+		<p data-i18n-en="Estimated token cost when complete tool schemas are loaded up front" data-i18n-ko="complete tool schema를 처음부터 올렸을 때의 estimated token cost">Estimated token cost when complete tool schemas are loaded up front</p>
+	</div>
+	<div>
+		<strong>slim-index tokens</strong>
+		<p data-i18n-en="Estimated cost when only a compact tool index is loaded first" data-i18n-ko="compact tool index만 먼저 올렸을 때의 estimated cost">Estimated cost when only a compact tool index is loaded first</p>
+	</div>
+	<div>
+		<strong>doctor savings</strong>
+		<p data-i18n-en="Estimated context reduction on the tool doctor example" data-i18n-ko="tool doctor example에서 추정한 context reduction">Estimated context reduction on the tool doctor example</p>
+	</div>
+	<div>
+		<strong>guardrail</strong>
+		<p data-i18n-en="Local estimate only; not provider billing" data-i18n-ko="local estimate만 사용; provider billing 아님">Local estimate only; not provider billing</p>
+	</div>
+</div>

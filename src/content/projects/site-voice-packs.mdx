@@ -9,28 +9,47 @@ featured: true
 draft: false
 ---
 
-`site-voice-packs` separates web structure and copy rhythm from source-site subject matter
+<p data-i18n-en="Reference-site context test for agent-written web pages; useful structure came with source-site nouns; site-voice-packs separates web structure and copy rhythm from source-site subject matter" data-i18n-ko="agent-written web page를 위한 reference-site context 테스트; 유용한 structure와 함께 source-site noun이 따라옴; site-voice-packs는 web structure와 copy rhythm을 source-site subject matter에서 분리">Reference-site context test for agent-written web pages; useful structure came with source-site nouns; site-voice-packs separates web structure and copy rhythm from source-site subject matter</p>
 
-## Record
+<h2 data-i18n-en="Record" data-i18n-ko="기록">Record</h2>
 
-| Field | Detail |
-| --- | --- |
-| Problem | Reference sites gave useful structure but leaked source-site product nouns |
-| Obstacle | Match voice without copying spans or importing the source business |
-| Fix | Split SITE and VOICE files, add source-term boundaries, score copy locally |
-| Result | Editorial example: 62.9 FAIL → 97.4 PASS |
-| Guardrail | Copy safety and claim safety remain gates |
+<div class="detail-record">
+	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Reference sites gave useful structure but leaked source-site product nouns" data-i18n-ko="reference site는 유용한 structure를 주지만 source-site product noun이 섞임">Reference sites gave useful structure but leaked source-site product nouns</p></div>
+	<div><span data-i18n-en="Bottleneck" data-i18n-ko="막힌 지점">Bottleneck</span><p data-i18n-en="Match copy rhythm without copying spans or importing the source business" data-i18n-ko="span을 복사하거나 source business를 가져오지 않고 copy rhythm만 맞춰야 함">Match copy rhythm without copying spans or importing the source business</p></div>
+	<div><span data-i18n-en="Fix" data-i18n-ko="해결">Fix</span><p data-i18n-en="Split SITE and VOICE files, add source-term boundaries, score copy locally" data-i18n-ko="SITE와 VOICE file 분리, source-term boundary 추가, local copy scoring 구성">Split SITE and VOICE files, add source-term boundaries, score copy locally</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Editorial example: 62.9 FAIL to 97.4 PASS" data-i18n-ko="editorial example: 62.9 FAIL에서 97.4 PASS">Editorial example: 62.9 FAIL to 97.4 PASS</p></div>
+	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Copy safety and claim safety remain gates" data-i18n-ko="copy safety와 claim safety는 gate로 유지">Copy safety and claim safety remain gates</p></div>
+</div>
 
-## Built
+<h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
 - reusable `SITE.md` and `VOICE.md` context files
 - concise CLI/package shape
 - source-site contamination guardrails
 - examples designed for direct agent injection
 
-## Signals
+<h2 data-i18n-en="Signals" data-i18n-ko="결과 신호">Signals</h2>
 
 - after-copy overall score: 97.4
 - before-copy overall score: 62.9
 - after-copy copy safety: 95.5
 - after-copy claim safety: 100
+
+<div class="metric-explain">
+	<div>
+		<strong>overall score</strong>
+		<p data-i18n-en="Reference-fit score from measurable rhythm, CTA, tone, and heading signals" data-i18n-ko="rhythm, CTA, tone, heading signal로 계산한 reference-fit score">Reference-fit score from measurable rhythm, CTA, tone, and heading signals</p>
+	</div>
+	<div>
+		<strong>copy safety</strong>
+		<p data-i18n-en="Low overlap with source-site wording" data-i18n-ko="source-site wording과 겹치는 정도가 낮은지">Low overlap with source-site wording</p>
+	</div>
+	<div>
+		<strong>claim safety</strong>
+		<p data-i18n-en="Whether unsupported claims are avoided" data-i18n-ko="unsupported claim을 피하는지">Whether unsupported claims are avoided</p>
+	</div>
+	<div>
+		<strong>boundary</strong>
+		<p data-i18n-en="Pattern only; product nouns and facts must come from the new brief" data-i18n-ko="pattern만 사용; product noun과 fact는 새 brief에서 공급">Pattern only; product nouns and facts must come from the new brief</p>
+	</div>
+</div>

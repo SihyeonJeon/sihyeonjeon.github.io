@@ -5,12 +5,14 @@ export type CaseRecord = {
 	area: string;
 	status: WorkStatus;
 	href: string;
+	context: string;
 	problem: string;
 	hardPart: string;
 	response: string;
 	result: string;
-	metrics: Array<{ label: string; value: string; bar?: number }>;
+	metrics: Array<{ label: string; value: string; bar?: number; help?: string; koLabel?: string; koHelp?: string }>;
 	ko?: {
+		context: string;
 		problem: string;
 		hardPart: string;
 		response: string;
@@ -209,19 +211,21 @@ export const caseRecords: CaseRecord[] = [
 		area: 'Evaluation systems',
 		status: 'current',
 		href: '/projects/industrial-rag-gate/',
+		context: 'While testing RAG answers on maintenance and safety manuals, good-looking answers still cited nearby but wrong authority',
 		problem: 'Industrial manual QA needs authority checks, not generic answer similarity',
 		hardPart: 'Aggregate scores hid an item-level safety citation regression',
 		response: 'Built a domain fixture, holdout split, gate states, hybrid RRF baseline, and citation diagnostics',
 		result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
 		metrics: [
-			{ label: 'fixture items', value: '91' },
-			{ label: 'tests', value: '63' },
-			{ label: 'hybrid exact', value: '5/5', bar: 100 },
+			{ label: 'fixture items', value: '91', help: 'manual QA cases with expected source behavior', koLabel: 'fixture 항목', koHelp: '기대 근거가 정의된 manual QA 사례' },
+			{ label: 'tests', value: '63', help: 'regression checks run in CI', koLabel: 'test', koHelp: 'CI에서 반복 확인하는 regression check' },
+			{ label: 'hybrid exact', value: '5/5', bar: 100, help: 'safety questions routed to the exact expected authority', koLabel: 'hybrid exact', koHelp: '안전 질문이 정확한 근거 문서로 연결된 개수' },
 		],
 		ko: {
-			problem: '산업 매뉴얼 QA는 답변 유사도보다 authority check가 먼저',
-			hardPart: '평균 점수가 item-level safety citation regression을 가림',
-			response: 'domain fixture, holdout split, gate state, hybrid RRF, citation diagnostics 구성',
+			context: '정비·안전 매뉴얼 RAG를 테스트하던 중, 그럴듯한 답변이 가까운 문단을 인용하지만 필요한 근거 문서와 어긋나는 사례 확인',
+			problem: '산업 매뉴얼 QA는 답변 유사도보다 근거 문서 확인이 먼저',
+			hardPart: '평균 점수가 개별 안전 인용 오류를 가림',
+			response: '도메인 fixture, holdout split, gate state, hybrid RRF, citation diagnostics 구성',
 			result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
 		},
 	},
@@ -230,17 +234,19 @@ export const caseRecords: CaseRecord[] = [
 		area: 'Data systems · optimization',
 		status: 'current',
 		href: '/projects/industrial-decision-intelligence-lab/',
+		context: 'While turning retail demand forecasts into replenishment policy, the better forecast did not automatically mean a better inventory decision',
 		problem: 'Forecast error alone did not show whether inventory decisions improved',
 		hardPart: 'Lower inventory cost could hide service-level loss',
 		response: 'Linked forecasts to base-stock policy, lead-time simulation, sensitivity grid, and SKU diagnostics',
 		result: 'Cost 77,323.91 vs 174,450.85; 9/36 sensitivity scenarios pass; 1 service-risk SKU',
 		metrics: [
-			{ label: 'model WAPE', value: '0.861' },
-			{ label: 'cost delta', value: '-55.68%', bar: 56 },
-			{ label: 'SKU floor', value: '11/12', bar: 92 },
+			{ label: 'model WAPE', value: '0.861', help: 'weighted forecast error, lower is better', koLabel: 'model WAPE', koHelp: '판매량 기준 가중 예측 오차, 낮을수록 좋음' },
+			{ label: 'cost delta', value: '-55.68%', bar: 56, help: 'simulated policy cost reduction vs baseline', koLabel: 'cost delta', koHelp: 'baseline 대비 simulation policy cost 감소율' },
+			{ label: 'SKU floor', value: '11/12', bar: 92, help: 'SKUs staying above the service floor', koLabel: 'SKU floor', koHelp: 'service floor 이상을 유지한 SKU 개수' },
 		],
 		ko: {
-			problem: 'forecast error만으로는 inventory decision 개선 여부가 보이지 않음',
+			context: 'retail demand forecast를 replenishment policy로 바꾸는 과정에서, 더 좋은 예측이 항상 더 좋은 재고 의사결정을 뜻하지 않음을 확인',
+			problem: 'forecast error만으로는 재고 의사결정 개선 여부가 보이지 않음',
 			hardPart: '낮은 재고 비용이 service-level loss를 숨길 수 있음',
 			response: 'forecast, base-stock policy, lead-time simulation, sensitivity grid, SKU diagnostics 연결',
 			result: 'cost 77,323.91 vs 174,450.85; sensitivity 9/36 pass; service-risk SKU 1',
@@ -251,16 +257,18 @@ export const caseRecords: CaseRecord[] = [
 		area: 'Agent tooling',
 		status: 'current',
 		href: '/projects/tool-tax/',
+		context: 'While running agent workflows with many tools, the session budget was being spent before the task began',
 		problem: 'Agent sessions were paying hidden context cost for tool catalogs',
 		hardPart: 'MCP, OpenAPI, and custom manifests describe tools differently',
 		response: 'Normalized schema cost, added reports, PR diffs, and a lazy-schema proxy',
 		result: 'Naive MCP host catalog estimate: 4,091 → 330 tokens',
 		metrics: [
-			{ label: 'direct catalog', value: '4,091' },
-			{ label: 'proxy catalog', value: '330' },
-			{ label: 'doctor savings', value: '69.22%', bar: 69 },
+			{ label: 'direct catalog', value: '4,091', help: 'estimated schema tokens loaded up front', koLabel: 'direct catalog', koHelp: '처음부터 올리는 schema token 추정치' },
+			{ label: 'proxy catalog', value: '330', help: 'estimated tokens after lazy index', koLabel: 'proxy catalog', koHelp: 'lazy index 적용 후 token 추정치' },
+			{ label: 'doctor savings', value: '69.22%', bar: 69, help: 'estimated reduction in tool catalog context', koLabel: 'doctor savings', koHelp: 'tool catalog context 감소 추정치' },
 		],
 		ko: {
+			context: 'tool이 많은 agent workflow를 돌리던 중, 실제 작업 전부터 session budget이 tool catalog에 소모되는 문제 확인',
 			problem: 'agent session이 tool catalog의 숨은 context cost를 계속 지불',
 			hardPart: 'MCP, OpenAPI, custom manifest마다 tool schema 표현 방식이 다름',
 			response: 'schema cost 정규화, report, PR diff, lazy-schema proxy 구성',
@@ -272,16 +280,18 @@ export const caseRecords: CaseRecord[] = [
 		area: 'Agent web context',
 		status: 'current',
 		href: '/projects/site-voice-packs/',
+		context: 'While using reference websites to guide agents, useful tone and structure came with unwanted source-site subject matter',
 		problem: 'Reference-site style was useful, but source-site nouns leaked into new products',
 		hardPart: 'Keep rhythm and structure without copying the original business',
 		response: 'Split SITE and VOICE files, then added source-term boundaries',
 		result: 'Editorial example: 62.9 → 97.4',
 		metrics: [
-			{ label: 'before score', value: '62.9', bar: 63 },
-			{ label: 'after score', value: '97.4', bar: 97 },
-			{ label: 'copy safety', value: '95.5', bar: 96 },
+			{ label: 'before score', value: '62.9', bar: 63, help: 'reference-fit before context files', koLabel: 'before score', koHelp: 'context file 적용 전 reference-fit' },
+			{ label: 'after score', value: '97.4', bar: 97, help: 'reference-fit after SITE/VOICE context', koLabel: 'after score', koHelp: 'SITE/VOICE context 적용 후 reference-fit' },
+			{ label: 'copy safety', value: '95.5', bar: 96, help: 'low overlap with source-site wording', koLabel: 'copy safety', koHelp: 'source-site wording과의 낮은 중복도' },
 		],
 		ko: {
+			context: 'reference website를 agent context로 쓰던 중, 유용한 tone과 structure가 원본 site의 subject matter까지 함께 끌고 오는 문제 확인',
 			problem: 'reference-site style은 유용하지만 원본 site noun이 새 product에 섞임',
 			hardPart: 'rhythm과 structure를 유지하면서 original business copy를 차단',
 			response: 'SITE file과 VOICE file 분리, source-term boundary 추가',
@@ -293,16 +303,18 @@ export const caseRecords: CaseRecord[] = [
 		area: 'Applied audio ML',
 		status: 'current',
 		href: '/projects/modulation-aware-key-estimator/',
+		context: 'While estimating song key from audio, one global label failed on tracks that change key by section',
 		problem: 'Single-key prediction hides section-level modulation',
 		hardPart: 'Expose region output while moving a large checkpoint out of git history',
 		response: 'Built chroma/HPCP inference, CLI/API paths, release checkpoint loading, and SHA-256 verification',
 		result: 'Runnable local and API inference; benchmark page waits on training provenance',
 		metrics: [
-			{ label: 'key classes', value: '12' },
-			{ label: 'interfaces', value: 'CLI/API' },
-			{ label: 'training record', value: 'pending' },
+			{ label: 'key classes', value: '12', help: 'major/minor pitch-class targets', koLabel: 'key class', koHelp: 'major/minor pitch-class target' },
+			{ label: 'interfaces', value: 'CLI/API', help: 'local and service inference paths', koLabel: 'interface', koHelp: 'local inference와 service inference 경로' },
+			{ label: 'training record', value: 'pending', help: 'dataset and training manifest still incomplete', koLabel: 'training record', koHelp: 'dataset과 training manifest 정리 전' },
 		],
 		ko: {
+			context: 'audio key estimation을 하던 중, 곡 전체에 하나의 key label만 붙이면 section별 modulation이 사라지는 문제 확인',
 			problem: 'single-key prediction이 section-level modulation을 가림',
 			hardPart: 'region output을 유지하면서 large checkpoint를 git history 밖으로 이동',
 			response: 'chroma/HPCP inference, CLI/API path, release checkpoint loading, SHA-256 verification 구성',

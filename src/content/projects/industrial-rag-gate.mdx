@@ -15,13 +15,31 @@ draft: false
 	<div class="case-hero-panel">
 		<div>
 			<div class="label">internal fixture · v5_t31 · 2026-05-22</div>
-			<h2>Industrial manual QA fails when citations are plausible but not specific</h2>
+			<h2 data-i18n-en="Industrial manual QA fails when citations are plausible but not specific" data-i18n-ko="산업 매뉴얼 QA는 그럴듯한 인용만으로 안전하지 않다">Industrial manual QA fails when citations are plausible but not specific</h2>
 		</div>
 		<div class="case-hero-checks" aria-label="Evaluation focus">
-			<p>Checks answer paths before they look acceptable in aggregate metrics</p>
-			<div><span>authority</span><strong>right source family</strong></div>
-			<div><span>citation</span><strong>right span, not adjacent text</strong></div>
-			<div><span>safety</span><strong>unsafe servicing escalates</strong></div>
+			<p data-i18n-en="Checks answer paths before they look acceptable in aggregate metrics" data-i18n-ko="평균 점수로 좋아 보이기 전에 답변 경로를 먼저 확인">Checks answer paths before they look acceptable in aggregate metrics</p>
+			<div><span>authority</span><strong data-i18n-en="right source family" data-i18n-ko="필요한 근거 문서군">right source family</strong></div>
+			<div><span>citation</span><strong data-i18n-en="right span, not adjacent text" data-i18n-ko="가까운 문단이 아니라 정확한 span">right span, not adjacent text</strong></div>
+			<div><span>safety</span><strong data-i18n-en="unsafe servicing escalates" data-i18n-ko="위험한 정비 질문은 escalation">unsafe servicing escalates</strong></div>
+		</div>
+	</div>
+
+	<div class="story-flow" aria-label="Problem story">
+		<div>
+			<span>01 · running</span>
+			<strong data-i18n-en="Manual QA over maintenance and safety documents" data-i18n-ko="정비·안전 문서 기반 manual QA">Manual QA over maintenance and safety documents</strong>
+			<p data-i18n-en="The first tests looked acceptable because the retrieved passages were near the right topic" data-i18n-ko="초기 테스트는 retrieved passage가 주제 근처에 있어 겉으로는 괜찮아 보임">The first tests looked acceptable because the retrieved passages were near the right topic</p>
+		</div>
+		<div>
+			<span>02 · failure</span>
+			<strong data-i18n-en="Adjacent citation looked correct but missed the required authority" data-i18n-ko="비슷한 인용이 필요한 근거 문서를 놓침">Adjacent citation looked correct but missed the required authority</strong>
+			<p data-i18n-en="Different from generic answer similarity; can pass a loose score and still be unusable" data-i18n-ko="일반적인 answer similarity와 다른 실패 유형; 느슨한 점수는 통과해도 실제 사용에는 부적합">Different from generic answer similarity; can pass a loose score and still be unusable</p>
+		</div>
+		<div>
+			<span>03 · fix</span>
+			<strong data-i18n-en="Evaluate source family, span hit, and escalation path" data-i18n-ko="근거 문서군, span hit, escalation path 평가">Evaluate source family, span hit, and escalation path</strong>
+			<p data-i18n-en="The fixture checks whether the answer was grounded in the right document, not just a similar paragraph" data-i18n-ko="fixture는 비슷한 문단이 아니라 필요한 문서에 grounded 되었는지를 확인">The fixture checks whether the answer was grounded in the right document, not just a similar paragraph</p>
 		</div>
 	</div>
 
@@ -48,10 +66,10 @@ draft: false
 		<div class="case-panel">
 			<div class="label">Evaluation contract</div>
 			<ul class="contract-list">
-				<li><span>Gate</span><strong>pass · warn · clarify · escalate</strong></li>
-				<li><span>Authority</span><strong>methodology · guidance · regulation</strong></li>
-				<li><span>Citation</span><strong>gold span hit · first gold rank</strong></li>
-				<li><span>Safety</span><strong>unsafe operational advice escalates</strong></li>
+				<li><span>Gate</span><strong data-i18n-en="pass · warn · clarify · escalate" data-i18n-ko="통과 · 경고 · 추가 질문 · 상위 대응">pass · warn · clarify · escalate</strong></li>
+				<li><span>Authority</span><strong data-i18n-en="methodology · guidance · regulation" data-i18n-ko="방법론 · 지침 · 규정">methodology · guidance · regulation</strong></li>
+				<li><span>Citation</span><strong data-i18n-en="gold span hit · first gold rank" data-i18n-ko="정답 span hit · 첫 정답 순위">gold span hit · first gold rank</strong></li>
+				<li><span>Safety</span><strong data-i18n-en="unsafe operational advice escalates" data-i18n-ko="위험한 작업 조언은 escalation">unsafe operational advice escalates</strong></li>
 			</ul>
 		</div>
 		<div class="case-panel">
@@ -95,6 +113,56 @@ draft: false
 				<i></i>
 			</div>
 		</div>
+		<div class="metric-explain" aria-label="Metric explanations">
+			<div>
+				<strong>recall@5</strong>
+				<p data-i18n-en="Whether the expected source appears in the first five retrieved chunks" data-i18n-ko="기대 근거가 상위 5개 retrieved chunk 안에 있는지">Whether the expected source appears in the first five retrieved chunks</p>
+			</div>
+			<div>
+				<strong>citation hit</strong>
+				<p data-i18n-en="Whether the answer cites the required span, not just a nearby passage" data-i18n-ko="답변이 주변 문단이 아니라 필요한 span을 인용하는지">Whether the answer cites the required span, not just a nearby passage</p>
+			</div>
+			<div>
+				<strong>gate accuracy</strong>
+				<p data-i18n-en="Whether the system chooses pass, warn, clarify, or escalate correctly" data-i18n-ko="시스템이 통과, 경고, 추가 질문, 상위 대응 중 맞는 상태를 고르는지">Whether the system chooses pass, warn, clarify, or escalate correctly</p>
+			</div>
+			<div>
+				<strong>authority accuracy</strong>
+				<p data-i18n-en="Whether the answer relies on the right source family for the question" data-i18n-ko="질문에 필요한 근거 문서군을 사용하는지">Whether the answer relies on the right source family for the question</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="case-panel value-proof-panel">
+		<div class="panel-head">
+			<div>
+				<div class="label">Value proof</div>
+				<h3 data-i18n-en="What retrieval-only review would miss" data-i18n-ko="retrieval-only review가 놓치는 것">What retrieval-only review would miss</h3>
+			</div>
+			<span class="panel-note">value_proof_v5_t31</span>
+		</div>
+		<div class="value-proof-grid" aria-label="Value proof metrics">
+			<div>
+				<strong>5</strong>
+				<span>support gaps</span>
+				<p data-i18n-en="Full fixture items that still missed retrieval or citation readiness after the hybrid run" data-i18n-ko="hybrid run 이후에도 retrieval 또는 citation readiness가 부족한 full fixture 항목">Full fixture items that still missed retrieval or citation readiness after the hybrid run</p>
+			</div>
+			<div>
+				<strong>3</strong>
+				<span>false-comfort items</span>
+				<p data-i18n-en="Expected source was in top-5, but the used citation still missed the gold span" data-i18n-ko="expected source는 top-5 안에 있었지만 used citation이 gold span을 놓친 항목">Expected source was in top-5, but the used citation still missed the gold span</p>
+			</div>
+			<div>
+				<strong>2</strong>
+				<span>authority-confusion misses</span>
+				<p data-i18n-en="NASA RCM methodology questions that retrieved nearby material but missed the intended authority span" data-i18n-ko="NASA RCM methodology 질문에서 nearby material은 찾았지만 intended authority span을 놓친 항목">NASA RCM methodology questions that retrieved nearby material but missed the intended authority span</p>
+			</div>
+			<div>
+				<strong>QA089</strong>
+				<span>dense-only residual</span>
+				<p data-i18n-en="Dense retrieval reached adjacent support; hybrid restored exact safety support on the safety cluster" data-i18n-ko="dense retrieval은 adjacent support에 머물렀고 hybrid는 safety cluster에서 exact safety support를 회복">Dense retrieval reached adjacent support; hybrid restored exact safety support on the safety cluster</p>
+			</div>
+		</div>
 	</div>
 
 	<div class="case-panel failure-panel">
@@ -109,17 +177,17 @@ draft: false
 			<div>
 				<span>Before</span>
 				<strong>hybrid rank 6</strong>
-				<p>Exact eCFR stored-energy definition sat just outside top-5</p>
+				<p data-i18n-en="Exact eCFR stored-energy definition sat just outside top-5" data-i18n-ko="eCFR stored-energy 정의가 top-5 바로 밖에 위치">Exact eCFR stored-energy definition sat just outside top-5</p>
 			</div>
 			<div>
 				<span>Fix</span>
 				<strong>selector + exposure</strong>
-				<p>Same-authority citation specificity, then small lexical exposure residual</p>
+				<p data-i18n-en="Same-authority citation specificity, then small lexical exposure residual" data-i18n-ko="같은 authority 안에서 citation specificity 조정 후 lexical exposure residual 보정">Same-authority citation specificity, then small lexical exposure residual</p>
 			</div>
 			<div>
 				<span>After</span>
 				<strong>hybrid rank 5</strong>
-				<p>Exact span cited; safety cluster moved to 5/5 exact under hybrid</p>
+				<p data-i18n-en="Exact span cited; safety cluster moved to 5/5 exact under hybrid" data-i18n-ko="정확한 span이 인용되고 safety cluster는 hybrid 기준 5/5 exact로 이동">Exact span cited; safety cluster moved to 5/5 exact under hybrid</p>
 			</div>
 		</div>
 	</div>
@@ -136,9 +204,7 @@ draft: false
 		</div>
 		<div class="case-panel boundary-panel">
 			<div class="label">Boundary</div>
-			<p>
-				Internal fixture evidence only. Not a public benchmark, not safety advice, not a production compliance claim. Source documents are linked and cited, not redistributed.
-			</p>
+			<p data-i18n-en="Internal fixture evidence only; not a public benchmark, safety advice, or production compliance claim; source documents are linked and cited, not redistributed" data-i18n-ko="internal fixture evidence만 사용; public benchmark, safety advice, production compliance claim 아님; source document는 link와 citation으로만 다루고 재배포하지 않음">Internal fixture evidence only; not a public benchmark, safety advice, or production compliance claim; source documents are linked and cited, not redistributed</p>
 		</div>
 	</div>
 </section>

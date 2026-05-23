@@ -12,11 +12,11 @@ draft: false
 repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
 ---
 
-## Problem
+<h2 data-i18n-en="Problem" data-i18n-ko="문제">Problem</h2>
 
-Forecast error is not the decision. Inventory policy needs the cost and service trade-off after the forecast is used
+<p data-i18n-en="Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost and service after simulation" data-i18n-ko="retail demand data로 forecast-to-policy 테스트; 더 좋은 예측도 한 SKU에서는 service risk를 만들었음; forecast error만으로는 부족했고 simulation 이후 cost와 service를 함께 확인">Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost and service after simulation</p>
 
-## Built
+<h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
 - UCI Online Retail II transaction pipeline
 - SKU daily demand aggregation
@@ -27,7 +27,7 @@ Forecast error is not the decision. Inventory policy needs the cost and service 
 - 36-scenario sensitivity grid
 - SKU-level service-risk diagnostics
 
-## Current result
+<h2 data-i18n-en="Current result" data-i18n-ko="현재 결과">Current result</h2>
 
 <img src="/images/projects/decision-lab-sku-tradeoffs.png" alt="SKU tradeoff scatter plot showing cost savings and service change" />
 
@@ -41,4 +41,23 @@ Forecast error is not the decision. Inventory policy needs the cost and service 
 - service-risk SKU: `1`
 - reliable region: q=`0.99` under the current grid
 
-Dataset simulation only. Not production inventory advice
+<div class="metric-explain">
+	<div>
+		<strong>WAPE</strong>
+		<p data-i18n-en="Weighted forecast error; lower means closer to actual demand volume" data-i18n-ko="수요량 기준 가중 예측 오차; 낮을수록 실제 demand volume에 가까움">Weighted forecast error; lower means closer to actual demand volume</p>
+	</div>
+	<div>
+		<strong>service level</strong>
+		<p data-i18n-en="Share of demand fulfilled during the simulation window" data-i18n-ko="simulation window에서 demand를 충족한 비율">Share of demand fulfilled during the simulation window</p>
+	</div>
+	<div>
+		<strong>sensitivity</strong>
+		<p data-i18n-en="How many cost-service scenarios still choose the model policy" data-i18n-ko="cost-service scenario 중 model policy가 유지되는 개수">How many cost-service scenarios still choose the model policy</p>
+	</div>
+	<div>
+		<strong>SKU floor</strong>
+		<p data-i18n-en="How many SKUs stay above the service floor after policy simulation" data-i18n-ko="policy simulation 이후 service floor 이상을 유지한 SKU 개수">How many SKUs stay above the service floor after policy simulation</p>
+	</div>
+</div>
+
+<p data-i18n-en="Dataset simulation only; not production inventory advice" data-i18n-ko="dataset simulation만 수행; production inventory advice 아님">Dataset simulation only; not production inventory advice</p>

@@ -8,19 +8,19 @@ featured: true
 draft: false
 ---
 
-Estimates likely key regions instead of forcing one global key label on a whole song
+<p data-i18n-en="Full-song key estimation test; one global label erased section-level modulation; this project estimates likely key regions instead of forcing one global key label on a whole song" data-i18n-ko="full-song key estimation 테스트; 하나의 global label이 section-level modulation을 지움; 곡 전체에 하나의 key label을 강제하지 않고 region별 key를 추정">Full-song key estimation test; one global label erased section-level modulation; this project estimates likely key regions instead of forcing one global key label on a whole song</p>
 
-## Record
+<h2 data-i18n-en="Record" data-i18n-ko="기록">Record</h2>
 
-| Field | Detail |
-| --- | --- |
-| Problem | One global key label loses section-level modulation |
-| Obstacle | Keep region output visible while moving a large checkpoint out of git history |
-| Fix | Two-stream chroma/HPCP inference, CLI/API paths, release-asset checkpoint |
-| Result | Runnable inference surface with SHA-256 verified checkpoint loading |
-| Guardrail | Benchmark page waits on training manifest and dataset list |
+<div class="detail-record">
+	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="One global key label loses section-level modulation" data-i18n-ko="하나의 global key label이 section-level modulation을 가림">One global key label loses section-level modulation</p></div>
+	<div><span data-i18n-en="Bottleneck" data-i18n-ko="막힌 지점">Bottleneck</span><p data-i18n-en="Keep region output visible while moving a large checkpoint out of git history" data-i18n-ko="large checkpoint를 git history 밖으로 옮기면서 region output을 유지">Keep region output visible while moving a large checkpoint out of git history</p></div>
+	<div><span data-i18n-en="Fix" data-i18n-ko="해결">Fix</span><p data-i18n-en="Two-stream chroma/HPCP inference, CLI/API paths, release-asset checkpoint" data-i18n-ko="two-stream chroma/HPCP inference, CLI/API path, release-asset checkpoint 구성">Two-stream chroma/HPCP inference, CLI/API paths, release-asset checkpoint</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Runnable inference surface with SHA-256 verified checkpoint loading" data-i18n-ko="SHA-256 검증 checkpoint loading이 포함된 runnable inference surface">Runnable inference surface with SHA-256 verified checkpoint loading</p></div>
+	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Benchmark page waits on training manifest and dataset list" data-i18n-ko="benchmark page는 training manifest와 dataset list 정리 전">Benchmark page waits on training manifest and dataset list</p></div>
+</div>
 
-## Built
+<h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
 - two-stream Transformer model for chroma and HPCP-style harmonic features
 - local WAV and YouTube URL inference paths
@@ -28,9 +28,28 @@ Estimates likely key regions instead of forcing one global key label on a whole 
 - release-asset checkpoint with SHA-256 verification
 - manifest-based evaluation script
 
-## Signals
+<h2 data-i18n-en="Signals" data-i18n-ko="결과 신호">Signals</h2>
 
 - output exposes region start/end, key name, confidence, and probabilities
 - checkpoint is distributed as release asset, not repo history
 - local manifest evaluator exists for exact-key accuracy
 - training provenance remains the next missing record
+
+<div class="metric-explain">
+	<div>
+		<strong>region output</strong>
+		<p data-i18n-en="Keeps section boundaries visible instead of hiding changes behind one label" data-i18n-ko="section boundary를 하나의 label 뒤에 숨기지 않고 노출">Keeps section boundaries visible instead of hiding changes behind one label</p>
+	</div>
+	<div>
+		<strong>confidence</strong>
+		<p data-i18n-en="Model certainty per detected key region" data-i18n-ko="detected key region별 model certainty">Model certainty per detected key region</p>
+	</div>
+	<div>
+		<strong>checkpoint</strong>
+		<p data-i18n-en="Large model file is loaded from release assets with SHA-256 verification" data-i18n-ko="large model file은 release asset에서 불러오며 SHA-256으로 검증">Large model file is loaded from release assets with SHA-256 verification</p>
+	</div>
+	<div>
+		<strong>missing record</strong>
+		<p data-i18n-en="Training data and training run manifest still need cleanup before stronger claims" data-i18n-ko="더 강한 claim 전 training data와 training run manifest 정리가 필요">Training data and training run manifest still need cleanup before stronger claims</p>
+	</div>
+</div>

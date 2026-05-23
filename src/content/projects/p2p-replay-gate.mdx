@@ -59,7 +59,7 @@ draft: false
 			<span>critical caught</span>
 		</div>
 		<div class="metric-cell">
-			<strong>33</strong>
+			<strong>45</strong>
 			<span>tests</span>
 		</div>
 	</div>
@@ -131,6 +131,22 @@ draft: false
 		</div>
 	</div>
 
+	<div class="case-panel">
+		<div class="panel-head">
+			<div>
+				<div class="label">External log path</div>
+				<h3 data-i18n-en="CSV event logs can enter the same audit surface" data-i18n-ko="CSV event log도 같은 audit surface로 들어온다">CSV event logs can enter the same audit surface</h3>
+			</div>
+			<span class="panel-note">v0.2.0</span>
+		</div>
+		<div class="compact-metrics">
+			<div><span>import</span><strong>CSV → JSONL</strong></div>
+			<div><span>policy</span><strong>template guardrail</strong></div>
+			<div><span>audit</span><strong>trace-level report</strong></div>
+			<div><span>release</span><strong>v0.2.0</strong></div>
+		</div>
+	</div>
+
 	<div class="case-panel failure-panel">
 		<div class="panel-head">
 			<div>
@@ -160,9 +176,9 @@ draft: false
 
 	<div class="case-split">
 		<div class="case-panel">
-			<div class="label">Built surface</div>
+				<div class="label">Built surface</div>
 			<div class="compact-metrics">
-				<div><span>CLI</span><strong>validate · run · inspect</strong></div>
+				<div><span>CLI</span><strong>import · audit · run</strong></div>
 				<div><span>output</span><strong>scorecard JSON</strong></div>
 				<div><span>docs</span><strong>Pages dashboard</strong></div>
 				<div><span>CI</span><strong>3.10 · 3.11 · 3.12</strong></div>

@@ -42,7 +42,7 @@ export const flagshipSystems = [
 		summary:
 			'Evaluates whether industrial manual answers cite the right authority and escalate unsafe servicing questions',
 		stack: ['Python', 'RAG evaluation', 'sentence-transformers', 'Hybrid RRF', 'unittest'],
-		evidence: ['91-item fixture', '28-item holdout', '63 tests'],
+		evidence: ['91-item fixture', '28-item holdout', '65 tests'],
 		nextEvidence: ['internal fixture', 'v5_t31 report set', 'case record'],
 		stat: { k: 'Hybrid safety specificity', v: '5/5 exact' },
 		href: '/projects/industrial-rag-gate/',
@@ -218,7 +218,7 @@ export const caseRecords: CaseRecord[] = [
 		result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
 		metrics: [
 			{ label: 'fixture items', value: '91', help: 'manual QA cases with expected source behavior', koLabel: 'fixture 항목', koHelp: '기대 근거가 정의된 manual QA 사례' },
-			{ label: 'tests', value: '63', help: 'regression checks run in CI', koLabel: 'test', koHelp: 'CI에서 반복 확인하는 regression check' },
+			{ label: 'tests', value: '65', help: 'regression checks run in CI', koLabel: 'test', koHelp: 'CI에서 반복 확인하는 regression check' },
 			{ label: 'hybrid exact', value: '5/5', bar: 100, help: 'safety questions routed to the exact expected authority', koLabel: 'hybrid exact', koHelp: '안전 질문이 정확한 근거 문서로 연결된 개수' },
 		],
 		ko: {

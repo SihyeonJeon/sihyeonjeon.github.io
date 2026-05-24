@@ -9,32 +9,37 @@ featured: true
 draft: false
 ---
 
-<p data-i18n-en="Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema cost into a number that can be reviewed in CI" data-i18n-ko="tool-heavy agent workflow 테스트; task reasoning 전에 context가 먼저 소모됨; tool-tax는 보이지 않던 tool-schema cost를 CI에서 검토 가능한 숫자로 바꿈">Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema cost into a number that can be reviewed in CI</p>
+<p data-i18n-en="Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema surface into a number that can be reviewed in CI" data-i18n-ko="tool-heavy agent workflow 테스트; task reasoning 전에 context가 먼저 소모됨; tool-tax는 보이지 않던 tool-schema surface를 CI에서 검토 가능한 숫자로 바꿈">Tool-heavy agent workflow test; context was spent before task reasoning began; tool-tax turns invisible tool-schema surface into a number that can be reviewed in CI</p>
 
 <h2 data-i18n-en="Record" data-i18n-ko="기록">Record</h2>
 
 <div class="detail-record">
 	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Tool catalogs enter agent context as hidden fixed cost" data-i18n-ko="tool catalog가 agent context에 숨은 fixed cost로 들어감">Tool catalogs enter agent context as hidden fixed cost</p></div>
-	<div><span data-i18n-en="Bottleneck" data-i18n-ko="막힌 지점">Bottleneck</span><p data-i18n-en="MCP, OpenAPI, and custom manifests describe tools with different shapes" data-i18n-ko="MCP, OpenAPI, custom manifest가 서로 다른 방식으로 tool을 표현">MCP, OpenAPI, and custom manifests describe tools with different shapes</p></div>
-	<div><span data-i18n-en="Fix" data-i18n-ko="해결">Fix</span><p data-i18n-en="Normalize schema cost, expose reports, support PR diff review" data-i18n-ko="schema cost 정규화, report 노출, PR diff review 지원">Normalize schema cost, expose reports, support PR diff review</p></div>
-	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Naive MCP host catalog estimate: 4,091 to 330 tokens through proxy index" data-i18n-ko="naive MCP host catalog estimate: proxy index로 4,091에서 330 tokens">Naive MCP host catalog estimate: 4,091 to 330 tokens through proxy index</p></div>
+	<div><span data-i18n-en="Bottleneck" data-i18n-ko="제약">Bottleneck</span><p data-i18n-en="MCP, OpenAPI, and custom manifests expose schema surface in different formats" data-i18n-ko="MCP, OpenAPI, custom manifest가 schema surface를 서로 다른 format으로 노출">MCP, OpenAPI, and custom manifests expose schema surface in different formats</p></div>
+	<div><span data-i18n-en="Fix" data-i18n-ko="수정">Fix</span><p data-i18n-en="Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs" data-i18n-ko="schema cost 정규화, report, PR diff, public catalog benchmark 구성">Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="10 public catalogs: 3,429 tools, 1.44M estimated schema tokens, 88.3% slim-index reduction" data-i18n-ko="10개 public catalog: 3,429 tools, 1.44M estimated schema tokens, slim-index cut 88.3%">10 public catalogs: 3,429 tools, 1.44M estimated schema tokens, 88.3% slim-index reduction</p></div>
 	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Local estimates only; not provider billing" data-i18n-ko="local estimate만 사용; provider billing 아님">Local estimates only; not provider billing</p></div>
 </div>
 
 <h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
-- CLI for MCP configs, OpenAPI files, and agent tool catalogs
-- schema budget reports and PR diffs
-- progressive-loading index generation
-- lazy-schema MCP stdio proxy experiment
-- PyPI distribution path
+<ul>
+	<li data-i18n-en="CLI for MCP configs, OpenAPI files, and agent tool catalogs" data-i18n-ko="MCP config, OpenAPI file, agent tool catalog용 CLI">CLI for MCP configs, OpenAPI files, and agent tool catalogs</li>
+	<li data-i18n-en="Schema budget reports, PR diffs, and CI thresholds" data-i18n-ko="schema budget report, PR diff, CI threshold">Schema budget reports, PR diffs, and CI thresholds</li>
+	<li data-i18n-en="Progressive-loading index generation" data-i18n-ko="progressive-loading index 생성">Progressive-loading index generation</li>
+	<li data-i18n-en="Lazy-schema MCP stdio proxy experiment" data-i18n-ko="lazy-schema MCP stdio proxy 실험">Lazy-schema MCP stdio proxy experiment</li>
+	<li data-i18n-en="Public benchmark manifest over MCP and OpenAPI catalogs" data-i18n-ko="MCP와 OpenAPI catalog 대상 public benchmark manifest">Public benchmark manifest over MCP and OpenAPI catalogs</li>
+	<li data-i18n-en="PyPI distribution path" data-i18n-ko="PyPI distribution path">PyPI distribution path</li>
+</ul>
 
 <h2 data-i18n-en="Signals" data-i18n-ko="결과 신호">Signals</h2>
 
-- example report: 1,144 full-tax tokens → 309 slim-index tokens
-- filesystem MCP doctor: 2,102 tax tokens → 647 index tokens
-- estimated doctor savings: 69.22%
-- heaviest-tool list exposed for review before schema creep enters context
+<ul>
+	<li data-i18n-en="public benchmark: 10 catalogs, 3,429 tools, 1,442,056 estimated full-tax tokens" data-i18n-ko="public benchmark: 10개 catalog, 3,429 tools, 1,442,056 estimated full-tax tokens">public benchmark: 10 catalogs, 3,429 tools, 1,442,056 estimated full-tax tokens</li>
+	<li data-i18n-en="slim index: 169,423 estimated tokens, 88.3% schema-surface reduction" data-i18n-ko="slim index: 169,423 estimated tokens, schema surface cut 88.3%">slim index: 169,423 estimated tokens, 88.3% schema-surface reduction</li>
+	<li data-i18n-en="filesystem MCP proxy: 2,102 to 260 estimated tokens" data-i18n-ko="filesystem MCP proxy: 2,102에서 260 estimated tokens">filesystem MCP proxy: 2,102 to 260 estimated tokens</li>
+	<li data-i18n-en="Stripe OpenAPI: heaviest public catalog in the current benchmark" data-i18n-ko="Stripe OpenAPI: 현재 benchmark에서 가장 무거운 public catalog">Stripe OpenAPI: heaviest public catalog in the current benchmark</li>
+</ul>
 
 <div class="metric-explain">
 	<div>
@@ -46,8 +51,8 @@ draft: false
 		<p data-i18n-en="Estimated cost when only a compact tool index is loaded first" data-i18n-ko="compact tool index만 먼저 올렸을 때의 estimated cost">Estimated cost when only a compact tool index is loaded first</p>
 	</div>
 	<div>
-		<strong>doctor savings</strong>
-		<p data-i18n-en="Estimated context reduction on the tool doctor example" data-i18n-ko="tool doctor example에서 추정한 context reduction">Estimated context reduction on the tool doctor example</p>
+		<strong>public benchmark</strong>
+		<p data-i18n-en="Manifest-backed comparison across selected public MCP/OpenAPI catalogs" data-i18n-ko="선정된 public MCP/OpenAPI catalog를 manifest 기반으로 비교">Manifest-backed comparison across selected public MCP/OpenAPI catalogs</p>
 	</div>
 	<div>
 		<strong>guardrail</strong>

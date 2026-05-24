@@ -252,8 +252,8 @@ export const caseRecords: CaseRecord[] = [
 		context: 'While shaping invoice-agent workflows, document extraction looked clean but payment state could still be unsafe',
 		problem: 'P2P agents need state replay for duplicate invoices, vendor mismatch, receipts, approvals, and active holds',
 		hardPart: '2-way, 3-way, invoice-before-GR, and consignment flows accept different event orders',
-		response: 'Built JSONL replay, CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, scorecard, and CI',
-		result: 'v0.3.0: 12 clean traces; 48 injected scenarios; BPIC2019 tiny XES smoke; critical 36/36; duplicate recall 1.000; false holds 0; tests 50',
+		response: 'Built JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, scorecard, and CI',
+		result: 'v0.3.1: 12 clean traces; 48 injected scenarios; BPIC2019 tiny XES smoke; critical 36/36; duplicate recall 1.000; false holds 0; tests 50',
 		metrics: [
 			{ label: 'scenarios', value: '48', help: 'seeded replay defects checked by expected codes', koLabel: 'scenario', koHelp: '기대 code로 검증하는 seeded replay defect' },
 			{ label: 'critical caught', value: '36/36', bar: 100, help: 'duplicate, vendor, early payment, blocked payment rows caught', koLabel: 'critical caught', koHelp: 'duplicate, vendor, early payment, blocked payment row 탐지' },
@@ -263,8 +263,8 @@ export const caseRecords: CaseRecord[] = [
 			context: 'invoice-agent workflow를 만들던 중, document extraction은 좋아 보여도 payment state가 unsafe할 수 있음을 확인',
 			problem: 'P2P agent는 duplicate invoice, vendor mismatch, receipt, approval, active hold를 state replay로 확인해야 함',
 			hardPart: '2-way, 3-way, invoice-before-GR, consignment flow마다 허용되는 event order가 다름',
-			response: 'JSONL replay, CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, scorecard, CI 구성',
-			result: 'v0.3.0: clean trace 12; injected scenario 48; BPIC2019 tiny XES smoke; critical 36/36; duplicate recall 1.000; false hold 0; test 50',
+			response: 'JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, scorecard, CI 구성',
+			result: 'v0.3.1: clean trace 12; injected scenario 48; BPIC2019 tiny XES smoke; critical 36/36; duplicate recall 1.000; false hold 0; test 50',
 		},
 	},
 	{

@@ -42,9 +42,9 @@ export const flagshipSystems = [
 		summary:
 			'Evaluates whether industrial manual answers cite the right authority and escalate unsafe servicing questions',
 		stack: ['Python', 'RAG evaluation', 'sentence-transformers', 'Hybrid RRF', 'unittest'],
-		evidence: ['91-item fixture', '28-item holdout', '65 tests'],
-		nextEvidence: ['internal fixture', 'v5_t31 report set', 'case record'],
-		stat: { k: 'Hybrid safety specificity', v: '5/5 exact' },
+		evidence: ['91-item fixture', '28-item holdout', 'review packet', '68 tests'],
+		nextEvidence: ['second document family', 'SME review loop', 'case record'],
+		stat: { k: 'Review queue', v: '5 items · 2 P0' },
 		href: '/projects/industrial-rag-gate/',
 	},
 	{
@@ -229,19 +229,19 @@ export const caseRecords: CaseRecord[] = [
 		context: 'While testing RAG answers on maintenance and safety manuals, good-looking answers still cited nearby but wrong authority',
 		problem: 'Industrial manual QA needs authority checks, not generic answer similarity',
 		hardPart: 'Aggregate scores hid an item-level safety citation regression',
-		response: 'Built a domain fixture, holdout split, gate states, hybrid RRF baseline, and citation diagnostics',
-		result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
+		response: 'Built a domain fixture, holdout split, gate states, hybrid RRF baseline, citation diagnostics, and SME review packet',
+		result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact; review queue 5 items with 2 P0',
 		metrics: [
 			{ label: 'fixture items', value: '91', help: 'manual QA cases with expected source behavior', koLabel: 'fixture 항목', koHelp: '기대 근거가 정의된 manual QA 사례' },
-			{ label: 'tests', value: '65', help: 'regression checks run in CI', koLabel: 'test', koHelp: 'CI에서 반복 확인하는 regression check' },
-			{ label: 'hybrid exact', value: '5/5', bar: 100, help: 'safety questions routed to the exact expected authority', koLabel: 'hybrid exact', koHelp: '안전 질문이 정확한 근거 문서로 연결된 개수' },
+			{ label: 'tests', value: '68', help: 'regression checks run in CI', koLabel: 'test', koHelp: 'CI에서 반복 확인하는 regression check' },
+			{ label: 'review queue', value: '5 items', help: 'support gaps prepared for SME review', koLabel: 'review queue', koHelp: 'SME review용 support gap 항목' },
 		],
 		ko: {
 			context: '정비·안전 매뉴얼 RAG를 테스트하던 중, 그럴듯한 답변이 가까운 문단을 인용하지만 필요한 근거 문서와 어긋나는 사례 확인',
 			problem: '산업 매뉴얼 QA는 답변 유사도보다 근거 문서 확인이 먼저',
 			hardPart: '평균 점수가 개별 안전 인용 오류를 가림',
-			response: '도메인 fixture, holdout split, gate state, hybrid RRF, citation diagnostics 구성',
-			result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact',
+			response: '도메인 fixture, holdout split, gate state, hybrid RRF, citation diagnostics, SME review packet 구성',
+			result: 'v5_t31 hybrid: recall@5 0.978; citation hit 0.945; safety specificity 5/5 exact; review queue 5 items, P0 2',
 		},
 	},
 	{

@@ -117,9 +117,9 @@ export const flagshipSystems = [
 		summary:
 			'Turns retail transaction forecasts into base-stock inventory policies and service-cost simulation',
 		stack: ['Python', 'pandas', 'scikit-learn', 'simulation', 'GitHub Actions'],
-		evidence: ['UCI dataset', 'frontier report', 'sensitivity grid', 'SKU diagnostics', 'CI'],
-		nextEvidence: ['second dataset check', 'lead-time uncertainty'],
-		stat: { k: 'SKU floor', v: '11/12' },
+		evidence: ['UCI dataset', 'frontier selection', 'lead-time uncertainty', 'SKU diagnostics', 'CI'],
+		nextEvidence: ['second dataset check', 'operator feedback'],
+		stat: { k: 'Robust q', v: '0.99' },
 		href: '/projects/industrial-decision-intelligence-lab/',
 	},
 	{
@@ -275,19 +275,19 @@ export const caseRecords: CaseRecord[] = [
 		context: 'While turning retail demand forecasts into replenishment policy, the better forecast did not automatically mean a better inventory decision',
 		problem: 'Forecast error alone did not show whether inventory decisions improved',
 		hardPart: 'Lower inventory cost could hide service-level loss',
-		response: 'Linked forecasts to base-stock policy, lead-time simulation, sensitivity grid, and SKU diagnostics',
-		result: 'Cost 77,323.91 vs 174,450.85; 9/36 sensitivity scenarios pass; 1 service-risk SKU',
+		response: 'Linked forecasts to base-stock policy, frontier selection, lead-time uncertainty, sensitivity grid, and SKU diagnostics',
+		result: 'Model q 0.99 selected from feasible frontier; lead-time uncertainty 4/16 pass; SKU floor 11/12',
 		metrics: [
 			{ label: 'model WAPE', value: '0.861', help: 'weighted forecast error, lower is better', koLabel: 'model WAPE', koHelp: '판매량 기준 가중 예측 오차, 낮을수록 좋음' },
 			{ label: 'cost delta', value: '-55.68%', bar: 56, help: 'simulated policy cost reduction vs baseline', koLabel: 'cost delta', koHelp: 'baseline 대비 simulation policy cost 감소율' },
-			{ label: 'SKU floor', value: '11/12', bar: 92, help: 'SKUs staying above the service floor', koLabel: 'SKU floor', koHelp: 'service floor 이상을 유지한 SKU 개수' },
+			{ label: 'lead-time pass', value: '4/16', help: 'lead-time scenarios meeting both cost and service gates', koLabel: 'lead-time pass', koHelp: 'cost와 service gate를 함께 통과한 lead-time scenario' },
 		],
 		ko: {
 			context: 'retail demand forecast를 replenishment policy로 바꾸는 과정에서, 더 좋은 예측이 항상 더 좋은 재고 의사결정을 뜻하지 않음을 확인',
 			problem: 'forecast error만으로는 재고 의사결정 개선 여부가 보이지 않음',
 			hardPart: '낮은 재고 비용이 service-level loss를 숨길 수 있음',
-			response: 'forecast, base-stock policy, lead-time simulation, sensitivity grid, SKU diagnostics 연결',
-			result: 'cost 77,323.91 vs 174,450.85; sensitivity 9/36 pass; service-risk SKU 1',
+			response: 'forecast, base-stock policy, frontier selection, lead-time uncertainty, sensitivity grid, SKU diagnostics 연결',
+			result: 'model q 0.99를 feasible frontier에서 선택; lead-time uncertainty 4/16 pass; SKU floor 11/12',
 		},
 	},
 	{

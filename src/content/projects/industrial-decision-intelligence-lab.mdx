@@ -14,32 +14,36 @@ repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
 
 <h2 data-i18n-en="Problem" data-i18n-ko="문제">Problem</h2>
 
-<p data-i18n-en="Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost and service after simulation" data-i18n-ko="retail demand data로 forecast-to-policy 테스트; 더 좋은 예측도 한 SKU에서는 service risk를 만들었음; forecast error만으로는 부족했고 simulation 이후 cost와 service를 함께 확인">Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost and service after simulation</p>
+<p data-i18n-en="Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost, service, feasible frontier selection, and lead-time uncertainty" data-i18n-ko="retail demand data로 forecast-to-policy 테스트; 더 좋은 예측도 한 SKU에서는 service risk를 만들었음; forecast error만으로는 부족했고 cost, service, feasible frontier selection, lead-time uncertainty를 함께 확인">Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost, service, feasible frontier selection, and lead-time uncertainty</p>
 
 <h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
-- UCI Online Retail II transaction pipeline
-- SKU daily demand aggregation
-- seasonal baseline and model forecast
-- base-stock policy under lead time
-- inventory simulation with cost, stockout, and service metrics
-- cost-service frontier across service quantiles
-- 36-scenario sensitivity grid
-- SKU-level service-risk diagnostics
+<ul>
+	<li data-i18n-en="UCI Online Retail II transaction pipeline" data-i18n-ko="UCI Online Retail II transaction pipeline">UCI Online Retail II transaction pipeline</li>
+	<li data-i18n-en="SKU daily demand aggregation" data-i18n-ko="SKU daily demand aggregation">SKU daily demand aggregation</li>
+	<li data-i18n-en="seasonal baseline and model forecast" data-i18n-ko="seasonal baseline과 model forecast">seasonal baseline and model forecast</li>
+	<li data-i18n-en="base-stock policy under lead time" data-i18n-ko="lead time 조건의 base-stock policy">base-stock policy under lead time</li>
+	<li data-i18n-en="inventory simulation with cost, stockout, and service metrics" data-i18n-ko="cost, stockout, service metric 기반 inventory simulation">inventory simulation with cost, stockout, and service metrics</li>
+	<li data-i18n-en="cost-service frontier selection under a service floor" data-i18n-ko="service floor 아래 cost-service frontier selection">cost-service frontier selection under a service floor</li>
+	<li data-i18n-en="lead-time uncertainty grid" data-i18n-ko="lead-time uncertainty grid">lead-time uncertainty grid</li>
+	<li data-i18n-en="SKU-level service-risk diagnostics" data-i18n-ko="SKU-level service-risk diagnostics">SKU-level service-risk diagnostics</li>
+</ul>
 
 <h2 data-i18n-en="Current result" data-i18n-ko="현재 결과">Current result</h2>
 
 <img src="/images/projects/decision-lab-sku-tradeoffs.png" alt="SKU tradeoff scatter plot showing cost savings and service change" />
 
-- model WAPE: `0.861` vs baseline `1.071`
-- model policy cost: `77,323.91` vs baseline `174,450.85`
-- service level: `0.928` vs baseline `0.957`
-- service floor: `0.900`
-- decision gate: `pass`
-- sensitivity: `9 / 36` scenarios pass
-- SKU floor: `11 / 12`
-- service-risk SKU: `1`
-- reliable region: q=`0.99` under the current grid
+<img src="/images/projects/decision-lab-lead-time-grid.png" alt="Lead-time uncertainty grid showing q 0.99 as the only pass region" />
+
+<ul>
+	<li data-i18n-en="model WAPE: 0.861 vs baseline 1.071" data-i18n-ko="model WAPE: 0.861 vs baseline 1.071">model WAPE: 0.861 vs baseline 1.071</li>
+	<li data-i18n-en="model policy cost: 77,323.91 vs baseline 174,450.85" data-i18n-ko="model policy cost: 77,323.91 vs baseline 174,450.85">model policy cost: 77,323.91 vs baseline 174,450.85</li>
+	<li data-i18n-en="frontier selection: baseline q 0.95, model q 0.99" data-i18n-ko="frontier selection: baseline q 0.95, model q 0.99">frontier selection: baseline q 0.95, model q 0.99</li>
+	<li data-i18n-en="lead-time uncertainty: 4 / 16 scenarios pass" data-i18n-ko="lead-time uncertainty: 4 / 16 scenarios pass">lead-time uncertainty: 4 / 16 scenarios pass</li>
+	<li data-i18n-en="robust q: 0.99 within lead time 5 to 14 days" data-i18n-ko="robust q: lead time 5-14일 범위에서 0.99">robust q: 0.99 within lead time 5 to 14 days</li>
+	<li data-i18n-en="SKU floor: 11 / 12" data-i18n-ko="SKU floor: 11 / 12">SKU floor: 11 / 12</li>
+	<li data-i18n-en="service-risk SKU: 1" data-i18n-ko="service-risk SKU: 1">service-risk SKU: 1</li>
+</ul>
 
 <div class="metric-explain">
 	<div>
@@ -55,8 +59,8 @@ repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
 		<p data-i18n-en="How many cost-service scenarios still choose the model policy" data-i18n-ko="cost-service scenario 중 model policy가 유지되는 개수">How many cost-service scenarios still choose the model policy</p>
 	</div>
 	<div>
-		<strong>SKU floor</strong>
-		<p data-i18n-en="How many SKUs stay above the service floor after policy simulation" data-i18n-ko="policy simulation 이후 service floor 이상을 유지한 SKU 개수">How many SKUs stay above the service floor after policy simulation</p>
+		<strong>lead-time pass</strong>
+		<p data-i18n-en="Lead-time scenarios where the model policy improves cost and stays above the service floor" data-i18n-ko="model policy가 cost를 개선하고 service floor 이상을 유지한 lead-time scenario">Lead-time scenarios where the model policy improves cost and stays above the service floor</p>
 	</div>
 </div>
 

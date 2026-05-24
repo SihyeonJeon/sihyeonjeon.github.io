@@ -6,7 +6,7 @@ demo: "https://sihyeonjeon.github.io/p2p-replay-gate/"
 tech: [Python, Workflow replay, Policy oracle, Agent evaluation, GitHub Actions]
 status: current
 category: "Agent workflow evaluation · procurement controls"
-role: "state replay · policy oracle · seeded defects"
+role: "state replay · action gate · policy oracle"
 period: "2026"
 order: 1
 featured: true
@@ -16,7 +16,7 @@ draft: false
 <section class="industrial-case" aria-label="P2P Replay Gate case study">
 	<div class="case-hero-panel">
 		<div>
-			<div class="label">v0.3.2 · 2026-05-24</div>
+			<div class="label">agent gate · 2026-05-25</div>
 			<h2 data-i18n-en="Invoice agents fail when the workflow state is wrong, even if the document looks clean" data-i18n-ko="invoice agent는 문서가 깔끔해 보여도 workflow state가 틀리면 실패한다">Invoice agents fail when the workflow state is wrong, even if the document looks clean</h2>
 		</div>
 		<div class="case-hero-checks" aria-label="Evaluation focus">
@@ -24,6 +24,7 @@ draft: false
 			<div><span>duplicate</span><strong>same invoice appears twice</strong></div>
 			<div><span>receipt</span><strong>payment before goods receipt</strong></div>
 			<div><span>hold</span><strong>payment while invoice remains blocked</strong></div>
+			<div><span>gate</span><strong>allow / review / block before execution</strong></div>
 		</div>
 	</div>
 
@@ -59,7 +60,7 @@ draft: false
 			<span>critical caught</span>
 		</div>
 		<div class="metric-cell">
-			<strong>52</strong>
+			<strong>58</strong>
 			<span>tests</span>
 		</div>
 	</div>
@@ -134,16 +135,32 @@ draft: false
 	<div class="case-panel">
 		<div class="panel-head">
 			<div>
+				<div class="label">Agent action gate</div>
+				<h3 data-i18n-en="Proposed actions are replayed before execution" data-i18n-ko="실행 전 proposed action을 먼저 replay">Proposed actions are replayed before execution</h3>
+			</div>
+			<span class="panel-note">2026-05-25</span>
+		</div>
+		<div class="compact-metrics">
+			<div><span>input</span><strong>clear_payment · C004</strong></div>
+			<div><span>decision</span><strong>block</strong></div>
+			<div><span>code</span><strong>PAYMENT_BEFORE_APPROVAL</strong></div>
+			<div><span>report</span><strong>agent_action_gate_sample.json</strong></div>
+		</div>
+	</div>
+
+	<div class="case-panel">
+		<div class="panel-head">
+			<div>
 				<div class="label">External log path</div>
 				<h3 data-i18n-en="CSV, XES, and BPIC2019 traces can enter the same audit surface" data-i18n-ko="CSV, XES, BPIC2019 trace가 같은 audit surface로 들어온다">CSV, XES, and BPIC2019 traces can enter the same audit surface</h3>
 			</div>
-			<span class="panel-note">v0.3.2</span>
+			<span class="panel-note">v0.4.0</span>
 		</div>
 		<div class="compact-metrics">
 			<div><span>import</span><strong>stream CSV/XES → JSONL</strong></div>
 			<div><span>smoke</span><strong>BPIC2019 1,000 cases</strong></div>
 			<div><span>audit</span><strong>trace-level report</strong></div>
-			<div><span>release</span><strong>v0.3.2</strong></div>
+			<div><span>release</span><strong>v0.4.0</strong></div>
 		</div>
 	</div>
 
@@ -176,9 +193,9 @@ draft: false
 
 	<div class="case-split">
 		<div class="case-panel">
-				<div class="label">Built surface</div>
+			<div class="label">Built surface</div>
 			<div class="compact-metrics">
-				<div><span>CLI</span><strong>import-csv · import-xes · audit</strong></div>
+				<div><span>CLI</span><strong>import-csv · import-xes · audit · gate-action</strong></div>
 				<div><span>output</span><strong>scorecard JSON</strong></div>
 				<div><span>docs</span><strong>Pages dashboard</strong></div>
 				<div><span>CI</span><strong>3.10 · 3.11 · 3.12</strong></div>

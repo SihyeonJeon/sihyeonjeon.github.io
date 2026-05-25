@@ -16,8 +16,8 @@ draft: false
 <div class="detail-record">
 	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Tool catalogs enter agent context as hidden fixed cost" data-i18n-ko="tool catalog가 agent context에 숨은 fixed cost로 들어감">Tool catalogs enter agent context as hidden fixed cost</p></div>
 	<div><span data-i18n-en="Bottleneck" data-i18n-ko="제약">Bottleneck</span><p data-i18n-en="MCP, OpenAPI, and custom manifests expose schema surface in different formats" data-i18n-ko="MCP, OpenAPI, custom manifest가 schema surface를 서로 다른 format으로 노출">MCP, OpenAPI, and custom manifests expose schema surface in different formats</p></div>
-	<div><span data-i18n-en="Fix" data-i18n-ko="수정">Fix</span><p data-i18n-en="Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs" data-i18n-ko="schema cost 정규화, report, PR diff, public catalog benchmark 구성">Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs</p></div>
-	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="10 public catalogs: 3,429 tools, 1.44M estimated schema tokens, 88.3% slim-index reduction" data-i18n-ko="10개 public catalog: 3,429 tools, 1.44M estimated schema tokens, slim-index cut 88.3%">10 public catalogs: 3,429 tools, 1.44M estimated schema tokens, 88.3% slim-index reduction</p></div>
+	<div><span data-i18n-en="Fix" data-i18n-ko="수정">Fix</span><p data-i18n-en="Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs, lint MCP config risk" data-i18n-ko="schema cost 정규화, report, PR diff, public catalog benchmark, MCP config risk lint 구성">Normalize schema cost, expose reports, support PR diffs, benchmark public catalogs, lint MCP config risk</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="10 public catalogs: 3,429 tools; risk lint sample: 2 servers, 5 findings, high risk" data-i18n-ko="10개 public catalog: 3,429 tools; risk lint sample: 2 servers, 5 findings, high risk">10 public catalogs: 3,429 tools; risk lint sample: 2 servers, 5 findings, high risk</p></div>
 	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Local estimates only; not provider billing" data-i18n-ko="local estimate만 사용; provider billing 아님">Local estimates only; not provider billing</p></div>
 </div>
 
@@ -29,6 +29,7 @@ draft: false
 	<li data-i18n-en="Progressive-loading index generation" data-i18n-ko="progressive-loading index 생성">Progressive-loading index generation</li>
 	<li data-i18n-en="Lazy-schema MCP stdio proxy experiment" data-i18n-ko="lazy-schema MCP stdio proxy 실험">Lazy-schema MCP stdio proxy experiment</li>
 	<li data-i18n-en="Public benchmark manifest over MCP and OpenAPI catalogs" data-i18n-ko="MCP와 OpenAPI catalog 대상 public benchmark manifest">Public benchmark manifest over MCP and OpenAPI catalogs</li>
+	<li data-i18n-en="No-probe MCP config risk lint for env, shell, package runner, and filesystem scope" data-i18n-ko="env, shell, package runner, filesystem scope 대상 no-probe MCP config risk lint">No-probe MCP config risk lint for env, shell, package runner, and filesystem scope</li>
 	<li data-i18n-en="PyPI distribution path" data-i18n-ko="PyPI distribution path">PyPI distribution path</li>
 </ul>
 
@@ -38,6 +39,7 @@ draft: false
 	<li data-i18n-en="public benchmark: 10 catalogs, 3,429 tools, 1,442,056 estimated full-tax tokens" data-i18n-ko="public benchmark: 10개 catalog, 3,429 tools, 1,442,056 estimated full-tax tokens">public benchmark: 10 catalogs, 3,429 tools, 1,442,056 estimated full-tax tokens</li>
 	<li data-i18n-en="slim index: 169,423 estimated tokens, 88.3% schema-surface reduction" data-i18n-ko="slim index: 169,423 estimated tokens, schema surface cut 88.3%">slim index: 169,423 estimated tokens, 88.3% schema-surface reduction</li>
 	<li data-i18n-en="filesystem MCP proxy: 2,102 to 260 estimated tokens" data-i18n-ko="filesystem MCP proxy: 2,102에서 260 estimated tokens">filesystem MCP proxy: 2,102 to 260 estimated tokens</li>
+	<li data-i18n-en="risk lint sample: 2 servers, 5 findings, high risk; CI can fail on risk level" data-i18n-ko="risk lint sample: 2 servers, 5 findings, high risk; CI에서 risk level 기준 실패 가능">risk lint sample: 2 servers, 5 findings, high risk; CI can fail on risk level</li>
 	<li data-i18n-en="Stripe OpenAPI: heaviest public catalog in the current benchmark" data-i18n-ko="Stripe OpenAPI: 현재 benchmark에서 가장 무거운 public catalog">Stripe OpenAPI: heaviest public catalog in the current benchmark</li>
 </ul>
 
@@ -51,8 +53,8 @@ draft: false
 		<p data-i18n-en="Estimated cost when only a compact tool index is loaded first" data-i18n-ko="compact tool index만 먼저 올렸을 때의 estimated cost">Estimated cost when only a compact tool index is loaded first</p>
 	</div>
 	<div>
-		<strong>public benchmark</strong>
-		<p data-i18n-en="Manifest-backed comparison across selected public MCP/OpenAPI catalogs" data-i18n-ko="선정된 public MCP/OpenAPI catalog를 manifest 기반으로 비교">Manifest-backed comparison across selected public MCP/OpenAPI catalogs</p>
+		<strong>config risk</strong>
+		<p data-i18n-en="No-probe lint for literal secrets, shell eval, unpinned runners, and broad filesystem scope" data-i18n-ko="literal secret, shell eval, unpinned runner, broad filesystem scope 대상 no-probe lint">No-probe lint for literal secrets, shell eval, unpinned runners, and broad filesystem scope</p>
 	</div>
 	<div>
 		<strong>guardrail</strong>

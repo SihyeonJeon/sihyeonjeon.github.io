@@ -3,7 +3,7 @@ title: "P2P Replay Gate"
 tagline: "Stateful policy-oracle evaluation for purchase-to-pay agent workflows"
 repo: "https://github.com/SihyeonJeon/p2p-replay-gate"
 demo: "https://sihyeonjeon.github.io/p2p-replay-gate/"
-tech: [Python, Workflow replay, Policy oracle, Agent evaluation, Ops report, GitHub Actions]
+tech: [Python, Workflow replay, SQLite, Policy oracle, Agent evaluation, GitHub Actions]
 status: current
 category: "Agent workflow evaluation · procurement controls"
 role: "state replay · action gate · policy oracle"
@@ -25,7 +25,7 @@ draft: false
 			<div><span>receipt</span><strong>payment before goods receipt</strong></div>
 			<div><span>hold</span><strong>payment while invoice remains blocked</strong></div>
 			<div><span>gate</span><strong>allow / review / block before execution</strong></div>
-			<div><span>ops</span><strong>idempotency · ordering · schema · consistency</strong></div>
+			<div><span>store</span><strong>idempotency · checkpoint · recovery</strong></div>
 		</div>
 	</div>
 
@@ -61,7 +61,7 @@ draft: false
 			<span>critical caught</span>
 		</div>
 		<div class="metric-cell">
-			<strong>61</strong>
+			<strong>66</strong>
 			<span>tests</span>
 		</div>
 	</div>
@@ -155,7 +155,7 @@ draft: false
 				<div class="label">Operational replay checks</div>
 				<h3 data-i18n-en="The replay path now exposes retry, ordering, schema, and parallel consistency checks" data-i18n-ko="replay path가 retry, ordering, schema, parallel consistency check를 노출">The replay path now exposes retry, ordering, schema, and parallel consistency checks</h3>
 			</div>
-			<span class="panel-note">v0.5.0</span>
+			<span class="panel-note">v0.6.0</span>
 		</div>
 		<div class="compact-metrics">
 			<div><span>idempotency</span><strong>0 duplicate event_id rows</strong></div>
@@ -168,16 +168,32 @@ draft: false
 	<div class="case-panel">
 		<div class="panel-head">
 			<div>
+				<div class="label">Persistent replay store</div>
+				<h3 data-i18n-en="SQLite-backed replay adds bounded ingest, partition checkpoints, and interruption recovery" data-i18n-ko="SQLite-backed replay가 bounded ingest, partition checkpoint, interruption recovery를 추가">SQLite-backed replay adds bounded ingest, partition checkpoints, and interruption recovery</h3>
+			</div>
+			<span class="panel-note">v0.6.0</span>
+		</div>
+		<div class="compact-metrics">
+			<div><span>attempted appends</span><strong>255</strong></div>
+			<div><span>duplicate retries</span><strong>204</strong></div>
+			<div><span>checkpoints</span><strong>2 → 4</strong></div>
+			<div><span>status</span><strong>recovered</strong></div>
+		</div>
+	</div>
+
+	<div class="case-panel">
+		<div class="panel-head">
+			<div>
 				<div class="label">External log path</div>
 				<h3 data-i18n-en="CSV, XES, and BPIC2019 traces can enter the same audit surface" data-i18n-ko="CSV, XES, BPIC2019 trace가 같은 audit surface로 들어온다">CSV, XES, and BPIC2019 traces can enter the same audit surface</h3>
 			</div>
-			<span class="panel-note">v0.5.0</span>
+			<span class="panel-note">v0.6.0</span>
 		</div>
 		<div class="compact-metrics">
 			<div><span>import</span><strong>stream CSV/XES → JSONL</strong></div>
 			<div><span>smoke</span><strong>BPIC2019 1,000 cases</strong></div>
 			<div><span>audit</span><strong>trace-level report</strong></div>
-			<div><span>release</span><strong>v0.5.0</strong></div>
+			<div><span>release</span><strong>v0.6.0</strong></div>
 		</div>
 	</div>
 
@@ -210,10 +226,10 @@ draft: false
 
 	<div class="case-split">
 		<div class="case-panel">
-				<div class="label">Built surface</div>
-				<div class="compact-metrics">
-				<div><span>CLI</span><strong>import-csv · import-xes · audit · gate-action · ops-report</strong></div>
-				<div><span>output</span><strong>scorecard JSON · ops readiness JSON</strong></div>
+			<div class="label">Built surface</div>
+			<div class="compact-metrics">
+				<div><span>CLI</span><strong>import-csv · import-xes · audit · gate-action · ops-report · store-replay</strong></div>
+				<div><span>output</span><strong>scorecard JSON · ops readiness JSON · store replay JSON</strong></div>
 				<div><span>docs</span><strong>Pages dashboard</strong></div>
 				<div><span>CI</span><strong>3.10 · 3.11 · 3.12</strong></div>
 			</div>

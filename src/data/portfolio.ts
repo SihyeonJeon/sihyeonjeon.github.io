@@ -56,10 +56,10 @@ export const flagshipSystems = [
 		status: 'current',
 		summary:
 			'Pre-checks purchase-to-pay agent actions against replayed workflow state before payment',
-		stack: ['Python', 'Workflow replay', 'Policy oracle', 'Agent evaluation', 'GitHub Actions'],
-		evidence: ['agent action gate', 'CSV/XES import', 'BPIC2019 smoke', '58 tests'],
+		stack: ['Python', 'Workflow replay', 'Policy oracle', 'Agent evaluation', 'Ops report', 'GitHub Actions'],
+		evidence: ['agent action gate', 'ops-readiness report', 'CSV/XES import', 'BPIC2019 smoke', '61 tests'],
 		nextEvidence: ['larger BPIC2019 run', 'trace visualizer', 'external AP workflow feedback'],
-		stat: { k: 'Gate decision', v: 'allow/review/block' },
+		stat: { k: 'Ops check', v: 'pass' },
 		href: '/projects/p2p-replay-gate/',
 	},
 	{
@@ -252,19 +252,19 @@ export const caseRecords: CaseRecord[] = [
 		context: 'While shaping invoice-agent workflows, document extraction looked clean but payment state could still be unsafe',
 		problem: 'P2P agents need state replay for duplicate invoices, vendor mismatch, receipts, approvals, and active holds',
 		hardPart: '2-way, 3-way, invoice-before-GR, and consignment flows accept different event orders before action execution',
-		response: 'Built JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, agent-action gate, scorecard, and CI',
-		result: '12 clean traces; 48 injected scenarios; BPIC2019 real XES smoke 1000 cases; action gate blocks unsafe payment; critical 36/36; duplicate recall 1.000; false holds 0; tests 58',
+		response: 'Built JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, agent-action gate, ops-readiness report, scorecard, and CI',
+		result: '12 clean traces; 48 injected scenarios; BPIC2019 real XES smoke 1000 cases; action gate blocks unsafe payment; ops report checks idempotency, ordering, schema, parallel consistency, digest, and resume cursor; tests 61',
 		metrics: [
 			{ label: 'scenarios', value: '48', help: 'seeded replay defects checked by expected codes', koLabel: 'scenario', koHelp: '기대 code로 검증하는 seeded replay defect' },
 			{ label: 'critical caught', value: '36/36', bar: 100, help: 'duplicate, vendor, early payment, blocked payment rows caught', koLabel: 'critical caught', koHelp: 'duplicate, vendor, early payment, blocked payment row 탐지' },
-			{ label: 'agent gate', value: 'block', help: 'unsafe payment action stopped before execution', koLabel: 'agent gate', koHelp: 'unsafe payment action을 실행 전 차단' },
+			{ label: 'ops check', value: 'pass', help: 'idempotency, ordering, schema, consistency, digest, and cursor checks', koLabel: 'ops check', koHelp: 'idempotency, ordering, schema, consistency, digest, cursor 확인' },
 		],
 		ko: {
 			context: 'invoice-agent workflow를 만들던 중, document extraction은 좋아 보여도 payment state가 unsafe할 수 있음을 확인',
 			problem: 'P2P agent는 duplicate invoice, vendor mismatch, receipt, approval, active hold를 state replay로 확인해야 함',
 			hardPart: '2-way, 3-way, invoice-before-GR, consignment flow마다 action 실행 전 허용되는 event order가 다름',
-			response: 'JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, agent-action gate, scorecard, CI 구성',
-			result: 'clean trace 12; injected scenario 48; BPIC2019 real XES smoke 1000 cases; action gate가 unsafe payment 차단; critical 36/36; duplicate recall 1.000; false hold 0; test 58',
+			response: 'JSONL replay, streaming CSV/XES import, BPIC2019 mapping pack, auto policy template, case oracle, seeded defect pack, audit CLI, agent-action gate, ops-readiness report, scorecard, CI 구성',
+			result: 'clean trace 12; injected scenario 48; BPIC2019 real XES smoke 1000 cases; action gate가 unsafe payment 차단; ops report가 idempotency, ordering, schema, parallel consistency, digest, resume cursor 확인; test 61',
 		},
 	},
 	{

@@ -1,20 +1,20 @@
 ---
-title: "Industrial Decision Intelligence Lab"
-tagline: "Forecast-to-inventory simulation on retail transaction data"
+title: "Replenishment Policy Gate"
+tagline: "Forecast-to-reorder gate for retail SKU stockout risk"
 tech: [Python, pandas, scikit-learn, simulation, GitHub Actions]
 status: current
-category: "Data Systems · industrial decision"
-role: "forecasting · inventory policy · scenario simulation"
+category: "Data systems · replenishment policy"
+role: "forecasting · base-stock policy · stockout gate"
 period: "2026"
 order: 1
 featured: true
 draft: false
-repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
+repo: "https://github.com/SihyeonJeon/replenishment-policy-gate"
 ---
 
 <h2 data-i18n-en="Problem" data-i18n-ko="문제">Problem</h2>
 
-<p data-i18n-en="Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost, service, feasible frontier selection, and lead-time uncertainty" data-i18n-ko="retail demand data로 forecast-to-policy 테스트; 더 좋은 예측도 한 SKU에서는 service risk를 만들었음; forecast error만으로는 부족했고 cost, service, feasible frontier selection, lead-time uncertainty를 함께 확인">Forecast-to-policy test on retail demand data; a better forecast still produced service risk on one SKU; forecast error was not enough, the decision needed cost, service, feasible frontier selection, and lead-time uncertainty</p>
+<p data-i18n-en="A lower-cost reorder policy can look better on forecast error and still create stockout risk. The gate tests whether the model policy stays above the service floor after lead time, cost weights, and SKU-level failures are applied" data-i18n-ko="더 낮은 비용의 reorder policy가 forecast error에서는 좋아 보여도 stockout risk를 만들 수 있음. 이 gate는 lead time, cost weight, SKU-level failure를 적용한 뒤 model policy가 service floor 위에 남는지 확인">A lower-cost reorder policy can look better on forecast error and still create stockout risk. The gate tests whether the model policy stays above the service floor after lead time, cost weights, and SKU-level failures are applied</p>
 
 <h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
 
@@ -22,10 +22,11 @@ repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
 	<li data-i18n-en="UCI Online Retail II transaction pipeline" data-i18n-ko="UCI Online Retail II transaction pipeline">UCI Online Retail II transaction pipeline</li>
 	<li data-i18n-en="SKU daily demand aggregation" data-i18n-ko="SKU daily demand aggregation">SKU daily demand aggregation</li>
 	<li data-i18n-en="seasonal baseline and model forecast" data-i18n-ko="seasonal baseline과 model forecast">seasonal baseline and model forecast</li>
-	<li data-i18n-en="base-stock policy under lead time" data-i18n-ko="lead time 조건의 base-stock policy">base-stock policy under lead time</li>
+	<li data-i18n-en="base-stock reorder policy under lead time" data-i18n-ko="lead time 조건의 base-stock reorder policy">base-stock reorder policy under lead time</li>
 	<li data-i18n-en="inventory simulation with cost, stockout, and service metrics" data-i18n-ko="cost, stockout, service metric 기반 inventory simulation">inventory simulation with cost, stockout, and service metrics</li>
-	<li data-i18n-en="cost-service frontier selection under a service floor" data-i18n-ko="service floor 아래 cost-service frontier selection">cost-service frontier selection under a service floor</li>
+	<li data-i18n-en="cost-service frontier gate under a service floor" data-i18n-ko="service floor 기준 cost-service frontier gate">cost-service frontier gate under a service floor</li>
 	<li data-i18n-en="lead-time uncertainty grid" data-i18n-ko="lead-time uncertainty grid">lead-time uncertainty grid</li>
+	<li data-i18n-en="named failure-mode report" data-i18n-ko="named failure-mode report">named failure-mode report</li>
 	<li data-i18n-en="SKU-level service-risk diagnostics" data-i18n-ko="SKU-level service-risk diagnostics">SKU-level service-risk diagnostics</li>
 </ul>
 
@@ -43,6 +44,15 @@ repo: "https://github.com/SihyeonJeon/industrial-decision-intelligence-lab"
 	<li data-i18n-en="robust q: 0.99 within lead time 5 to 14 days" data-i18n-ko="robust q: lead time 5-14일 범위에서 0.99">robust q: 0.99 within lead time 5 to 14 days</li>
 	<li data-i18n-en="SKU floor: 11 / 12" data-i18n-ko="SKU floor: 11 / 12">SKU floor: 11 / 12</li>
 	<li data-i18n-en="service-risk SKU: 1" data-i18n-ko="service-risk SKU: 1">service-risk SKU: 1</li>
+</ul>
+
+<h2 data-i18n-en="What the gate catches" data-i18n-ko="gate가 잡는 것">What the gate catches</h2>
+
+<ul>
+	<li data-i18n-en="LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor" data-i18n-ko="LOW_Q_STOCKOUT: model frontier row 3 / 4가 0.90 service floor 아래로 떨어짐">LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor</li>
+	<li data-i18n-en="LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios require baseline or review" data-i18n-ko="LEAD_TIME_FRAGILITY: lead-time scenario 12 / 16은 baseline 또는 review 필요">LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios require baseline or review</li>
+	<li data-i18n-en="COST_WEIGHT_SENSITIVITY: 27 / 36 cost scenarios require baseline or review" data-i18n-ko="COST_WEIGHT_SENSITIVITY: cost scenario 27 / 36은 baseline 또는 review 필요">COST_WEIGHT_SENSITIVITY: 27 / 36 cost scenarios require baseline or review</li>
+	<li data-i18n-en="SKU_SERVICE_FLOOR_BREACH: 1 / 12 SKUs falls below floor even when aggregate gate passes" data-i18n-ko="SKU_SERVICE_FLOOR_BREACH: aggregate gate가 pass여도 SKU 1 / 12는 floor 아래">SKU_SERVICE_FLOOR_BREACH: 1 / 12 SKUs falls below floor even when aggregate gate passes</li>
 </ul>
 
 <div class="metric-explain">

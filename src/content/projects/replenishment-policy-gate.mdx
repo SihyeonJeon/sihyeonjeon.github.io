@@ -37,22 +37,22 @@ repo: "https://github.com/SihyeonJeon/replenishment-policy-gate"
 <img src="/images/projects/decision-lab-lead-time-grid.png" alt="Lead-time uncertainty grid showing q 0.99 as the only pass region" />
 
 <ul>
-	<li data-i18n-en="model WAPE: 0.861 vs baseline 1.071" data-i18n-ko="model WAPE: 0.861 vs baseline 1.071">model WAPE: 0.861 vs baseline 1.071</li>
-	<li data-i18n-en="model policy cost: 77,323.91 vs baseline 174,450.85" data-i18n-ko="model policy cost: 77,323.91 vs baseline 174,450.85">model policy cost: 77,323.91 vs baseline 174,450.85</li>
-	<li data-i18n-en="frontier selection: baseline q 0.95, model q 0.99" data-i18n-ko="frontier selection: baseline q 0.95, model q 0.99">frontier selection: baseline q 0.95, model q 0.99</li>
-	<li data-i18n-en="lead-time uncertainty: 4 / 16 scenarios pass" data-i18n-ko="lead-time uncertainty: 4 / 16 scenarios pass">lead-time uncertainty: 4 / 16 scenarios pass</li>
-	<li data-i18n-en="robust q: 0.99 within lead time 5 to 14 days" data-i18n-ko="robust q: lead time 5-14일 범위에서 0.99">robust q: 0.99 within lead time 5 to 14 days</li>
-	<li data-i18n-en="SKU floor: 11 / 12" data-i18n-ko="SKU floor: 11 / 12">SKU floor: 11 / 12</li>
-	<li data-i18n-en="service-risk SKU: 1" data-i18n-ko="service-risk SKU: 1">service-risk SKU: 1</li>
+	<li data-i18n-en="top 50 SKUs, 3,000 test rows" data-i18n-ko="top 50 SKU, test row 3,000">top 50 SKUs, 3,000 test rows</li>
+	<li data-i18n-en="model WAPE: 0.865 vs baseline 1.070" data-i18n-ko="model WAPE: 0.865 vs baseline 1.070">model WAPE: 0.865 vs baseline 1.070</li>
+	<li data-i18n-en="model policy cost: 158,345.68 vs baseline 372,195.68" data-i18n-ko="model policy cost: 158,345.68 vs baseline 372,195.68">model policy cost: 158,345.68 vs baseline 372,195.68</li>
+	<li data-i18n-en="final gate: review; robust q 0.99 passes 4 / 4 lead-time settings" data-i18n-ko="final gate: review; robust q 0.99는 lead-time setting 4 / 4 pass">final gate: review; robust q 0.99 passes 4 / 4 lead-time settings</li>
+	<li data-i18n-en="lead-time blocks: 12 / 16; cost blocks: 27 / 36" data-i18n-ko="lead-time block: 12 / 16; cost block: 27 / 36">lead-time blocks: 12 / 16; cost blocks: 27 / 36</li>
+	<li data-i18n-en="SKU floor: 48 / 50" data-i18n-ko="SKU floor: 48 / 50">SKU floor: 48 / 50</li>
+	<li data-i18n-en="service-risk SKUs: 2" data-i18n-ko="service-risk SKU: 2">service-risk SKUs: 2</li>
 </ul>
 
 <h2 data-i18n-en="What the gate catches" data-i18n-ko="gate가 잡는 것">What the gate catches</h2>
 
 <ul>
 	<li data-i18n-en="LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor" data-i18n-ko="LOW_Q_STOCKOUT: model frontier row 3 / 4가 0.90 service floor 아래로 떨어짐">LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor</li>
-	<li data-i18n-en="LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios require baseline or review" data-i18n-ko="LEAD_TIME_FRAGILITY: lead-time scenario 12 / 16은 baseline 또는 review 필요">LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios require baseline or review</li>
-	<li data-i18n-en="COST_WEIGHT_SENSITIVITY: 27 / 36 cost scenarios require baseline or review" data-i18n-ko="COST_WEIGHT_SENSITIVITY: cost scenario 27 / 36은 baseline 또는 review 필요">COST_WEIGHT_SENSITIVITY: 27 / 36 cost scenarios require baseline or review</li>
-	<li data-i18n-en="SKU_SERVICE_FLOOR_BREACH: 1 / 12 SKUs falls below floor even when aggregate gate passes" data-i18n-ko="SKU_SERVICE_FLOOR_BREACH: aggregate gate가 pass여도 SKU 1 / 12는 floor 아래">SKU_SERVICE_FLOOR_BREACH: 1 / 12 SKUs falls below floor even when aggregate gate passes</li>
+	<li data-i18n-en="LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios blocked; robust q 0.99 passes 4 / 4" data-i18n-ko="LEAD_TIME_FRAGILITY: lead-time scenario 12 / 16 block; robust q 0.99는 4 / 4 pass">LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios blocked; robust q 0.99 passes 4 / 4</li>
+	<li data-i18n-en="COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow" data-i18n-ko="COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow">COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow</li>
+	<li data-i18n-en="SKU_SERVICE_FLOOR_BREACH: 2 / 50 SKUs fall below floor even when aggregate gate passes" data-i18n-ko="SKU_SERVICE_FLOOR_BREACH: aggregate gate가 pass여도 SKU 2 / 50은 floor 아래">SKU_SERVICE_FLOOR_BREACH: 2 / 50 SKUs fall below floor even when aggregate gate passes</li>
 </ul>
 
 <div class="metric-explain">

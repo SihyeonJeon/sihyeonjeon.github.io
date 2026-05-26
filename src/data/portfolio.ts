@@ -119,7 +119,7 @@ export const flagshipSystems = [
 		stack: ['Python', 'pandas', 'scikit-learn', 'simulation', 'GitHub Actions'],
 		evidence: ['UCI dataset', 'failure-mode report', 'frontier gate', 'lead-time uncertainty', 'SKU diagnostics'],
 		nextEvidence: ['second dataset check', 'operator feedback'],
-		stat: { k: 'Lead-time review', v: '12 / 16' },
+		stat: { k: 'Gate', v: 'review' },
 		href: '/projects/replenishment-policy-gate/',
 	},
 	{
@@ -276,18 +276,18 @@ export const caseRecords: CaseRecord[] = [
 		problem: 'Forecast error alone did not decide whether the reorder policy was usable',
 		hardPart: 'A lower inventory policy could pass aggregate cost while failing service under lead-time and SKU checks',
 		response: 'Built base-stock simulation, service-floor gate, frontier selection, lead-time grid, cost sensitivity grid, and named failure-mode report',
-		result: 'Model q 0.99 selected; LOW_Q_STOCKOUT 3/4; LEAD_TIME_FRAGILITY 12/16; SKU floor 11/12',
+		result: 'Top 50 SKUs; final gate review; robust q 0.99 passes 4/4 lead-time settings; SKU floor 48/50',
 		metrics: [
-			{ label: 'model WAPE', value: '0.861', help: 'weighted forecast error, lower is better', koLabel: 'model WAPE', koHelp: '판매량 기준 가중 예측 오차, 낮을수록 좋음' },
-			{ label: 'cost delta', value: '-55.68%', bar: 56, help: 'simulated policy cost reduction vs baseline', koLabel: 'cost delta', koHelp: 'baseline 대비 simulation policy cost 감소율' },
-			{ label: 'lead-time review', value: '12/16', help: 'lead-time scenarios requiring baseline or review', koLabel: 'lead-time review', koHelp: 'baseline 또는 review가 필요한 lead-time scenario' },
+			{ label: 'model WAPE', value: '0.865', help: 'weighted forecast error, lower is better', koLabel: 'model WAPE', koHelp: '판매량 기준 가중 예측 오차, 낮을수록 좋음' },
+			{ label: 'cost delta', value: '-57.46%', bar: 57, help: 'simulated policy cost reduction vs baseline', koLabel: 'cost delta', koHelp: 'baseline 대비 simulation policy cost 감소율' },
+			{ label: 'blocked lead-time', value: '12/16', help: 'lead-time and quantile settings blocked by service-floor failure', koLabel: 'blocked lead-time', koHelp: 'service-floor failure로 block된 lead-time 및 quantile setting' },
 		],
 		ko: {
 			context: 'retail demand forecast를 reorder level로 바꾸는 과정에서, 더 저렴한 model policy가 SKU-level stockout risk를 만들 수 있음을 확인',
 			problem: 'forecast error만으로는 reorder policy 사용 가능 여부를 판단할 수 없음',
 			hardPart: '낮은 inventory policy가 aggregate cost는 통과해도 lead-time과 SKU check에서 service를 실패할 수 있음',
 			response: 'base-stock simulation, service-floor gate, frontier selection, lead-time grid, cost sensitivity grid, named failure-mode report 구성',
-			result: 'model q 0.99 선택; LOW_Q_STOCKOUT 3/4; LEAD_TIME_FRAGILITY 12/16; SKU floor 11/12',
+			result: 'top 50 SKU; final gate review; robust q 0.99는 lead-time setting 4/4 pass; SKU floor 48/50',
 		},
 	},
 	{

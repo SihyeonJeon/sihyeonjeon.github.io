@@ -9,20 +9,13 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 	<nav class="site-header__inner" aria-label="Primary navigation">
 		<a href="/" class="site-header__brand">
 			<span class="site-header__dot" aria-hidden="true"></span>
-			<span><b>S.Jeon</b></span>
-			<span class="site-header__slash">·</span>
-			<span>systems</span>
+			<span><b>Sihyeon Jeon</b></span>
 		</a>
 		<div class="site-header__nav">
-			<a href="/" aria-current={path === '/' ? 'page' : undefined}><span>00</span>Home</a>
-			<a href="/projects/" aria-current={isActive('/projects') ? 'page' : undefined}><span>01</span>Work</a>
-			<a href="/evidence/" aria-current={isActive('/evidence') ? 'page' : undefined}><span>02</span>Records</a>
-			<a href="/skills/" aria-current={isActive('/skills') ? 'page' : undefined}><span>03</span>Skills</a>
-			<a href="/about/" aria-current={isActive('/about') ? 'page' : undefined}><span>04</span>About</a>
+			<a href="/projects/" aria-current={isActive('/projects') ? 'page' : undefined}>Work</a>
+			<a href="/about/" aria-current={isActive('/about') ? 'page' : undefined}>About</a>
 		</div>
 		<div class="site-header__actions">
-			<button class="theme-toggle" type="button" data-cmdk-open aria-label="Open command palette">Search</button>
-			<button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">Theme</button>
 			<button class="theme-toggle lang-toggle" type="button" data-lang-toggle aria-label="Toggle language">KO</button>
 			<a class="btn btn-sm btn-primary" href={profile.githubUrl}>GitHub</a>
 		</div>

@@ -8,17 +8,14 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
 	<div class="site-footer__inner shell">
 		<div class="site-footer__intro">
-			<strong>{SITE_TITLE} <span>· 전시현</span></strong>
-			<p>{profile.role}</p>
+			<strong>{profile.identity} <span>· {profile.nameKo}</span></strong>
+			<p>{profile.motto}</p>
 			<div class="site-footer__links">
 				<a class="btn btn-sm" href={profile.githubUrl}>GitHub</a>
 			</div>
 		</div>
 		<nav class="site-footer__nav" aria-label="Footer navigation">
-			<a href="/">Home</a>
 			<a href="/projects/">Work</a>
-			<a href="/evidence/">Records</a>
-			<a href="/skills/">Skills</a>
 			<a href="/about/">About</a>
 		</nav>
 		<p class="site-footer__credit">&copy; {year} {SITE_TITLE}</p>

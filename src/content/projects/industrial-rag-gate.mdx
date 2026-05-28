@@ -3,7 +3,7 @@ title: "Industrial RAG Gate"
 tagline: "Authority-aware RAG evaluation for industrial manual questions"
 repo: "https://github.com/SihyeonJeon/industrial-rag-gate"
 demo: "https://sihyeonjeon.github.io/industrial-rag-gate/"
-tech: [Python, RAG Evaluation, sentence-transformers, Hybrid RRF, unittest]
+tech: [Python, RAG Evaluation, sentence-transformers, hybrid retrieval, unittest]
 status: current
 category: "AI evaluation · industrial safety"
 role: "fixture design · retrieval eval · authority gate"
@@ -36,7 +36,7 @@ draft: false
 		<div>
 			<span>02 · failure</span>
 			<strong data-i18n-en="Adjacent citation looked correct but missed the required authority" data-i18n-ko="비슷한 인용이 필요한 근거 문서를 놓침">Adjacent citation looked correct but missed the required authority</strong>
-			<p data-i18n-en="Different from generic answer similarity; can pass a loose score and still be unusable" data-i18n-ko="일반적인 answer similarity와 다른 실패 유형; 느슨한 점수는 통과해도 실제 사용에는 부적합">Different from generic answer similarity; can pass a loose score and still be unusable</p>
+			<p data-i18n-en="Different from generic answer similarity; can pass a loose score and still fail source checks" data-i18n-ko="일반적인 answer similarity와 다른 실패 유형; 느슨한 점수는 통과해도 필요한 source check를 놓침">Different from generic answer similarity; can pass a loose score and still fail source checks</p>
 		</div>
 		<div>
 			<span>03 · fix</span>
@@ -89,7 +89,7 @@ draft: false
 		<div class="panel-head">
 			<div>
 				<div class="label">Result panel</div>
-				<h3>Hybrid RRF, v5_t31 internal report</h3>
+				<h3>Hybrid retrieval, v5_t31 internal report</h3>
 			</div>
 			<span class="panel-note">not a public benchmark</span>
 		</div>
@@ -135,15 +135,15 @@ draft: false
 		</div>
 	</div>
 
-	<div class="case-panel value-proof-panel">
+	<div class="case-panel metric-panel">
 		<div class="panel-head">
 			<div>
-				<div class="label">Value proof</div>
+				<div class="label">Metrics</div>
 				<h3 data-i18n-en="What retrieval-only review would miss" data-i18n-ko="retrieval-only review가 놓치는 것">What retrieval-only review would miss</h3>
 			</div>
-			<span class="panel-note">value_proof_v5_t31</span>
+			<span class="panel-note">metrics_v5_t31</span>
 		</div>
-		<div class="value-proof-grid" aria-label="Value proof metrics">
+		<div class="metric-grid" aria-label="Review metrics">
 			<div>
 				<strong>5</strong>
 				<span>support gaps</span>
@@ -167,7 +167,7 @@ draft: false
 		</div>
 		</div>
 
-		<div class="case-panel value-proof-panel">
+		<div class="case-panel metric-panel">
 			<div class="panel-head">
 				<div>
 					<div class="label">SME review packet</div>
@@ -175,7 +175,7 @@ draft: false
 				</div>
 				<span class="panel-note">review_packet_v5_t31</span>
 			</div>
-			<div class="value-proof-grid" aria-label="Review packet metrics">
+			<div class="metric-grid" aria-label="Review packet metrics">
 				<div>
 					<strong>5</strong>
 					<span>review items</span>

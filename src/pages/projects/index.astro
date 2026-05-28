@@ -1,35 +1,35 @@
 ---
 import ProjectRow from '../../components/ProjectRow.astro';
 import SectionHead from '../../components/SectionHead.astro';
-import { flagshipSystems, supportingArtifacts } from '../../data/portfolio';
+import { publicFlagshipSystems, publicSupportingArtifacts } from '../../data/portfolio';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Work" description="AI/Data systems work and project artifacts">
+<BaseLayout title="Work" description="AI Engineering and Agentic Systems project records">
 	<section class="page-head">
 		<div class="shell">
-			<div class="label">01 · Work</div>
-			<h1>Systems first, artifacts second</h1>
+			<div class="label">Work</div>
+			<h1>Work</h1>
 			<p>
-				Large problem class, clear failure mode, reproducible result
+				Project pages, reports, packages, and source repositories
 			</p>
 		</div>
 	</section>
 
 	<section class="section">
 		<div class="shell">
-			<SectionHead label="Flagship systems" title="Operational AI/data problems" />
+			<SectionHead label="Systems" title="AI Engineering · Agentic Systems" />
 			<div class="projects-list">
-				{flagshipSystems.map((project, index) => <ProjectRow project={project} index={index} total={flagshipSystems.length} />)}
+				{publicFlagshipSystems.map((project, index) => <ProjectRow project={project} index={index} total={publicFlagshipSystems.length} />)}
 			</div>
 		</div>
 	</section>
 
 	<section class="section section--sunken">
 		<div class="shell">
-			<SectionHead label="Supporting artifacts" title="Reusable tools and focused models" />
+			<SectionHead label="Artifacts" title="Packages and model surfaces" />
 			<div class="projects-list">
-				{supportingArtifacts.map((project, index) => <ProjectRow project={project} index={index} total={supportingArtifacts.length} />)}
+				{publicSupportingArtifacts.map((project, index) => <ProjectRow project={project} index={index} total={publicSupportingArtifacts.length} />)}
 			</div>
 		</div>
 	</section>

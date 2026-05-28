@@ -1,28 +1,28 @@
 ---
 title: "site-voice-packs"
-tagline: "Drop-in SITE.md and VOICE.md files with visible webfit checks"
+tagline: "Drop-in SITE.md and VOICE.md files with visible HTML comparison checks"
 repo: "https://github.com/SihyeonJeon/site-voice-packs"
 demo: "https://pypi.org/project/site-voice-packs/"
-tech: [Python, CLI, Webfit, Agent Context]
+tech: [Python, CLI, HTML Scoring, Agent Context]
 order: 2
 featured: true
 draft: false
 ---
 
-<p data-i18n-en="Reference-site context test for agent-written web pages; useful structure came with source-site nouns; site-voice-packs separates page structure and copy rhythm, then scores visible HTML output" data-i18n-ko="agent-written web page를 위한 reference-site context test; 유용한 structure와 함께 source-site noun이 따라옴; site-voice-packs는 page structure와 copy rhythm을 분리하고 visible HTML output을 scoring">Reference-site context test for agent-written web pages; useful structure came with source-site nouns; site-voice-packs separates page structure and copy rhythm, then scores visible HTML output</p>
+<p data-i18n-en="Reference-site context test for agent-written web pages; useful structure came with source-site product names; site-voice-packs separates page structure and copy rhythm, then scores visible HTML output" data-i18n-ko="agent-written web page를 위한 reference-site context test; 유용한 structure와 함께 source-site product name이 따라옴; site-voice-packs는 page structure와 copy rhythm을 분리하고 visible HTML output을 scoring">Reference-site context test for agent-written web pages; useful structure came with source-site product names; site-voice-packs separates page structure and copy rhythm, then scores visible HTML output</p>
 
 <h2 data-i18n-en="Record" data-i18n-ko="기록">Record</h2>
 
 <div class="detail-record">
-	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Reference sites gave useful structure but leaked source-site product nouns" data-i18n-ko="reference site는 유용한 structure를 주지만 source-site product noun이 섞임">Reference sites gave useful structure but leaked source-site product nouns</p></div>
+	<div><span data-i18n-en="Problem" data-i18n-ko="문제">Problem</span><p data-i18n-en="Reference sites gave useful structure but leaked source-site product names" data-i18n-ko="reference site는 유용한 structure를 주지만 source-site product name이 섞임">Reference sites gave useful structure but leaked source-site product names</p></div>
 	<div><span data-i18n-en="Bottleneck" data-i18n-ko="제약">Bottleneck</span><p data-i18n-en="Keep structure and rhythm without copying spans or importing the source business" data-i18n-ko="span 복사나 source business 유입 없이 structure와 rhythm만 유지">Keep structure and rhythm without copying spans or importing the source business</p></div>
 	<div><span data-i18n-en="Fix" data-i18n-ko="해결">Fix</span><p data-i18n-en="Split SITE and VOICE files, add source-term boundaries, score visible HTML output" data-i18n-ko="SITE와 VOICE file 분리, source-term boundary 추가, visible HTML output scoring 구성">Split SITE and VOICE files, add source-term boundaries, score visible HTML output</p></div>
-	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Stripe/LedgerFlow web output: 63.2 to 92.1 webfit; mimic risk 0.0" data-i18n-ko="Stripe/LedgerFlow web output: 63.2에서 92.1 webfit; mimic risk 0.0">Stripe/LedgerFlow web output: 63.2 to 92.1 webfit; mimic risk 0.0</p></div>
+	<div><span data-i18n-en="Result" data-i18n-ko="결과">Result</span><p data-i18n-en="Stripe/LedgerFlow web output: visible HTML score 63.2 to 92.1; copy-overlap risk 0.0" data-i18n-ko="Stripe/LedgerFlow web output: visible HTML score 63.2에서 92.1; copy-overlap risk 0.0">Stripe/LedgerFlow web output: visible HTML score 63.2 to 92.1; copy-overlap risk 0.0</p></div>
 	<div><span data-i18n-en="Guardrail" data-i18n-ko="제한">Guardrail</span><p data-i18n-en="Copy safety and claim safety remain gates" data-i18n-ko="copy safety와 claim safety는 gate로 유지">Copy safety and claim safety remain gates</p></div>
 </div>
 
 <figure class="evidence-shot">
-	<img src="/images/projects/site-voice-webfit-preview.png" alt="Side-by-side webfit comparison for the same LedgerFlow prompt" />
+	<img src="/images/projects/site-voice-webfit-preview.png" alt="Side-by-side visible HTML comparison for the same LedgerFlow prompt" />
 	<figcaption data-i18n-en="Same web page prompt; left without context, right with SITE.md and VOICE.md" data-i18n-ko="동일한 web page prompt; 좌측 context 없음, 우측 SITE.md와 VOICE.md 적용">Same web page prompt; left without context, right with SITE.md and VOICE.md</figcaption>
 </figure>
 
@@ -31,33 +31,33 @@ draft: false
 <ul>
 	<li data-i18n-en="reusable SITE.md and VOICE.md context files" data-i18n-ko="재사용 가능한 SITE.md와 VOICE.md context file">reusable SITE.md and VOICE.md context files</li>
 	<li data-i18n-en="concise CLI/package shape" data-i18n-ko="간결한 CLI/package 구조">concise CLI/package shape</li>
-	<li data-i18n-en="source-site contamination guardrails" data-i18n-ko="source-site contamination guardrail">source-site contamination guardrails</li>
+	<li data-i18n-en="source-site text leakage checks" data-i18n-ko="source-site text leakage check">source-site text leakage checks</li>
 	<li data-i18n-en="visible before/after examples designed for direct agent inspection" data-i18n-ko="agent가 바로 확인할 수 있는 visible before/after example">visible before/after examples designed for direct agent inspection</li>
-	<li data-i18n-en="site2voice webfit gate for HTML output comparison" data-i18n-ko="HTML output comparison을 위한 site2voice webfit gate">site2voice webfit gate for HTML output comparison</li>
+	<li data-i18n-en="HTML output comparison score for generated pages" data-i18n-ko="generated page 대상 HTML output comparison score">HTML output comparison score for generated pages</li>
 </ul>
 
 <h2 data-i18n-en="Signals" data-i18n-ko="결과 신호">Signals</h2>
 
 <ul>
-	<li data-i18n-en="without context webfit: 63.2" data-i18n-ko="without context webfit: 63.2">without context webfit: 63.2</li>
-	<li data-i18n-en="with SITE.md + VOICE.md webfit: 92.1" data-i18n-ko="SITE.md + VOICE.md 적용 webfit: 92.1">with SITE.md + VOICE.md webfit: 92.1</li>
-	<li data-i18n-en="reference-fit delta: +28.9" data-i18n-ko="reference-fit delta: +28.9">reference-fit delta: +28.9</li>
-	<li data-i18n-en="mimic risk: 0.0" data-i18n-ko="mimic risk: 0.0">mimic risk: 0.0</li>
+	<li data-i18n-en="without context visible HTML score: 63.2" data-i18n-ko="context 없는 visible HTML score: 63.2">without context visible HTML score: 63.2</li>
+	<li data-i18n-en="with SITE.md + VOICE.md visible HTML score: 92.1" data-i18n-ko="SITE.md + VOICE.md 적용 visible HTML score: 92.1">with SITE.md + VOICE.md visible HTML score: 92.1</li>
+	<li data-i18n-en="score delta: +28.9" data-i18n-ko="score delta: +28.9">score delta: +28.9</li>
+	<li data-i18n-en="copy-overlap risk: 0.0" data-i18n-ko="copy-overlap risk: 0.0">copy-overlap risk: 0.0</li>
 	<li data-i18n-en="copy safety: 100.0" data-i18n-ko="copy safety: 100.0">copy safety: 100.0</li>
 </ul>
 
 <div class="metric-explain">
 	<div>
-		<strong>webfit</strong>
-		<p data-i18n-en="Visible HTML score from structure fit, voice fit, copy safety, and claim safety" data-i18n-ko="structure fit, voice fit, copy safety, claim safety 기반 visible HTML score">Visible HTML score from structure fit, voice fit, copy safety, and claim safety</p>
+		<strong>visible HTML score</strong>
+		<p data-i18n-en="Repo label: webfit. Score from page structure, copy rhythm, copy safety, and claim safety" data-i18n-ko="repo 내부 label: webfit. page structure, copy rhythm, copy safety, claim safety 기반 score">Repo label: webfit. Score from page structure, copy rhythm, copy safety, and claim safety</p>
 	</div>
 	<div>
-		<strong>structure fit</strong>
+		<strong>structure match</strong>
 		<p data-i18n-en="Section order, page jobs, density, navigation, and conversion path" data-i18n-ko="section order, page job, density, navigation, conversion path">Section order, page jobs, density, navigation, and conversion path</p>
 	</div>
 	<div>
-		<strong>mimic risk</strong>
-		<p data-i18n-en="Copy-overlap risk; high webfit should not reward source copying" data-i18n-ko="copy-overlap risk; 높은 webfit이 source copy를 보상하지 않도록 제한">Copy-overlap risk; high webfit should not reward source copying</p>
+		<strong>copy-overlap risk</strong>
+		<p data-i18n-en="Source-copy overlap risk; the HTML score should not reward copied source text" data-i18n-ko="source-copy overlap risk; HTML score가 copied source text를 보상하지 않도록 제한">Source-copy overlap risk; the HTML score should not reward copied source text</p>
 	</div>
 	<div>
 		<strong>boundary</strong>

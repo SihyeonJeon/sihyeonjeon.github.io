@@ -1,17 +1,15 @@
 ---
-import { flagshipSystems, profile, supportingArtifacts } from '../data/portfolio';
+import { profile, publicFlagshipSystems, publicSupportingArtifacts } from '../data/portfolio';
 
 const navItems = [
 	{ label: 'Home', sub: '/', href: '/' },
 	{ label: 'Work', sub: '/projects', href: '/projects/' },
-	{ label: 'Records', sub: '/evidence', href: '/evidence/' },
-	{ label: 'Skills', sub: '/skills', href: '/skills/' },
 	{ label: 'About', sub: '/about', href: '/about/' },
 ];
 
 const projectItems = [
-	...flagshipSystems.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
-	...supportingArtifacts.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
+	...publicFlagshipSystems.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
+	...publicSupportingArtifacts.map((item) => ({ label: item.name, sub: item.category, href: item.href })),
 ];
 ---
 
@@ -53,8 +51,8 @@ const projectItems = [
 			</a>
 		</div>
 		<div class="cmdk-footer">
-			<span>Records</span>
-			<span>Problem → result</span>
+			<span>{profile.identity}</span>
+			<span>{profile.motto}</span>
 		</div>
 	</div>
 </div>

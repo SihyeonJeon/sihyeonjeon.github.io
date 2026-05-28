@@ -310,6 +310,15 @@ html[data-theme="dark"] .btn-primary:hover {
 	font-weight: 500;
 }
 
+.hero__identity {
+	margin-bottom: 18px;
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.82rem;
+	text-transform: uppercase;
+	letter-spacing: 0;
+}
+
 .hero h1 {
 	max-width: 980px;
 	margin-bottom: 22px;
@@ -334,10 +343,34 @@ html[data-theme="dark"] .btn-primary:hover {
 
 .hero__lede {
 	max-width: 720px;
-	margin-bottom: 28px;
+	margin-bottom: 18px;
 	color: var(--ink-2);
 	font-size: 1.16rem;
 	line-height: 1.5;
+}
+
+.hero__stack,
+.stack-panel {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	max-width: 740px;
+	margin-bottom: 26px;
+}
+
+.hero__stack span,
+.stack-panel span {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 5px 10px;
+	border: 1px solid var(--line);
+	border-radius: 3px;
+	background: var(--surface);
+	color: var(--ink-2);
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	line-height: 1.2;
 }
 
 .hero__actions,
@@ -382,6 +415,10 @@ html[data-theme="dark"] .btn-primary:hover {
 	font-size: 0.78rem;
 }
 
+.section-head--compact {
+	margin-bottom: 18px;
+}
+
 .section-note {
 	margin-top: 16px;
 }
@@ -409,6 +446,45 @@ html[data-theme="dark"] .btn-primary:hover {
 
 .projects-list {
 	border-top: 1px solid var(--line);
+}
+
+.home-work-list {
+	border-top: 1px solid var(--line);
+}
+
+.home-work-row {
+	display: grid;
+	grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, 1fr) minmax(150px, auto);
+	gap: 20px;
+	align-items: baseline;
+	padding: 18px 0;
+	border-bottom: 1px solid var(--line);
+}
+
+.home-work-row:hover {
+	background: var(--bg-sunken);
+	box-shadow: 24px 0 0 var(--bg-sunken), -24px 0 0 var(--bg-sunken);
+}
+
+.home-work-row span,
+.home-work-row small,
+.home-work-row em {
+	color: var(--muted);
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	font-style: normal;
+}
+
+.home-work-row strong {
+	font-family: var(--font-serif);
+	font-size: 1.28rem;
+	font-weight: 400;
+	line-height: 1.18;
+}
+
+.home-work-row em {
+	justify-self: end;
+	color: var(--ink-2);
 }
 
 .case-records {
@@ -808,6 +884,10 @@ html[data-theme="dark"] .btn-primary:hover {
 	font-size: 0.72rem;
 }
 
+.stack-panel {
+	margin-bottom: 0;
+}
+
 .text-link {
 	display: inline-flex;
 	margin-top: 18px;
@@ -897,6 +977,21 @@ html[data-theme="dark"] .btn-primary:hover {
 	margin-bottom: 16px;
 	font-size: 1rem;
 	line-height: 1.65;
+}
+
+.plain-list {
+	display: grid;
+	gap: 12px;
+	max-width: 680px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: var(--ink-2);
+}
+
+.plain-list li {
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--line);
 }
 
 .about-side {
@@ -1389,7 +1484,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	margin-top: 18px;
 }
 
-.value-proof-grid {
+.metric-grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: 0;
@@ -1398,7 +1493,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	border-left: 1px solid var(--line);
 }
 
-.value-proof-grid > div {
+.metric-grid > div {
 	min-width: 0;
 	padding: 18px;
 	border-right: 1px solid var(--line);
@@ -1406,7 +1501,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	background: var(--bg);
 }
 
-.value-proof-grid strong {
+.metric-grid strong {
 	display: block;
 	font-family: var(--font-serif);
 	font-size: 1.9rem;
@@ -1414,7 +1509,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	line-height: 1;
 }
 
-.value-proof-grid span {
+.metric-grid span {
 	display: block;
 	margin-top: 12px;
 	color: var(--muted);
@@ -1423,7 +1518,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	text-transform: uppercase;
 }
 
-.value-proof-grid p {
+.metric-grid p {
 	margin-top: 10px;
 	color: var(--ink-2);
 	font-size: 0.88rem;
@@ -1686,6 +1781,7 @@ html[data-theme="dark"] .btn-primary:hover {
 
 	.writing-row,
 	.evidence-table__row,
+	.home-work-row,
 	.contact-strip,
 	.about-grid,
 	.site-footer__inner,
@@ -1706,6 +1802,10 @@ html[data-theme="dark"] .btn-primary:hover {
 
 	.skill-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.home-work-row em {
+		justify-self: start;
 	}
 
 	.skill-item,
@@ -1858,7 +1958,7 @@ html[data-theme="dark"] .btn-primary:hover {
 	.metric-grid--four,
 	.story-flow,
 	.metric-explain,
-	.value-proof-grid,
+	.metric-grid,
 	.compact-metrics,
 	.result-bar {
 		grid-template-columns: 1fr;

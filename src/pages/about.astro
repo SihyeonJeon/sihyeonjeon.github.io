@@ -3,38 +3,41 @@ import { profile } from '../data/portfolio';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About" description="Sihyeon Jeon's work direction and operating style">
+<BaseLayout title="About" description="Sihyeon Jeon profile">
 	<section class="page-head">
 		<div class="shell">
-			<div class="label">05 · About</div>
-			<h1>Build the smallest system that exposes the real failure mode</h1>
-			<p>{profile.positioning}</p>
+			<div class="label">About</div>
+			<h1>Sihyeon Jeon</h1>
+			<p>{profile.identity}</p>
 		</div>
 	</section>
 
 	<section class="section">
 		<div class="shell about-grid">
 			<div>
-				<h2>Current direction</h2>
-				<p>
-					The work is moving toward AI/Data Systems Engineering: RAG evaluation, model-facing research tools, low-level inference benchmarking, decision optimization, and MLOps/data-quality layers
-				</p>
-				<p>
-					Existing repos stay visible when they show release discipline. New work must add harder technical context: benchmarks, design trade-offs, reproducible runs, and failure cases
-				</p>
+				<h2>{profile.motto}</h2>
+				<ul class="plain-list">
+					<li>{profile.education}</li>
+					<li>{profile.role}</li>
+					<li>{profile.positioning}</li>
+				</ul>
 			</div>
 			<aside class="about-side">
 				<div>
-					<span>Primary</span>
-					<strong>AI/Data systems</strong>
+					<span>Education</span>
+					<strong>{profile.education}</strong>
 				</div>
 				<div>
-					<span>Secondary</span>
-					<strong>Modeling · full-stack · low-level optimization</strong>
+					<span>Location</span>
+					<strong>{profile.location}</strong>
 				</div>
 				<div>
-					<span>Lens</span>
-					<strong>failure cases before claims</strong>
+					<span>Stack</span>
+					<strong>{profile.stack.join(' · ')}</strong>
+				</div>
+				<div>
+					<span>GitHub</span>
+					<strong>{profile.github}</strong>
 				</div>
 			</aside>
 		</div>

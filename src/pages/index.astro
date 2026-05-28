@@ -1,107 +1,52 @@
 ---
-import CaseRecord from '../components/CaseRecord.astro';
-import SectionHead from '../components/SectionHead.astro';
 import { SITE_TITLE } from '../consts';
-import { caseRecords, profile } from '../data/portfolio';
+import { profile, publicFlagshipSystems, publicSupportingArtifacts } from '../data/portfolio';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const toolTax = publicSupportingArtifacts.find((project) => project.slug === 'tool-tax');
+const selectedWork = [
+	...publicFlagshipSystems.slice(0, 3),
+	...(toolTax ? [toolTax] : []),
+];
 ---
 
 <BaseLayout title={SITE_TITLE}>
 	<section class="hero">
 		<div class="shell">
-			<div class="hero__meta">
-				<span><b>//</b> project log</span>
-				<span><b>role</b> {profile.role}</span>
-				<span><b>mode</b> build · test · revise</span>
-				<span><b>loc</b> {profile.location}</span>
-			</div>
-			<h1>
-				AI/data systems:
-				<span>failure mode, fix, result</span>
-			</h1>
+			<div class="hero__identity">{profile.identity}</div>
+			<h1>{profile.motto}</h1>
 			<p class="hero__lede">
-				<strong>{profile.name}</strong> · {profile.nameKo} / {profile.positioning}
+				{profile.education}
 			</p>
+			<div class="hero__stack" aria-label="Stack">
+				{profile.stack.map((item) => <span>{item}</span>)}
+			</div>
 			<div class="hero__actions">
-				<a class="btn btn-primary" href="#case-records">Case records <span aria-hidden="true">→</span></a>
-				<a class="btn" href="/evidence/">Records</a>
+				<a class="btn btn-primary" href="/projects/">Work <span aria-hidden="true">→</span></a>
 				<a class="btn btn-ghost" href={profile.githubUrl}>GitHub ↗</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="section" id="case-records">
+	<section class="section">
 		<div class="shell">
-			<SectionHead
-				label="01 · Case records"
-				title="Problem, fix, result"
-			/>
-			<div class="case-records">
-				{caseRecords.map((record) => <CaseRecord record={record} />)}
-			</div>
-		</div>
-	</section>
-
-	<section class="section field-guide" id="field-guide">
-		<div class="shell">
-			<SectionHead
-				label="02 · Field loop"
-				title="Turn a repo into a working signal"
-			/>
-			<div class="field-guide__grid">
+			<div class="section-head section-head--compact">
 				<div>
-					<span>01</span>
-					<strong data-i18n-en="Find a narrow user pain" data-i18n-ko="좁은 사용자 불편 찾기">Find a narrow user pain</strong>
-					<p data-i18n-en="One workflow, one failure mode, one person who already feels the cost" data-i18n-ko="하나의 workflow, 하나의 failure mode, 이미 비용을 느끼는 한 명의 사용자">One workflow, one failure mode, one person who already feels the cost</p>
-				</div>
-				<div>
-					<span>02</span>
-					<strong data-i18n-en="Offer a small artifact" data-i18n-ko="작은 산출물로 제안하기">Offer a small artifact</strong>
-					<p data-i18n-en="Report, CLI output, eval fixture, before/after screenshot, or short run log" data-i18n-ko="report, CLI output, eval fixture, before/after screenshot, 짧은 run log">Report, CLI output, eval fixture, before/after screenshot, or short run log</p>
-				</div>
-				<div>
-					<span>03</span>
-					<strong data-i18n-en="Run it against their case" data-i18n-ko="상대의 사례로 실행하기">Run it against their case</strong>
-					<p data-i18n-en="Use their sample docs, tools, pages, audio, or operational constraint" data-i18n-ko="상대의 sample docs, tools, pages, audio, operational constraint 사용">Use their sample docs, tools, pages, audio, or operational constraint</p>
-				</div>
-				<div>
-					<span>04</span>
-					<strong data-i18n-en="Record the delta" data-i18n-ko="변화를 기록하기">Record the delta</strong>
-					<p data-i18n-en="What failed before, what changed after, what still remains unsafe or unresolved" data-i18n-ko="이전 실패, 이후 변화, 아직 unsafe하거나 unresolved인 부분">What failed before, what changed after, what still remains unsafe or unresolved</p>
+					<div class="section-head__label">Selected Work</div>
+					<h2>Projects</h2>
 				</div>
 			</div>
-			<div class="field-guide__routes">
-				<div>
-					<b>RAG Gate</b>
-					<p data-i18n-en="Approach: maintainers of internal docs, safety manuals, service SOPs, and support QA logs" data-i18n-ko="접근 대상: internal docs, safety manuals, service SOPs, support QA logs를 관리하는 사람">Approach: maintainers of internal docs, safety manuals, service SOPs, and support QA logs</p>
-				</div>
-				<div>
-					<b>P2P Replay Gate</b>
-					<p data-i18n-en="Approach: AP automation builders and teams testing invoice-agent payment paths" data-i18n-ko="접근 대상: AP automation builder, invoice-agent payment path를 테스트하는 팀">Approach: AP automation builders and teams testing invoice-agent payment paths</p>
-				</div>
-				<div>
-					<b>tool-tax</b>
-					<p data-i18n-en="Approach: MCP server authors and agent teams with slow or costly tool-heavy sessions" data-i18n-ko="접근 대상: MCP server author, tool-heavy session 비용을 겪는 agent team">Approach: MCP server authors and agent teams with slow or costly tool-heavy sessions</p>
-				</div>
-				<div>
-					<b>site-voice-packs</b>
-					<p data-i18n-en="Approach: indie builders and web teams rewriting pages with agent context files" data-i18n-ko="접근 대상: agent context file로 web page를 다시 쓰는 indie builder와 web team">Approach: indie builders and web teams rewriting pages with agent context files</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="section section--contact">
-		<div class="shell contact-strip">
-			<div>
-				<div class="label">03 · More</div>
-				<h2>Repos, skills, records</h2>
-				<p>Short routes into the work</p>
-			</div>
-			<div class="contact-strip__actions">
-				<a class="btn btn-primary" href="/projects/">Work</a>
-				<a class="btn" href="/skills/">Skills</a>
-				<a class="btn btn-ghost" href={profile.githubUrl}>GitHub ↗</a>
+			<div class="home-work-list">
+				{
+					selectedWork.map((project, index) => (
+						<a class="home-work-row" href={project.href}>
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<strong>{project.name}</strong>
+							<small>{project.category}</small>
+							<em>{project.stat.k}: {project.stat.v}</em>
+						</a>
+					))
+				}
 			</div>
 		</div>
 	</section>

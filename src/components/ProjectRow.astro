@@ -1,6 +1,5 @@
 ---
 import type { WorkStatus } from '../data/portfolio';
-import EvidenceBadge from './EvidenceBadge.astro';
 
 interface Props {
 	project: {
@@ -35,13 +34,8 @@ const denominator = String(total).padStart(2, '0');
 	<div class="project-row__main">
 		<h3>{project.name}</h3>
 		<div class="project-row__role">{project.category} · {project.role} · {project.period}</div>
-		<p>{project.summary}</p>
 		<div class="tag-list">
-			{project.stack.map((tech) => <span class="tag">{tech}</span>)}
-		</div>
-		<div class="evidence-list">
-			{project.evidence.map((item) => <EvidenceBadge label={item} />)}
-			{project.nextEvidence?.map((item) => <EvidenceBadge label={item} muted />)}
+			{project.stack.slice(0, 4).map((tech) => <span class="tag">{tech}</span>)}
 		</div>
 	</div>
 

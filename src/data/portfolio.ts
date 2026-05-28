@@ -23,25 +23,28 @@ export type CaseRecord = {
 export const profile = {
 	name: 'Sihyeon Jeon',
 	nameKo: '전시현',
-	role: 'AI/Data Systems · Modeling · Full-stack · Runtime',
+	identity: 'AI Engineering · Agentic Systems',
+	motto: 'fall in love with the problem, not the solution.',
+	role: 'Data Science · AI Engineering',
+	education: 'SeoulTech · Applied Artificial Intelligence + Industrial Engineering',
 	location: 'Seoul, KR',
 	github: 'github.com/SihyeonJeon',
 	githubUrl: 'https://github.com/SihyeonJeon',
-	positioning:
-		'Build, test, and revise AI/data systems around concrete failure cases',
+	positioning: 'Agentic Systems · evaluation · retrieval · workflow automation · reliability checks',
+	stack: ['Python', 'PyTorch', 'scikit-learn', 'pandas', 'FastAPI', 'SQL', 'GitHub Actions'],
 };
 
 export const flagshipSystems = [
 	{
 		slug: 'industrial-rag-gate',
 		name: 'Industrial RAG Gate',
-		category: 'AI evaluation · industrial safety',
-		role: 'fixture design · retrieval eval · authority gate',
+		category: 'AI Evaluation',
+		role: 'RAG · citation checks · safety review',
 		period: '2026',
 		status: 'current',
 		summary:
 			'Evaluates whether industrial manual answers cite the right authority and escalate unsafe servicing questions',
-		stack: ['Python', 'RAG evaluation', 'sentence-transformers', 'Hybrid RRF', 'unittest'],
+		stack: ['Python', 'RAG evaluation', 'sentence-transformers', 'hybrid retrieval', 'unittest'],
 		evidence: ['91-item fixture', '28-item holdout', 'review packet', '68 tests'],
 		nextEvidence: ['second document family', 'SME review loop', 'case record'],
 		stat: { k: 'Review queue', v: '5 items · 2 P0' },
@@ -50,13 +53,13 @@ export const flagshipSystems = [
 	{
 		slug: 'p2p-replay-gate',
 		name: 'P2P Replay Gate',
-		category: 'Agent workflow evaluation · procurement controls',
-		role: 'state replay · action gate · policy oracle',
+		category: 'Agentic Systems',
+		role: 'workflow replay · action gate · audit report',
 		period: '2026',
 		status: 'current',
 		summary:
 			'Pre-checks purchase-to-pay agent actions against replayed workflow state before payment',
-		stack: ['Python', 'Workflow replay', 'SQLite', 'Policy oracle', 'Agent evaluation', 'GitHub Actions'],
+		stack: ['Python', 'SQLite', 'JSONL', 'CSV', 'GitHub Actions'],
 		evidence: ['agent action gate', 'persistent store replay', 'ops-readiness report', 'BPIC2019 smoke', '66 tests'],
 		nextEvidence: ['larger BPIC2019 run', 'trace visualizer', 'external AP workflow feedback'],
 		stat: { k: 'Recovery', v: 'recovered' },
@@ -80,7 +83,7 @@ export const flagshipSystems = [
 	{
 		slug: 'research-workspace',
 		name: 'AI-native Research Workspace',
-		category: 'Full-stack AI',
+		category: 'AI Product Systems',
 		role: 'React client · Python backend · retrieval inspection',
 		period: 'next',
 		status: 'next',
@@ -95,7 +98,7 @@ export const flagshipSystems = [
 	{
 		slug: 'inference-runtime-lab',
 		name: 'Low-level Inference Runtime Benchmark Lab',
-		category: 'Modeling · Systems',
+		category: 'Inference Systems',
 		role: 'profiling · quantization · runtime comparison',
 		period: 'next',
 		status: 'next',
@@ -110,8 +113,8 @@ export const flagshipSystems = [
 	{
 		slug: 'replenishment-policy-gate',
 		name: 'Replenishment Policy Gate',
-		category: 'Data systems · replenishment policy',
-		role: 'forecasting · base-stock policy · stockout gate',
+		category: 'Decision Systems',
+		role: 'forecasting · inventory simulation · service check',
 		period: '2026',
 		status: 'current',
 		summary:
@@ -156,8 +159,8 @@ export const supportingArtifacts = [
 	{
 		slug: 'tool-tax',
 		name: 'tool-tax',
-		category: 'Agent systems · measurement',
-		role: 'CLI · MCP proxy · PyPI release',
+		category: 'Agent Tooling',
+		role: 'MCP/OpenAPI catalog measurement',
 		period: '2026',
 		status: 'current',
 		summary:
@@ -172,24 +175,24 @@ export const supportingArtifacts = [
 	{
 		slug: 'site-voice-packs',
 		name: 'site-voice-packs',
-		category: 'AI web context · agent input files',
-		role: 'SITE.md · VOICE.md · webfit gate',
+		category: 'Agent Context',
+		role: 'web context files · source-term checks',
 		period: '2026',
 		status: 'current',
 		summary:
 			'Separates website structure from copy rhythm so reference style does not leak source-site subject matter',
 		stack: ['Python', 'CLI', 'Web analysis', 'Agent context'],
-		evidence: ['repo', 'package', 'visible comparison', 'webfit gate'],
+		evidence: ['repo', 'package', 'visible comparison', 'HTML score check'],
 		nextEvidence: ['second site corpus', 'external builder feedback'],
-		stat: { k: 'webfit delta', v: '+28.9' },
+		stat: { k: 'HTML score delta', v: '+28.9' },
 		href: '/projects/site-voice-packs/',
 		repo: 'https://github.com/SihyeonJeon/site-voice-packs',
 	},
 	{
 		slug: 'modulation-aware-key-estimator',
 		name: 'Modulation-aware Key Estimator',
-		category: 'Applied audio ML',
-		role: 'model inference · CLI · FastAPI · release asset',
+		category: 'Audio ML',
+		role: 'PyTorch inference · FastAPI',
 		period: '2026',
 		status: 'current',
 		summary:
@@ -217,13 +220,16 @@ export const supportingArtifacts = [
 	repo: string;
 }>;
 
-export const focusInitiatives = flagshipSystems.slice(1);
-export const currentArtifacts = supportingArtifacts;
+export const publicFlagshipSystems = flagshipSystems.filter((project) => project.status === 'current');
+export const publicSupportingArtifacts = supportingArtifacts.filter((project) => project.status === 'current');
+
+export const focusInitiatives = publicFlagshipSystems;
+export const currentArtifacts = publicSupportingArtifacts;
 
 export const caseRecords: CaseRecord[] = [
 	{
 		name: 'Industrial RAG Gate',
-		area: 'Evaluation systems',
+		area: 'AI Evaluation',
 		status: 'current',
 		href: '/projects/industrial-rag-gate/',
 		context: 'While testing RAG answers on maintenance and safety manuals, good-looking answers still cited nearby but wrong authority',
@@ -246,7 +252,7 @@ export const caseRecords: CaseRecord[] = [
 	},
 	{
 		name: 'P2P Replay Gate',
-		area: 'Agent workflow evaluation',
+		area: 'Agentic Systems',
 		status: 'current',
 		href: '/projects/p2p-replay-gate/',
 		context: 'While shaping invoice-agent workflows, document extraction looked clean but payment state could still be unsafe',
@@ -269,7 +275,7 @@ export const caseRecords: CaseRecord[] = [
 	},
 	{
 		name: 'Replenishment Policy Gate',
-		area: 'Data systems · replenishment policy',
+		area: 'Decision Systems',
 		status: 'current',
 		href: '/projects/replenishment-policy-gate/',
 		context: 'While converting retail demand forecasts into reorder levels, a cheaper model policy still created SKU-level stockout risk',
@@ -292,7 +298,7 @@ export const caseRecords: CaseRecord[] = [
 	},
 	{
 		name: 'tool-tax',
-		area: 'Agent tooling',
+		area: 'Agent Tooling',
 		status: 'current',
 		href: '/projects/tool-tax/',
 		context: 'While running agent workflows with many tools, the session budget was being spent before the task began',
@@ -302,7 +308,7 @@ export const caseRecords: CaseRecord[] = [
 		result: '10 public catalogs: 3,429 tools; risk lint sample: 2 servers, 5 findings, high risk',
 		metrics: [
 			{ label: 'public tools', value: '3,429', help: 'tools across 10 MCP/OpenAPI catalogs', koLabel: 'public tools', koHelp: '10개 MCP/OpenAPI catalog의 tool 수' },
-			{ label: 'full tax', value: '1.44M', help: 'estimated schema tokens loaded up front', koLabel: 'full tax', koHelp: '처음부터 올리는 schema token 추정치' },
+			{ label: 'schema tokens', value: '1.44M', help: 'estimated schema tokens loaded up front', koLabel: 'schema token', koHelp: '처음부터 올리는 schema token 추정치' },
 			{ label: 'risk findings', value: '5', help: 'no-probe MCP config lint findings in the sample report', koLabel: 'risk findings', koHelp: 'sample report의 no-probe MCP config lint finding' },
 		],
 		ko: {
@@ -315,31 +321,31 @@ export const caseRecords: CaseRecord[] = [
 	},
 	{
 		name: 'site-voice-packs',
-		area: 'Agent web context',
+		area: 'Agent Context',
 		status: 'current',
 		href: '/projects/site-voice-packs/',
 		context: 'While using reference websites to guide agents, useful tone and structure came with unwanted source-site subject matter',
-		problem: 'Reference-site style was useful, but source-site nouns leaked into new products',
+		problem: 'Reference-site style was useful, but source-site product names leaked into new products',
 		hardPart: 'Keep rhythm and structure without copying spans or importing the original business',
 		response: 'Split SITE and VOICE files, then added source-term boundaries and visible HTML scoring',
-		result: 'Stripe/LedgerFlow web output: 63.2 → 92.1; mimic risk 0.0',
+		result: 'Stripe/LedgerFlow web output: visible HTML score 63.2 → 92.1; copy-overlap risk 0.0',
 		metrics: [
-			{ label: 'before webfit', value: '63.2', bar: 63, help: 'visible HTML score without context files', koLabel: 'before webfit', koHelp: 'context file 없이 생성한 visible HTML score' },
-			{ label: 'after webfit', value: '92.1', bar: 92, help: 'visible HTML score with SITE/VOICE context', koLabel: 'after webfit', koHelp: 'SITE/VOICE context 적용 후 visible HTML score' },
+			{ label: 'before score', value: '63.2', bar: 63, help: 'visible HTML score without context files', koLabel: 'before score', koHelp: 'context file 없이 생성한 visible HTML score' },
+			{ label: 'after score', value: '92.1', bar: 92, help: 'visible HTML score with SITE/VOICE context', koLabel: 'after score', koHelp: 'SITE/VOICE context 적용 후 visible HTML score' },
 			{ label: 'delta', value: '+28.9', help: 'same prompt, different context', koLabel: 'delta', koHelp: '같은 prompt, 다른 context' },
-			{ label: 'mimic risk', value: '0.0', help: 'copy overlap risk in the webfit report', koLabel: 'mimic risk', koHelp: 'webfit report의 copy overlap risk' },
+			{ label: 'copy-overlap risk', value: '0.0', help: 'source-copy overlap risk in the visible HTML report', koLabel: 'copy-overlap risk', koHelp: 'visible HTML report의 source-copy overlap risk' },
 		],
 		ko: {
 			context: 'reference website를 agent context로 쓰던 중, 유용한 tone과 structure가 원본 site의 subject matter까지 함께 끌고 오는 문제 확인',
 			problem: 'reference-site style은 유용하지만 원본 site noun이 새 product에 섞임',
 			hardPart: 'span 복사나 original business 유입 없이 rhythm과 structure만 유지',
 			response: 'SITE file과 VOICE file 분리, source-term boundary와 visible HTML scoring 추가',
-			result: 'Stripe/LedgerFlow web output: 63.2 → 92.1; mimic risk 0.0',
+			result: 'Stripe/LedgerFlow web output: visible HTML score 63.2 → 92.1; copy-overlap risk 0.0',
 		},
 	},
 	{
 		name: 'Modulation-aware Key Estimator',
-		area: 'Applied audio ML',
+		area: 'Audio ML',
 		status: 'current',
 		href: '/projects/modulation-aware-key-estimator/',
 		context: 'While estimating song key from audio, one global label failed on tracks that change key by section',
@@ -381,7 +387,7 @@ export const skillDomains = [
 			},
 			{
 				name: 'Context hygiene',
-				ev: 'site-voice-packs separates structure, voice, and source-subject contamination risks',
+				ev: 'site-voice-packs separates structure, voice, and source-site text leakage checks',
 				ref: 'site-voice-packs',
 				signal: 'public package',
 			},
@@ -392,7 +398,7 @@ export const skillDomains = [
 		sub: 'Model inference, evaluation surface, and training provenance',
 		items: [
 			{
-				name: 'Applied audio ML',
+				name: 'Audio ML',
 				ev: 'Region-wise key estimation keeps modulation confidence visible',
 				ref: 'modulation-aware-key-estimator',
 				signal: 'public repo',
@@ -404,32 +410,32 @@ export const skillDomains = [
 				signal: 'release surface',
 			},
 			{
-				name: 'Benchmark method',
-				ev: 'Inference lab will publish latency, memory, and quality deltas before claiming wins',
-				ref: 'inference-runtime-lab',
-				signal: 'benchmark queue',
+				name: 'Manifest evaluation',
+				ev: 'Modulation-aware Key Estimator exposes a labeled-manifest evaluation path and states benchmark limits',
+				ref: 'modulation-aware-key-estimator',
+				signal: 'supporting artifact',
 			},
 		],
 	},
 	{
 		name: 'Full-stack / Product Systems',
-		sub: 'Build the client when AI infrastructure needs a real review surface',
+		sub: 'Static pages, review surfaces, and repo documentation',
 		items: [
 			{
-				name: 'Research UI',
-				ev: 'Workspace roadmap connects retrieval diffs, eval outputs, and prompt changes',
-				ref: 'research-workspace',
-				signal: 'product queue',
+				name: 'Project index',
+				ev: 'GitHub Pages lists case records, project routes, and visual reports',
+				ref: 'sihyeonjeon.github.io',
+				signal: 'current site',
 			},
 			{
 				name: 'Documentation as interface',
-				ev: 'Repos are shaped so installation, effect, and verification are visible quickly',
+				ev: 'Repo READMEs keep install commands, outputs, and verification paths near the top',
 				ref: 'tool-tax',
 				signal: 'public repos',
 			},
 			{
 				name: 'Static publishing',
-				ev: 'Astro/GitHub Pages keeps work records, project routes, and project status together',
+				ev: 'Astro/GitHub Pages publishes work records, project routes, and project status',
 				ref: 'sihyeonjeon.github.io',
 				signal: 'current site',
 			},
@@ -440,10 +446,10 @@ export const skillDomains = [
 		sub: 'Data quality, deployment health, and decision traceability',
 		items: [
 			{
-				name: 'Data contracts',
-				ev: 'MLOps layer targets dataset hashes, score provenance, and drift alarms',
-				ref: 'mlops-data-quality-layer',
-				signal: 'system queue',
+				name: 'Operational replay hygiene',
+				ev: 'P2P Replay Gate reports idempotency, input ordering, schema coverage, replay digest, and recovery',
+				ref: 'p2p-replay-gate',
+				signal: 'current system',
 			},
 			{
 				name: 'Decision optimization',
@@ -475,13 +481,5 @@ export const evidenceRows = [
 		result: record.result,
 		signal: record.metrics.map((metric) => `${metric.label}: ${metric.value}`).join(' · '),
 		href: record.href,
-	})),
-	...focusInitiatives.slice(0, 3).map((project) => ({
-		name: project.name,
-		kind: project.category,
-		status: project.status,
-		result: project.summary,
-		signal: project.nextEvidence.join(' · '),
-		href: project.href,
 	})),
 ];

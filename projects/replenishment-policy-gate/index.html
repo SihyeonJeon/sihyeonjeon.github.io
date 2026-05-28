@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en" data-lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://sihyeonjeon.github.io/projects/replenishment-policy-gate/"><link rel="sitemap" href="/sitemap-index.xml"><meta name="generator" content="Astro v6.3.0"><title>Replenishment Policy Gate | Sihyeon Jeon</title><meta name="description" content="Forecast-to-reorder gate for retail SKU stockout risk"><meta property="og:type" content="website"><meta property="og:url" content="https://sihyeonjeon.github.io/projects/replenishment-policy-gate/"><meta property="og:title" content="Replenishment Policy Gate | Sihyeon Jeon"><meta property="og:description" content="Forecast-to-reorder gate for retail SKU stockout risk"><meta property="og:image" content="https://sihyeonjeon.github.io/og-default.svg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Replenishment Policy Gate | Sihyeon Jeon"><meta name="twitter:description" content="Forecast-to-reorder gate for retail SKU stockout risk"><meta name="twitter:image" content="https://sihyeonjeon.github.io/og-default.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"><link rel="stylesheet" href="/_astro/BaseLayout.DrsTm6BQ.css"></head> <body> <a class="skip-link" href="#content">본문으로 이동</a> <header class="site-header"> <nav class="site-header__inner" aria-label="Primary navigation"> <a href="/" class="site-header__brand"> <span class="site-header__dot" aria-hidden="true"></span> <span><b>Sihyeon Jeon</b></span> </a> <div class="site-header__nav"> <a href="/projects/" aria-current="page">Work</a> <a href="/about/">About</a> </div> <div class="site-header__actions"> <button class="theme-toggle lang-toggle" type="button" data-lang-toggle aria-label="Toggle language">KO</button> <a class="btn btn-sm btn-primary" href="https://github.com/SihyeonJeon">GitHub</a> </div> </nav> </header> <main id="content">  <article class="project container">  <div class="project-kicker"> <span>Decision Systems</span> </div> <h1>Replenishment Policy Gate</h1> <p class="project-lede">Forecast-to-reorder gate for retail SKU stockout risk</p> <div class="project-context"> <span>forecasting · inventory simulation · service check</span> <span>2026</span> </div> <div class="project-meta"> <a href="https://github.com/SihyeonJeon/replenishment-policy-gate">GitHub</a>  </div> <ul class="tech-stack"> <li class="tag">Python</li><li class="tag">pandas</li><li class="tag">scikit-learn</li><li class="tag">simulation</li><li class="tag">GitHub Actions</li> </ul> <div class="project-content post-content">  <h2 data-i18n-en="Problem" data-i18n-ko="문제">Problem</h2>
+<p data-i18n-en="A lower-cost reorder policy can look better on forecast error and still create stockout risk. The gate tests whether the model policy stays above the service floor after lead time, cost weights, and SKU-level failures are applied" data-i18n-ko="더 낮은 비용의 reorder policy가 forecast error에서는 좋아 보여도 stockout risk를 만들 수 있음. 이 gate는 lead time, cost weight, SKU-level failure를 적용한 뒤 model policy가 service floor 위에 남는지 확인">A lower-cost reorder policy can look better on forecast error and still create stockout risk. The gate tests whether the model policy stays above the service floor after lead time, cost weights, and SKU-level failures are applied</p>
+<h2 data-i18n-en="Built" data-i18n-ko="구성">Built</h2>
+<ul><li data-i18n-en="UCI Online Retail II transaction pipeline" data-i18n-ko="UCI Online Retail II transaction pipeline">UCI Online Retail II transaction pipeline</li><li data-i18n-en="SKU daily demand aggregation" data-i18n-ko="SKU daily demand aggregation">SKU daily demand aggregation</li><li data-i18n-en="seasonal baseline and model forecast" data-i18n-ko="seasonal baseline과 model forecast">seasonal baseline and model forecast</li><li data-i18n-en="base-stock reorder policy under lead time" data-i18n-ko="lead time 조건의 base-stock reorder policy">base-stock reorder policy under lead time</li><li data-i18n-en="inventory simulation with cost, stockout, and service metrics" data-i18n-ko="cost, stockout, service metric 기반 inventory simulation">inventory simulation with cost, stockout, and service metrics</li><li data-i18n-en="cost-service frontier gate under a service floor" data-i18n-ko="service floor 기준 cost-service frontier gate">cost-service frontier gate under a service floor</li><li data-i18n-en="lead-time uncertainty grid" data-i18n-ko="lead-time uncertainty grid">lead-time uncertainty grid</li><li data-i18n-en="named failure-mode report" data-i18n-ko="named failure-mode report">named failure-mode report</li><li data-i18n-en="SKU-level service-risk diagnostics" data-i18n-ko="SKU-level service-risk diagnostics">SKU-level service-risk diagnostics</li></ul>
+<h2 data-i18n-en="Current result" data-i18n-ko="현재 결과">Current result</h2>
+<img src="/images/projects/decision-lab-sku-tradeoffs.png" alt="SKU tradeoff scatter plot showing cost savings and service change"/>
+<img src="/images/projects/decision-lab-lead-time-grid.png" alt="Lead-time uncertainty grid showing q 0.99 as the only pass region"/>
+<ul><li data-i18n-en="top 50 SKUs, 3,000 test rows" data-i18n-ko="top 50 SKU, test row 3,000">top 50 SKUs, 3,000 test rows</li><li data-i18n-en="model WAPE: 0.865 vs baseline 1.070" data-i18n-ko="model WAPE: 0.865 vs baseline 1.070">model WAPE: 0.865 vs baseline 1.070</li><li data-i18n-en="model policy cost: 158,345.68 vs baseline 372,195.68" data-i18n-ko="model policy cost: 158,345.68 vs baseline 372,195.68">model policy cost: 158,345.68 vs baseline 372,195.68</li><li data-i18n-en="final gate: review; robust q 0.99 passes 4 / 4 lead-time settings" data-i18n-ko="final gate: review; robust q 0.99는 lead-time setting 4 / 4 pass">final gate: review; robust q 0.99 passes 4 / 4 lead-time settings</li><li data-i18n-en="lead-time blocks: 12 / 16; cost blocks: 27 / 36" data-i18n-ko="lead-time block: 12 / 16; cost block: 27 / 36">lead-time blocks: 12 / 16; cost blocks: 27 / 36</li><li data-i18n-en="SKU floor: 48 / 50" data-i18n-ko="SKU floor: 48 / 50">SKU floor: 48 / 50</li><li data-i18n-en="service-risk SKUs: 2" data-i18n-ko="service-risk SKU: 2">service-risk SKUs: 2</li></ul>
+<h2 data-i18n-en="What the gate catches" data-i18n-ko="gate가 잡는 것">What the gate catches</h2>
+<ul><li data-i18n-en="LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor" data-i18n-ko="LOW_Q_STOCKOUT: model frontier row 3 / 4가 0.90 service floor 아래로 떨어짐">LOW_Q_STOCKOUT: 3 / 4 model frontier rows fall below the 0.90 service floor</li><li data-i18n-en="LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios blocked; robust q 0.99 passes 4 / 4" data-i18n-ko="LEAD_TIME_FRAGILITY: lead-time scenario 12 / 16 block; robust q 0.99는 4 / 4 pass">LEAD_TIME_FRAGILITY: 12 / 16 lead-time scenarios blocked; robust q 0.99 passes 4 / 4</li><li data-i18n-en="COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow" data-i18n-ko="COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow">COST_WEIGHT_SENSITIVITY: 27 block, 0 review, 9 allow</li><li data-i18n-en="SKU_SERVICE_FLOOR_BREACH: 2 / 50 SKUs fall below floor even when aggregate gate passes" data-i18n-ko="SKU_SERVICE_FLOOR_BREACH: aggregate gate가 pass여도 SKU 2 / 50은 floor 아래">SKU_SERVICE_FLOOR_BREACH: 2 / 50 SKUs fall below floor even when aggregate gate passes</li></ul>
+<div class="metric-explain"><div><strong>WAPE</strong><p data-i18n-en="Weighted forecast error; lower means closer to actual demand volume" data-i18n-ko="수요량 기준 가중 예측 오차; 낮을수록 실제 demand volume에 가까움">Weighted forecast error; lower means closer to actual demand volume</p></div><div><strong>service level</strong><p data-i18n-en="Share of demand served during the simulation window" data-i18n-ko="simulation window에서 처리된 demand 비율">Share of demand served during the simulation window</p></div><div><strong>sensitivity</strong><p data-i18n-en="How many cost-service scenarios still choose the model policy" data-i18n-ko="cost-service scenario 중 model policy가 유지되는 개수">How many cost-service scenarios still choose the model policy</p></div><div><strong>lead-time pass</strong><p data-i18n-en="Lead-time scenarios where the model policy improves cost and stays above the service floor" data-i18n-ko="model policy가 cost를 개선하고 service floor 이상을 유지한 lead-time scenario">Lead-time scenarios where the model policy improves cost and stays above the service floor</p></div></div>
+<p data-i18n-en="Dataset simulation only; not production inventory advice" data-i18n-ko="dataset simulation만 수행; production inventory advice 아님">Dataset simulation only; not production inventory advice</p>  </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__inner shell"> <div class="site-footer__intro"> <strong>AI Engineering · Agentic Systems <span>· 전시현</span></strong> <p>fall in love with the problem, not the solution.</p> <div class="site-footer__links"> <a class="btn btn-sm" href="https://github.com/SihyeonJeon">GitHub</a> </div> </div> <nav class="site-footer__nav" aria-label="Footer navigation"> <a href="/projects/">Work</a> <a href="/about/">About</a> </nav> <p class="site-footer__credit">&copy; 2026 Sihyeon Jeon</p> </div> </footer> <div class="cmdk-backdrop" id="cmdk" hidden> <div class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette"> <input class="cmdk-input" id="cmdk-input" placeholder="Search pages and work..." autocomplete="off"> <div class="cmdk-list" id="cmdk-list"> <div class="cmdk-group-label">Navigate</div> <a class="cmdk-item" href="/" data-cmdk-item data-label="Home /"> <span class="cmdk-item__icon">▤</span> <span> <strong>Home</strong> <small>/</small> </span> </a><a class="cmdk-item" href="/projects/" data-cmdk-item data-label="Work /projects"> <span class="cmdk-item__icon">▤</span> <span> <strong>Work</strong> <small>/projects</small> </span> </a><a class="cmdk-item" href="/about/" data-cmdk-item data-label="About /about"> <span class="cmdk-item__icon">▤</span> <span> <strong>About</strong> <small>/about</small> </span> </a> <div class="cmdk-group-label">Projects</div> <a class="cmdk-item" href="/projects/industrial-rag-gate/" data-cmdk-item data-label="Industrial RAG Gate AI Evaluation"> <span class="cmdk-item__icon">▸</span> <span> <strong>Industrial RAG Gate</strong> <small>AI Evaluation</small> </span> </a><a class="cmdk-item" href="/projects/p2p-replay-gate/" data-cmdk-item data-label="P2P Replay Gate Agentic Systems"> <span class="cmdk-item__icon">▸</span> <span> <strong>P2P Replay Gate</strong> <small>Agentic Systems</small> </span> </a><a class="cmdk-item" href="/projects/replenishment-policy-gate/" data-cmdk-item data-label="Replenishment Policy Gate Decision Systems"> <span class="cmdk-item__icon">▸</span> <span> <strong>Replenishment Policy Gate</strong> <small>Decision Systems</small> </span> </a><a class="cmdk-item" href="/projects/tool-tax/" data-cmdk-item data-label="tool-tax Agent Tooling"> <span class="cmdk-item__icon">▸</span> <span> <strong>tool-tax</strong> <small>Agent Tooling</small> </span> </a><a class="cmdk-item" href="/projects/site-voice-packs/" data-cmdk-item data-label="site-voice-packs Agent Context"> <span class="cmdk-item__icon">▸</span> <span> <strong>site-voice-packs</strong> <small>Agent Context</small> </span> </a><a class="cmdk-item" href="/projects/modulation-aware-key-estimator/" data-cmdk-item data-label="Modulation-aware Key Estimator Audio ML"> <span class="cmdk-item__icon">▸</span> <span> <strong>Modulation-aware Key Estimator</strong> <small>Audio ML</small> </span> </a> <div class="cmdk-group-label">Elsewhere</div> <a class="cmdk-item" href="https://github.com/SihyeonJeon" data-cmdk-item data-label="GitHub profile open source"> <span class="cmdk-item__icon">↗</span> <span> <strong>GitHub</strong> <small>github.com/SihyeonJeon</small> </span> </a> </div> <div class="cmdk-footer"> <span>AI Engineering · Agentic Systems</span> <span>fall in love with the problem, not the solution.</span> </div> </div> </div> <script>
+	(() => {
+		const root = document.getElementById('cmdk');
+		const input = document.getElementById('cmdk-input');
+		const items = Array.from(document.querySelectorAll('[data-cmdk-item]'));
+		const openButtons = Array.from(document.querySelectorAll('[data-cmdk-open]'));
+		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+		const langButtons = Array.from(document.querySelectorAll('[data-lang-toggle]'));
+		const i18nNodes = Array.from(document.querySelectorAll('[data-i18n-en][data-i18n-ko]'));
+		if (!root || !input) return;
+
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme === 'dark' || storedTheme === 'light') {
+			document.documentElement.dataset.theme = storedTheme;
+		}
+		const setLanguage = (lang) => {
+			const next = lang === 'ko' ? 'ko' : 'en';
+			document.documentElement.lang = next === 'ko' ? 'ko' : 'en';
+			document.documentElement.dataset.lang = next;
+			localStorage.setItem('lang', next);
+			i18nNodes.forEach((node) => {
+				const text = node.getAttribute(`data-i18n-${next}`);
+				if (text) node.textContent = text;
+			});
+			langButtons.forEach((button) => {
+				button.textContent = next === 'ko' ? 'EN' : 'KO';
+				button.setAttribute('aria-label', next === 'ko' ? 'Switch to English' : '한국어로 전환');
+			});
+		};
+		const requestedLang = new URLSearchParams(window.location.search).get('lang');
+		const storedLang = localStorage.getItem('lang');
+		setLanguage(requestedLang === 'ko' || storedLang === 'ko' ? 'ko' : 'en');
+
+		const open = () => {
+			root.hidden = false;
+			requestAnimationFrame(() => input.focus());
+		};
+		const close = () => {
+			root.hidden = true;
+			input.value = '';
+			items.forEach((item) => {
+				item.hidden = false;
+			});
+		};
+		const toggleTheme = () => {
+			const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = next;
+			localStorage.setItem('theme', next);
+		};
+
+		openButtons.forEach((button) => button.addEventListener('click', open));
+		themeButtons.forEach((button) => button.addEventListener('click', toggleTheme));
+		langButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				setLanguage(document.documentElement.dataset.lang === 'ko' ? 'en' : 'ko');
+			});
+		});
+		root.addEventListener('click', (event) => {
+			if (event.target === root) close();
+		});
+		input.addEventListener('input', () => {
+			const q = input.value.trim().toLowerCase();
+			items.forEach((item) => {
+				const label = item.getAttribute('data-label')?.toLowerCase() || '';
+				item.hidden = q.length > 0 && !label.includes(q);
+			});
+		});
+		document.addEventListener('keydown', (event) => {
+			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+				event.preventDefault();
+				root.hidden ? open() : close();
+			}
+			if (event.key === 'Escape' && !root.hidden) close();
+		});
+	})();
+</script> </body></html>
